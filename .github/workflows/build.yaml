@@ -7,7 +7,7 @@ on:
       - master
       - staging
       - init
-  dispatch_workflow:
+  workflow_dispatch:
 
 jobs:
   build:

@@ -1,6 +1,6 @@
 # Workshop Azure Containers Apps
 
-This workshop is a 2-3 hours workshop to learn how to use Azure Containers Apps
+This workshop is a 2-3 hours workshop to learn how to use Azure Containers Apps. The workshop is accessible at the following address : [https://aka.ms/aca-workshop](https://aka.ms/aca-workshop)
 
 ## Technology
 
