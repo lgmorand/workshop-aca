@@ -1,0 +1,30 @@
+name: Validation Build 
+
+on:
+  pull_request:
+    branches:
+      - master
+      - staging
+      - init
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.6'
+
+    - run: gem update --system
+
+    - run: gem install jekyll 
+
+    - run: jekyll build
+ 
+    - uses: actions/upload-artifact@v1
+      with:
+        name: aca-workshop
+        path: _site
