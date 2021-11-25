@@ -27,24 +27,24 @@ Azure Container Apps enables executing application code packaged in any containe
 
 With Azure Container Apps, you can:
 
-- [**Run multiple container revisions**](application-lifecycle-management.md) and manage the container app's application lifecycle.
+- [**Run multiple container revisions**](https://docs.microsoft.com/en-us/azure/container-apps/application-lifecycle-management) and manage the container app's application lifecycle.
 
-- [**Autoscale**](scale-app.md) your apps based on any KEDA-supported scale trigger. Most applications can scale to zero<sup>1</sup>.
+- [**Autoscale**](https://docs.microsoft.com/en-us/azure/container-apps/scale-app) your apps based on any KEDA-supported scale trigger. Most applications can scale to zero<sup>1</sup>.
 
-- [**Enable HTTPS ingress**](ingress.md) without having to manage other Azure infrastructure.
+- [**Enable HTTPS ingress**](https://docs.microsoft.com/en-us/azure/container-apps/ingress) without having to manage other Azure infrastructure.
 
-- [**Split traffic**](revisions.md) across multiple versions of an application for Blue/Green deployments and A/B testing scenarios.
+- [**Split traffic**](https://docs.microsoft.com/en-us/azure/container-apps/revisions) across multiple versions of an application for Blue/Green deployments and A/B testing scenarios.
 
-- [**Use internal ingress and service discovery**](connect-apps.md) for secure internal-only endpoints with built-in DNS-based service discovery.
+- [**Use internal ingress and service discovery**](https://docs.microsoft.com/en-us/azure/container-apps/connect-apps) for secure internal-only endpoints with built-in DNS-based service discovery.
 
-- [**Build microservices with Dapr**](microservices.md) and access its rich set of APIs.
+- [**Build microservices with Dapr**](https://docs.microsoft.com/en-us/azure/container-apps/microservices) and access its rich set of APIs.
 
-- [**Run containers from any registry**](containers.md), public or private, including Docker Hub and Azure Container Registry (ACR).
+- [**Run containers from any registry**](https://docs.microsoft.com/en-us/azure/container-apps/containers), public or private, including Docker Hub and Azure Container Registry (ACR).
 
-- [**Use the Azure CLI extension or ARM templates**](get-started.md) to manage your applications.
+- [**Use the Azure CLI extension or ARM templates**](https://docs.microsoft.com/en-us/azure/container-apps/get-started) to manage your applications.
 
-- [**Securely manage secrets**](secure-app.md) directly in your application.
+- [**Securely manage secrets**](https://docs.microsoft.com/en-us/azure/container-apps/secure-app) directly in your application.
 
-- [**View application logs**](monitor.md) using Azure Log Analytics.
+- [**View application logs**](https://docs.microsoft.com/en-us/azure/container-apps/monitor) using Azure Log Analytics.
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.

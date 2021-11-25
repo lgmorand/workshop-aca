@@ -22,7 +22,7 @@ Please use your username and password to login to <https://portal.azure.com>.
 
 Also please authenticate your Azure CLI by running the command below on your machine and following the instructions.
 
-```
+``` csharp
 az account show
 az login
 ```
@@ -30,6 +30,8 @@ az login
 {% endcollapsible %}
 
 ### Tools
+
+During this workshop you are going to use command line but most of the actions may be doable using Azure Portal. Nevertheless, since the feature is in preview, the portal may not be up to date to allow all commands or parameters.
 
 #### Azure Cloud Shell
 
@@ -41,7 +43,7 @@ Head over to <https://shell.azure.com> and sign in with your Azure Subscription 
 
 Select **Bash** as your shell.
 
-![Select Bash](./media/intro/0-bash.png)
+![Select Bash](/media/intro/0-bash.png)
 
 Select **Show advanced settings**
 
@@ -49,7 +51,7 @@ Select **Show advanced settings**
 
 Set the **Storage account** and **File share** names to your resource group name (all lowercase, without any special characters). Leave other settings unchanged, then hit **Create storage**
 
-![Azure Cloud Shell](media/intro/2-storageaccount-fileshare.png)
+![Azure Cloud Shell](/media/intro/2-storageaccount-fileshare.png)
 
 You should now have access to the Azure Cloud Shell
 
@@ -59,4 +61,24 @@ You should now have access to the Azure Cloud Shell
 
 #### Azure CLI
 
-Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version 2.30 or superior)
+
+## Setup
+
+Begin by signing in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
+
+``` csharp
+az login
+```
+
+Next, install the Azure Container Apps extension to the CLI.
+
+``` csharp
+az extension add  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+```
+
+Now that the extension is installed, register the `Microsoft.Web` namespace.
+
+``` csharp
+az provider register --namespace Microsoft.Web
+```
