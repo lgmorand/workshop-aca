@@ -29,10 +29,6 @@ az login
 
 {% endcollapsible %}
 
-### Azure Red Hat Openshift cluster
-
-You'll need an Openshift Cluster. Either you'll be provided an existing one and credentials, or you have the possibility to create a new one on your own subscription. If you need to create your own cluster, its creation is described in the next chapter. The current version of Openshift expected for this lab is the version 4.3 (or superior).
-
 ### Tools
 
 #### Azure Cloud Shell
@@ -45,57 +41,22 @@ Head over to <https://shell.azure.com> and sign in with your Azure Subscription 
 
 Select **Bash** as your shell.
 
-![Select Bash](media/cloudshell/0-bash.png)
+![Select Bash](./media/intro/0-bash.png)
 
 Select **Show advanced settings**
 
-![Select show advanced settings](media/cloudshell/1-mountstorage-advanced.png)
+![Select show advanced settings](/media/intro/1-mountstorage-advanced.png)
 
 Set the **Storage account** and **File share** names to your resource group name (all lowercase, without any special characters). Leave other settings unchanged, then hit **Create storage**
 
-![Azure Cloud Shell](media/cloudshell/2-storageaccount-fileshare.png)
+![Azure Cloud Shell](media/intro/2-storageaccount-fileshare.png)
 
 You should now have access to the Azure Cloud Shell
 
-![Set the storage account and fileshare names](media/cloudshell/3-cloudshell.png)
+![Set the storage account and fileshare names](/media/intro/3-cloudshell.png)
 
 {% endcollapsible %}
 
-#### OpenShift CLI (oc)
+#### Azure CLI
 
-You'll need to download the **latest OpenShift CLI (oc)** client tools for OpenShift 4.3. You can follow the steps below on the Azure Cloud Shell.
-
-{% collapsible %}
-
-```sh
-cd ~
-
-wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz
-
-mkdir openshift
-
-tar -zxvf openshift-client-linux.tar.gz -C openshift
-
-echo 'export PATH=$PATH:~/openshift' >> ~/.bashrc && source ~/.bashrc
-
-```
-
-The OpenShift CLI (oc) is now installed. You can use the **oc version** command to ensure the CLI is properly installed
-
-```sh
-oc version
-```
-
-{% endcollapsible %}
-
-### Create an Azure DevOps account
-
-You are going to use Azure DevOps for the software factory. You will create your own CI/CD pipelines.
-
-{% collapsible %}
-
-Go to <https://dev.azure.com> and sign-in with your Azure subscription credentials.
-
-If this is your first time to provision an Azure DevOps account, you'll be taken through a quick wizard to create a new organization. Don't worry, it's free.
-
-{% endcollapsible %}
+Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
