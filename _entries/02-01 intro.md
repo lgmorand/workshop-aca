@@ -2,7 +2,7 @@
 sectionid: lab1-intro
 sectionclass: h2
 title: Scenario context
-parent-id: lab-2
+parent-id: lab-1
 ---
 
 This first lab will guide you to deploy a container with an HTTP API that can write to an Azure Queue

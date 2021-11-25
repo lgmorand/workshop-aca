@@ -7,7 +7,7 @@ is-parent: yes
 ---
 
 
-[Azure Container](https://docs.microsoft.com/en-us/azure/container-apps) Apps enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
+[Azure Containers Apps](https://docs.microsoft.com/en-us/azure/container-apps) enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
 
 - Deploying API endpoints
 - Hosting background processing applications
