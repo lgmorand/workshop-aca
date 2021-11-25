@@ -47,4 +47,4 @@ With Azure Container Apps, you can:
 
 - [**View application logs**](https://docs.microsoft.com/en-us/azure/container-apps/monitor) using Azure Log Analytics.
 
-<sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
+<sup>1</sup> Applications that [scale on CPU or memory load](https://docs.microsoft.com/en-us/azure/container-apps/scale-app) can't scale to zero.
