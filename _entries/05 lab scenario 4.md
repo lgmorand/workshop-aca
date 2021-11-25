@@ -1,7 +1,7 @@
 ---
 sectionid: lab-4
 sectionclass: h1
-title: Scenario 4 (Max)
+title: Scenario 4 (LG)
 type: nocount
 is-parent: yes
 ---
