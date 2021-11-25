@@ -1,7 +1,7 @@
 ---
-sectionid: lab-clusterapp
+sectionid: lab-3
 sectionclass: h1
-title: Lab - ARO Internals
+title: Scenario 3 (LG)
 type: nocount
 is-parent: yes
 ---
