@@ -1,7 +1,7 @@
 ---
-sectionid: lab2-appoverview
+sectionid: lab2-intro
 sectionclass: h2
-title: Application Overview
+title: Scenario context
 parent-id: lab-2
 ---
 
