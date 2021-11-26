@@ -11,8 +11,8 @@ parent-id: intro
 In order to realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
 
 - an Azure subscription
-- an Azure Red Had Openshift cluster
-- an Azure DevOps organization
+- a brain
+- fingers
 
 ### Azure subscription
 

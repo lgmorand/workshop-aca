@@ -14,7 +14,7 @@ Azure Log Analytics is used to monitor your container app required when creating
 Let's start by creating some variables:
 
 ``` bash
-RESOURCE_GROUP="my-container-apps"
+RESOURCE_GROUP="rg-my-container-apps"
 LOCATION="northeurope"
 LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
 CONTAINERAPPS_ENVIRONMENT="my-environment"
