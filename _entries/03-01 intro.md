@@ -5,7 +5,7 @@ title: Scenario context
 parent-id: lab-2
 ---
 
-This first lab will guide you to deploy a container with an HTTP API that can write to an Azure Queue
+This second lab will guide you to deploy a container with an HTTP API that can write to an Azure Queue
 
 ### Requirements
 
