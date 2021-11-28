@@ -1,0 +1,25 @@
+deployment group
+
+list les containers apps
+
+
+output as yaml
+
+
+command show qui est buggée avec name+rg et marche avec id
+
+
+voir les logs d'un container (via CLI ou via GUI)
+
+
+
+limites sur les resources (ratio obligatoire) et le nombre de erplicas (max 10)
+
+
+
+declencher du scaling (ddosify) (https://youtu.be/iV7WrsxExdY?t=1546
+
+
+dans un pipeline devops 
+
+puis faire du blue/green: https://denniszielke.medium.com/implementing-continuous-blue-green-deployments-on-azure-container-apps-by-using-github-actions-b4cd5183adb8
