@@ -1,8 +1,8 @@
 ---
-sectionid: env
+sectionid: create-env
 sectionclass: h2
 title: Create an environment
-parent-id: intro
+parent-id: lab-1
 ---
 
 ### Create an environment

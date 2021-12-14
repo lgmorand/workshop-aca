@@ -1,7 +1,7 @@
 ---
 sectionid: lab1-create
 sectionclass: h2
-title: Create app
+title: Create an app
 parent-id: lab-1
 ---
 
@@ -41,3 +41,5 @@ From here, you can directly see, diagnose or reconfigure your application such a
 ![App in Azure](/media/lab1/created-app-in-azure.png)
 
 That's it! How simple is it to deploy and host an application! Let's start the second lab to go to a real-life usecase.
+
+Note that you won't need these resources for the next steps of the lab. You are free to delete the resource group.
