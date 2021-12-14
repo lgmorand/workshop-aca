@@ -63,7 +63,7 @@ You should now have access to the Azure Cloud Shell
 
 Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version 2.30 or superior)
 
-## Setup
+##### Setup
 
 Begin by signing in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
 
@@ -82,3 +82,7 @@ Now that the extension is installed, register the `Microsoft.Web` namespace.
 ``` csharp
 az provider register --namespace Microsoft.Web
 ```
+
+#### GitHub
+
+Some steps of this workshop require to use a free GitHub account. If you don't have one already, you can create one for free here: [https://github.com/join](https://github.com/join).

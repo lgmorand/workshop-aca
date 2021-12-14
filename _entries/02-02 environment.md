@@ -21,7 +21,7 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
 - **RESOURCE_GROUP**: the Azure resource group which will contain your container apps environment
-- **LOCATION**: the Azure region in which will be deployed your apps. For the moment, North US, North Europe and Canada are the only supported regions
+- **LOCATION**: the Azure region in which will be deployed your apps. During the preview, North US, North Europe and Canada are the only supported regions
 - **LOG_ANALYTICS_WORKSPACE**: the name of the logs analytics workspace
 - **CONTAINERAPPS_ENVIRONMENT**: the name of the containerapps environment.
 
@@ -44,11 +44,11 @@ Next, retrieve the Log Analytics Client ID and client secret.
 Make sure to run each query separately to give enough time for the request to complete.
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID='az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv'
 ```
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
+LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET='az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv'
 ```
 
 #### PowerShell
@@ -74,4 +74,4 @@ az containerapp env create \
   --location "$LOCATION"
 ```
 
-> You may receive an error message telling that features are not allowed for subscription. it means that containers apps is not available for the selection Region.
+> You may receive an error message telling that features are not allowed for subscription. it means that containers apps is not available for the selection region.
