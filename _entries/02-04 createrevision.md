@@ -16,16 +16,15 @@ The following diagram shows a container app with two revisions.
 
 ![Revision App](/media/lab1/revisionpond.png)
 
+Note that changes made to a container app fall under one of two categories: revision-scope and application-scope changes: 
+- Revision-scope changes are any change that triggers a new revision (e.g Changes to containers, Add or update scaling rules, Changes to Dapr settings...), 
+- Application-scope changes don't create revisions (e.g Changes to traffic splitting rules, Turning ingress on or off, Changes to secret values...).
 
 ### Create your first revision
 
-Let's create and deploy a second version of the Hello World application with a different layout and split traffic between the two revisions. The first revision will be the one already created in the first steps. The second one will have to be pulled from `mcr.microsoft.com/azuredocs/aci-helloworld:latest`. 
+Let's create and deploy a new version of the Hello World application with a different layout. To do so you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`. 
 
-The scenario here above presumes the container app is in following state:
-- Ingress is enabled, which makes the container app available via HTTP.
-- The first revision is deployed as Revision 1.
-- After the container was updated, a new revision was activated as Revision 2.
-- Traffic splitting rules are configured so that Revision 1 receives 50% of the requests, while Revision 2 receives the remaining 50%.
+Once this new revision is provisionned we will configure an even split of the traffic between the two revision
 
 {% collapsible %}
 Go to the revisions management blade on the left inside of the apps panel. 
@@ -36,11 +35,15 @@ Click on "Create a new revisions"
 Then click on "Add" in order to pull the new image that will be used to create the new revision. 
 
 ![Revision soluce](/media/lab1/addrevision1.png)
-{% endcollapsible %}
 
-Now that you have two differents revision running you can configure the traffic splitting rules and test that you have both application running under the same endpoint. 
+Finally, you can loadbalance the traffic by modifying the traffic paramater under the Revision management panel.  
+{% endcollapsible %}
 
 Note that new revisions remain active until you deactivate them, or you set your container app to automatically deactivate old revisions.
 - Inactive revisions remain as a snapshot record of your container app in a certain state.
 - You are not charged for inactive revisions.
 - Up to 100 revisions remain available before being purged.
+
+That's how you can configure revision to be able to have A/B testing scenario or blue-green deployment scenario.  
+
+
