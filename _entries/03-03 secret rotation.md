@@ -13,7 +13,7 @@ In the deployed reddog application, the container `receipt-generation-service` i
 
  ![The receipt secret](/media/lab2/secretrotation1.png)
 
-Every second, he is receiving a receipt that he is posting onto the blob `receits`. We will simulate the "automatic" rotation of the storage account access key.
+Every second, he is receiving a receipt that he is posting onto the blob `receipts`. We will simulate the "automatic" rotation of the storage account access key.
 
 To do so, go to the storage account in order to make the rotation both of the primary and the secondary keys. 
 
@@ -38,7 +38,7 @@ Then go to the `Secrets` blade of the container app panel in order to edit the o
 
 {% endcollapsible %} 
 
-Note that this change is an application-scope change that won't recreate a revision. Having said that, the revision has to be restarted in order to propagate the new value of the key. This should be automatically done by saving the changes made to the key. However, if it's not the case you'll have to restart the revision using the CLI. 
+> Note that this change is an application-scope change that won't recreate a revision. Having said that, the revision has to be restarted in order to propagate the new value of the key. This should be automatically done by saving the changes made to the key. However, if it's not the case you'll have to restart the revision using the CLI. 
 
 {% collapsible %}
 ``` bash

@@ -39,7 +39,7 @@ Then click on "Add" in order to pull the new image that will be used to create t
 Finally, you can loadbalance the traffic by modifying the traffic paramater under the Revision management panel.  
 {% endcollapsible %}
 
-Note that new revisions remain active until you deactivate them, or you set your container app to automatically deactivate old revisions.
+> Note that new revisions remain active until you deactivate them, or you set your container app to automatically deactivate old revisions.
 - Inactive revisions remain as a snapshot record of your container app in a certain state.
 - You are not charged for inactive revisions.
 - Up to 100 revisions remain available before being purged.
