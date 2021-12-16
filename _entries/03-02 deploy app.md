@@ -1,7 +1,7 @@
 ---
 sectionid: lab2-deploy
 sectionclass: h2
-title: Deploy the application
+title: Deploy the solution
 parent-id: lab-2
 ---
 

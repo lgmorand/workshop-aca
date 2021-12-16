@@ -1,12 +1,9 @@
 ---
-sectionid: lab1-create
+sectionid: lab1-revision
 sectionclass: h2
 title: Create a revision
 parent-id: lab-1
 ---
-
-
-
 
 A revision is an immutable snapshot of a container app. The first revision is automatically created when you deploy your container app. New revisions will be automatically created when a container app's template configuration changes. Indeed, while revisions are immutable, they're affected by changes to global configuration values, which apply to all revisions.
 

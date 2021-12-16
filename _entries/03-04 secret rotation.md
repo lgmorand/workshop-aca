@@ -1,5 +1,5 @@
 ---
-sectionid: lab2-deploy
+sectionid: lab2-rotation
 sectionclass: h2
 title: Secret Rotation
 parent-id: lab-2
@@ -7,7 +7,7 @@ parent-id: lab-2
 
 One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in while you'll have to make rotation on your key/secret/certificate. Let's see how Azure Container Apps is handling those action.
 
-## Manage your secret
+### Manage your secret
 
 In the deployed reddog application, the container `receipt-generation-service` is handling two secrets to connect itself to a service bus sending receipts that he is posting onto a storage account.
 
@@ -26,7 +26,7 @@ Go to the storage account under the `Access key` blade in order to click rotate.
 
 Once done you'll see that the blob is no longer receiving any receipts from our application. You can validate easily this by deleting the "Receipts" blob container and recreate it after a short period of time.
 
-## Fetch the new secret
+#### Fetch the new secret
 
 In order to set back the connection between the storage account and the `receipt-generation-service` you'll have to retrieve the new key and edit the value of the key `blob-storage-key`.
 
