@@ -21,7 +21,7 @@ Browse the contents of the repository. The most interesting part is the "deploy/
 
 To deploy the full environment you just need to execute the script **run.sh**. To do so, open a terminal, log in to Azure and execute the script. Be sure to have [installed Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) first.
 
-> Deploying the full environment will take up to 15 minutes. Feel free to play with the environment created in the first lab during this time.
+> Deploying the full environment will take up to 15 minutes. Feel free to play with the environment created in the first lab during this time. If the deployment fails (display an error message), just run the script again, it's [idempotent](https://en.wikipedia.org/wiki/Idempotence).
 
 {% collapsible %}
 
