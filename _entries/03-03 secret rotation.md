@@ -33,7 +33,6 @@ In order to set back the connection between the storage account and the `receipt
 On the storage account under the `Access key` blade copy the key value. 
 Then go to the `Secrets` blade of the container app panel in order to edit the old value of the key by the newly copied one. 
 
-![Rotation Key](/media/lab2/sarot2.png)
 ![Rotation Key](/media/lab2/sarot3.png)
 
 {% endcollapsible %} 
