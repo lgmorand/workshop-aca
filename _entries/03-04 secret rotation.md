@@ -11,7 +11,7 @@ One of the main concerns of the management of the lifecycle of an application is
 
 In the deployed reddog application, the container `receipt-generation-service` is handling two secrets to connect itself to a service bus sending receipts that he is posting onto a storage account.
 
- ![The receipt secret](/media/lab2/secretrotation1.png)
+ ![The receipt secret](/media/lab2/rotation/secretrotation.png)
 
 Every second, he is receiving a receipt that he is posting onto the blob `receipts`. We will simulate the "automatic" rotation of the storage account access key.
 
@@ -20,7 +20,8 @@ To do so, go to the storage account in order to make the rotation both of the pr
 {% collapsible %}
 Go to the storage account under the `Access key` blade in order to click rotate.
 
-![Rotation Key](/media/lab2/sarot.png)
+![Rotation Key](/media/lab2/roation/sarot.png)
+
 {% endcollapsible %}
 
 Once done you'll see that the blob is no longer receiving any receipts from our application. You can validate easily this by deleting the "Receipts" blob container and recreate it after a short period of time.
@@ -30,10 +31,10 @@ Once done you'll see that the blob is no longer receiving any receipts from our 
 In order to set back the connection between the storage account and the `receipt-generation-service` you'll have to retrieve the new key and edit the value of the key `blob-storage-key`.
 
 {% collapsible %}
-On the storage account under the `Access key` blade copy the key value. 
-Then go to the `Secrets` blade of the container app panel in order to edit the old value of the key by the newly copied one. 
+On the storage account under the `Access key` blade copy the key value.
+Then go to the `Secrets` blade of the container app panel in order to edit the old value of the key by the newly copied one.
 
-![Rotation Key](/media/lab2/sarot3.png)
+![Rotation Key](/media/lab2/rotation/sarot3.png)
 
 {% endcollapsible %}
 

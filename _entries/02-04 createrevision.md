@@ -18,7 +18,7 @@ The following diagram shows a container app with two revisions.
 
 Note that changes made to a container app fall under one of two categories: revision-scope and application-scope changes:
 
-- Revision-scope changes are any change that triggers a new revision (e.g Changes to containers, Add or update scaling rules, Changes to Dapr settings...), 
+- Revision-scope changes are any change that triggers a new revision (e.g Changes to containers, Add or update scaling rules, Changes to Dapr settings...),
 - Application-scope changes don't create revisions (e.g Changes to traffic splitting rules, Turning ingress on or off, Changes to secret values...).
 
 ### Create your first revision

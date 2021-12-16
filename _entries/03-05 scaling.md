@@ -22,13 +22,13 @@ The list of triggers to scale (in/out) a Container App are :
 
 In Container Apps, scalability is managed through the revision. Each revision contains scaliblity limits (min & max replicas) but can also contain rules to autoscale the application. To see the current number of replicas used by your Container App, open the Revision Management tab of the current active revision :
 
-![Current scaling](/media/lab2/current-scale.png)
+![Current scaling](/media/lab2/scale/current-scale.png)
 
 In our case, the UI app has a min limit equals to 0, a max limit of 10 and no autoscaling rules.
 
 > During the preview, the max numbers of replicas per revision is 25 but the Azure Web Portal only allow to specify 10 at the moment. Use the CLI if you need more than 10 replicas.
 
-![UI Default scaling](/media/lab2/ui-default-scaling.png)
+![UI Default scaling](/media/lab2/scale/ui-default-scaling.png)
 
 Let's create a new revision with a new scaling rule. The new revision should :
 
@@ -39,13 +39,11 @@ Let's create a new revision with a new scaling rule. The new revision should :
 
 {% collapsible %}
 
-
-
 {% endcollapsible %}
 
 #### Overload our container
 
-It's time to check that our 
+It's time to check that our
 
 ##### Install a load testing tool
 

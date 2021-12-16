@@ -1,7 +1,7 @@
 ---
 sectionid: lab1-intro
 sectionclass: h2
-title: Scenario context
+title: Context
 parent-id: lab-1
 ---
 
