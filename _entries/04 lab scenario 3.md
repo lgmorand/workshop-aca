@@ -1,7 +1,8 @@
 ---
-sectionid: lab-3
+sectionid: lab-1
 sectionclass: h1
-title: Scenario 3 - Configuration (Max)
+title: Scenario 4 - Continuous deployment
 type: nocount
 is-parent: yes
 ---
+

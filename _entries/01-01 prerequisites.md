@@ -11,6 +11,8 @@ parent-id: intro
 In order to realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
 
 - an Azure subscription
+- a GitHub Account
+- VS Code or equivalent
 - a brain
 - fingers
 
