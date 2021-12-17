@@ -1,8 +1,8 @@
 ---
-sectionid: lab2-scalling
+sectionid: lab2-scaling
 sectionclass: h2
-title: Scenario context
-parent-id: lab-5
+title: Scalability
+parent-id: lab-2
 ---
 
 ### Scalability
