@@ -5,26 +5,27 @@ title: Secret Rotation
 parent-id: lab-2
 ---
 
-One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in while you'll have to make rotation on your key/secret/certificate. Let's see how Azure Container Apps is handling those action.
+One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in while you'll have to make rotation on your key/secret/certificate for security reason (leak or just good pratice). Let's see how secrets'management in done with Azure Container Apps.
 
 ### Manage your secret
 
-In the deployed reddog application, the container `receipt-generation-service` is handling two secrets to connect itself to a service bus sending receipts that he is posting onto a storage account.
+In the deployed Reddog application, the container `receipt-generation-service` has two secrets to connect itself to a service bus sending receipts that he is posting onto a storage account.
 
  ![The receipt secret](/media/lab2/rotation/secretrotation.png)
 
-Every second, he is receiving a receipt that he is posting onto the blob `receipts`. We will simulate the "automatic" rotation of the storage account access key.
+Every second, it receives a receipt which is then saved into the blob storage account `receipts`. We will simulate a rotation of the storage account access key.
 
-To do so, go to the storage account in order to make the rotation both of the primary and the secondary keys.
+To do so, go to the storage account in order to make the rotation of both primary and secondary keys.
 
 {% collapsible %}
-Go to the storage account under the `Access key` blade in order to click rotate.
+
+Go to the storage account under the `Access key` blade in and click the `Rotate keys` button.
 
 ![Rotation Key](/media/lab2/roation/sarot.png)
 
 {% endcollapsible %}
 
-Once done you'll see that the blob is no longer receiving any receipts from our application. You can validate easily this by deleting the "Receipts" blob container and recreate it after a short period of time.
+Once done you'll see that the blob storage is no longer receiving any receipts from our application. You can validate easily this by deleting the "Receipts" blob container and recreate it after few seconds (Azure may display an error message, just retry after few seconds). The blob container should remain empty because the application does not have the rights any more to write new receipts.
 
 #### Fetch the new secret
 

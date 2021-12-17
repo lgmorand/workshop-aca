@@ -7,11 +7,11 @@ parent-id: lab-1
 
 ### Create an environment
 
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+Before deploying your containerized application, you need a "place" to host your application. In Azure Container Apps, the underlaying infrastructure is called an `environment`. An environment creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same *Log Analytics* workspace.
 
-Azure Log Analytics is used to monitor your container app required when creating a Container Apps environment.
+Azure Log Analytics is used to monitor your container app and is required when creating a Container Apps environment.
 
-Let's start by creating some variables:
+Let's start by setting some variables:
 
 ``` bash
 RESOURCE_GROUP="rg-my-container-apps"

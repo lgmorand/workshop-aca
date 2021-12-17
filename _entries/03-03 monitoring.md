@@ -15,7 +15,7 @@ We already know that components have been deployed successfully. To check the pl
 
 {% collapsible %}
 
-Remember the architecture schema of the reddog platform. The frontend is the `UI` Container App which is exposed internally and thus not reachable outside the cluster. In front on the UI is the Traeffik ingress controller which is the `Reddog` Container App, exposed publically.
+Remember the architecture schema of the Reddog platform. The frontend is the `UI` Container App which is exposed internally and thus not reachable outside the cluster. In front on the UI is the Traeffik ingress controller which is the `Reddog` Container App, exposed publically.
 
 To find the URL, in the Azure Container App environment, open the `Reddog` Container App. In the overview tab, you should find the generated FQDN URL.
 

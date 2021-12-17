@@ -121,4 +121,4 @@ Open the `ui-autoscale` revision and in the Overview tab, check the number of cu
 {% endcollapsible %}
 We can confirm that autoscaling created on replica per request (with around 20 requests in parallel) but the scaling out never went above 5 due to the max limit defined in the revision.
 
-Close Vegeta and any browser tab which displays the reddog application and within few minutes, you should be able to observe that UI container App scales down automatically to one replica because it is not overused anymore.
+Close Vegeta and any browser tab which displays the Reddog application and within few minutes, you should be able to observe that UI container App scales down automatically to one replica because it is not overused anymore.
