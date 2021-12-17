@@ -48,6 +48,10 @@ az acr update -n <acrName> --admin-enabled true
 
 {% endcollapsible %}
 
+This will automatically setup some secrets on your application in order to store the Admin logon to reach out to the Container Registry. We will see later on this lab how to manage those secrets. 
+
+![Secret ACR](/media/lab1/secretacr.png)
+
 Once this is configured you can move forward by attaching your GitHub repo to the revision.
 
 ![Github Action](/media/lab1/githubattach.png)
