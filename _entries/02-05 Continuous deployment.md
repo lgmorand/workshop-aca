@@ -34,12 +34,11 @@ az ad sp create-for-rbac \
   The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `cliendId`, and `clientSecret`.
   {% endcollapsible %}
 
-Once those values retrieve you'll have to setup an Azure container registry being able to host the newly created containers.
+Once those values retrieve you'll have to [create](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal#:~:text=%20Quickstart%3A%20Create%20an%20Azure%20container%20registry%20using,must%20log%20in%20to%20the%20registry...%20More%20) an Azure container registry being able to host the newly created containers.
 
 > This registry has to have the Admin User enabled for this to work.
 
 {% collapsible %}
-
 Open your registry and under the `Access keys` panel, click on `Enabled` to enable the user admin. Or use:
 
 ``` bash
