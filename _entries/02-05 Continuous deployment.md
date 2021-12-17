@@ -13,7 +13,7 @@ The GitHub action is triggered by commits to a specific branch in your repositor
 
 ## Setup your Github repository
 
-In order to be able to setup your continuous deployment you'll need a github account and a newly created repository. We made a public repository where you'll find the sources of the Hello World container : Public empty repository to create---. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then clone this repository within your own environment.
+In order to be able to setup your continuous deployment you'll need a github account and a newly created repository. We made a public repository where you'll find the sources of the [Hello World container](https://github.com/mavilleg/azurecontainerapps-helloworld). [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then clone this repository within your own environment.
 
 Now that you have the source code you will be able to modify the code and rebuild a contianer that will be pushed onto Azure ContainerApp.
 
@@ -40,11 +40,15 @@ Once those values retrieve you'll have to setup an Azure container registry bein
 
 {% collapsible %}
 
-TOpen you registry and under the `Access keys` panel, click on `Enabled` to enable the user admin.
+Open your registry and under the `Access keys` panel, click on `Enabled` to enable the user admin. Or use:
+
+``` bash
+az acr update -n <acrName> --admin-enabled true
+```
 
 {% endcollapsible %}
 
-Once those setup you can move forward by attaching your GitHub repos to the revision.
+Once this is configured you can move forward by attaching your GitHub repo to the revision.
 
 ![Github Action](/media/lab1/githubattach.png)
 
@@ -60,13 +64,13 @@ az containerapp github-action show \
 
 {% endcollapsible %}
 
-Once everything is in place you can see that a new folder `.github/workflows` has been added in your github repos. It host an automatic yaml file that will allow the triggering of an automatic GitHub Action tht will deploy any changes pushed onto the branch.  
+Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It host a yaml file that will allow the triggering of an automatic GitHub Action tht will deploy any changes pushed onto the branch.  
 
 Let's test that out!
 
 ## Putting everything together
 
-Open your project within VS Code. You should see that the `.github/workflows` has been added. If it's not the case synchronyze the change that has been made (git pull request).
+Open your project within VS Code. You should see that the `.github/workflows` has been added. If it's not the case synchronyze the change that has been made onto the project (git pull request).
 
 Now you can modify the source code of the Hello World container that we're using since the begining. For example, you could change the text above the ACA logo under the `index.html` file.
 
@@ -76,12 +80,19 @@ Once the change commited you can go to your GitHub repos to see the action occur
 
 As you can see, the push of the changes (commit) automaticaly triggered an GitHub Action workflow that built and deployed our new container into our registry and then our container apps. You can test it out by going under the revision management panel and see your newly provisionned revision.
 
-----------------------------------
-MANQUE un screenshot qui montre qu'une nouvelle revision est la
+![Github Action process](/media/lab1/revisionaction.png)
 
-MANQUE TOUTE LA PARTIE ingress avec 50/50 pour faire du canary deployment
+As you can see the revision is not loadbalanced yet meaning that none of the traffic is routed to it. Supporting multiple revisions in Azure Container Apps allows you to manage the versioning and amount of traffic sent to each revision.
 
-----------------------------------
-
+Once the some (or all) of the traffic is sent to your app you can test that the newly version of your application is running correctly. 
 
 ![Github Action process](/media/lab1/actionval.png)
+
+
+Thuse can be configure. Indeed, you can change whether or not your container app supports multiple active revisions. The `activeRevisionsMode`property accepts two values:
+- multiple: Configures the container app to allow more than one active revision.
+- single: Automatically deactivates all other revisions when a revision is activated. 
+
+Enabling single mode makes it so that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated.
+
+You could also manage the different aspect of a revision using the [`az containerapp revision`](https://docs.microsoft.com/en-us/azure/container-apps/revisions-manage?tabs=bash#list)
