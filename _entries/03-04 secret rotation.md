@@ -21,7 +21,7 @@ To do so, go to the storage account in order to make the rotation of both primar
 
 Go to the storage account under the `Access key` blade in and click the `Rotate keys` button.
 
-![Rotation Key](/media/lab2/roation/sarot.png)
+![Rotation Key](/media/lab2/rotation/sarot.png)
 
 {% endcollapsible %}
 
@@ -32,6 +32,7 @@ Once done you'll see that the blob storage is no longer receiving any receipts f
 In order to set back the connection between the storage account and the `receipt-generation-service` you'll have to retrieve the new key and edit the value of the key `blob-storage-key`.
 
 {% collapsible %}
+
 On the storage account under the `Access key` blade copy the key value.
 Then go to the `Secrets` blade of the container app panel in order to edit the old value of the key by the newly copied one.
 

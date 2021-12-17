@@ -75,7 +75,7 @@ Let's test that out!
 
 Open your project within VS Code. You should see that the `.github/workflows` has been added. If it's not the case synchronyze the change that has been made (git pull request).
 
-Now you can modify the source code of the Hello World container that we're using since the begining. For example, you could change the text above the ACA logo under the `inder.html` file.
+Now you can modify the source code of the Hello World container that we're using since the begining. For example, you could change the text above the ACA logo under the `index.html` file.
 
 Once the change commited you can go to your GitHub repos to see the action occuring :
 
