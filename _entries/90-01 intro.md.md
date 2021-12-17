@@ -7,4 +7,4 @@ parent-id: cleaning
 
 ### Delete resources
 
-Now that the workshop is finished, it is important to delete unused resources. Open the [Azure portal](https://portal.azure.com) and delete the resource groups. All contained resources will be removed.
+Now that the workshop is finished, it is important to delete unused resources to stop the billing. Open the [Azure portal](https://portal.azure.com) and delete the resource groups. All contained resources will be removed.

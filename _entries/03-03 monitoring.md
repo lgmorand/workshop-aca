@@ -7,21 +7,21 @@ parent-id: lab-2
 
 #### Observability
 
-Observability is critical for any application. To ensure that everything is fine but also to detect/anticipate any issue on the platform.
+Observability is critical for any application. To ensure that everything is fine but also to detect/anticipate any issue on the platform, you should be able to see from one place, whatever happens on your solution.
 
 #### Testing the app
 
-We already know that components have been deployed successfully. To check the platform, several visual tests can be done. Start by opening the Reddog frontend UI portal in a browser.
+We already know that components have been deployed successfully but are they fully working ? To check the platform, several visual tests can be done. Start by opening the Reddog frontend `UI` portal in a browser.
 
 {% collapsible %}
 
-Remember the architecture schema of the Reddog platform. The frontend is the `UI` Container App which is exposed internally and thus not reachable outside the cluster. In front on the UI is the Traeffik ingress controller which is the `Reddog` Container App, exposed publically.
+Remember the architecture schema of the Reddog platform. The frontend is the `UI` Container App which is exposed **internally** and thus not reachable outside the (managed) kubernetes cluster. In front on the `UI` is the `Traeffik` ingress controller which is the `Reddog` Container App, exposed publically (Internet).
 
-To find the URL, in the Azure Container App environment, open the `Reddog` Container App. In the overview tab, you should find the generated FQDN URL.
+To find the URL of the portal, in the Azure Container App environment, open the `Reddog` Container App. In the overview tab, you should find the generated FQDN URL.
 
 ![Finding the endpoint](/media/lab2/monitor/finding-endpoint.png)
 
-Copy the URL in any browser to discover a nice dynamic dashboard.
+Copy the URL in any browser to discover a nice dynamic dashboard :
 
 ![Running application](/media/lab2/monitor/running-app.png)
 
@@ -50,18 +50,22 @@ ContainerAppConsoleLogs_CL
 
 ![Get Logs using CLI](/media/lab2/monitor/logs-ui.png)
 
-The second way of doing it is to use the command line and the Azure CLI. (it may ask you to install an extension).
+The second way of doing it is to use the command line and the Azure CLI. (it may ask you to install a CLI extension first).
 
 ``` bash
 az monitor log-analytics query \
-  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
+  --workspace <LOG_ANALYTICS_WORKSPACE_CLIENT_ID> \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'ui' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
   --out table
 ```
 
+Here, the query is more complex to select the columns to diplay and the number of lines we want to return.
+
 ![Get Logs using CLI](/media/lab2/monitor/logs-cli.png)
 
 {% endcollapsible %}
+
+That's it. No need to install specific monitoring tool (i.e. Prometheus) nor need to connect interactively to your container to retrieve its logs.
 
 ##### Get Metrics
 

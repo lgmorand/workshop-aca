@@ -5,7 +5,7 @@ title: Secret Rotation
 parent-id: lab-2
 ---
 
-One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in while you'll have to make rotation on your key/secret/certificate for security reason (leak or just good pratice). Let's see how secrets'management in done with Azure Container Apps.
+One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in while you'll have to make rotation on your key/secret/certificate for security reason (leak or just good pratice). Let's see how secrets management in done with Azure Container Apps.
 
 ### Manage your secret
 
