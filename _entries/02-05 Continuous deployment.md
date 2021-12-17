@@ -60,9 +60,10 @@ az containerapp github-action show \
   --resource-group <RESOURCE_GROUP_NAME> \
   --name <CONTAINER_APP_NAME>
 ```
+
 {% endcollapsible %}
 
-Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It host a yaml file that will allow the triggering of an automatic GitHub Action tht will deploy any changes pushed onto the branch. It will also automatically setup some secrets on your application in order to store the Admin logon to reach out to the Container Registry. We will see later on this lab how to manage those secrets. 
+Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It host a yaml file that will allow the triggering of an automatic GitHub Action tht will deploy any changes pushed onto the branch. It will also automatically setup some secrets on your application in order to store the Admin logon to reach out to the Container Registry. We will see later on this lab how to manage those secrets.
 
 ![Secret ACR](/media/lab1/secretacr.png)
 
@@ -84,14 +85,14 @@ As you can see, the push of the changes (commit) automaticaly triggered an GitHu
 
 As you can see the revision is not loadbalanced yet meaning that none of the traffic is routed to it. Supporting multiple revisions in Azure Container Apps allows you to manage the versioning and amount of traffic sent to each revision.
 
-Once the some (or all) of the traffic is sent to your app you can test that the newly version of your application is running correctly. 
+Once the some (or all) of the traffic is sent to your app you can test that the newly version of your application is running correctly.
 
 ![Github Action process](/media/lab1/actionval.png)
 
-
 Thuse can be configure. Indeed, you can change whether or not your container app supports multiple active revisions. The `activeRevisionsMode`property accepts two values:
+
 - multiple: Configures the container app to allow more than one active revision.
-- single: Automatically deactivates all other revisions when a revision is activated. 
+- single: Automatically deactivates all other revisions when a revision is activated.
 
 Enabling single mode makes it so that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated.
 

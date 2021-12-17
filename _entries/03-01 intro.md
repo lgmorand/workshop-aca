@@ -6,6 +6,7 @@ parent-id: lab-2
 ---
 
 Now that you successfully deployed a simple application, let's see how Azure Containers Apps could help with more complex applications. You are going to deploy a full micro-services application named Red Dog. Microservice architectures allow you to independently develop, upgrade, version, and scale core areas of functionality in an overall system. Azure Container Apps provides the foundation for deploying microservices featuring:
+
 - Independent scaling, versioning, and upgrades
 - Service discovery
 - Native Dapr integration
