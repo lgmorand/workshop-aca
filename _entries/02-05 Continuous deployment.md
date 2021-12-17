@@ -47,10 +47,6 @@ az acr update -n <acrName> --admin-enabled true
 
 {% endcollapsible %}
 
-This will automatically setup some secrets on your application in order to store the Admin logon to reach out to the Container Registry. We will see later on this lab how to manage those secrets. 
-
-![Secret ACR](/media/lab1/secretacr.png)
-
 Once this is configured you can move forward by attaching your GitHub repo to the revision.
 
 ![Github Action](/media/lab1/githubattach.png)
@@ -64,10 +60,11 @@ az containerapp github-action show \
   --resource-group <RESOURCE_GROUP_NAME> \
   --name <CONTAINER_APP_NAME>
 ```
-
 {% endcollapsible %}
 
-Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It host a yaml file that will allow the triggering of an automatic GitHub Action tht will deploy any changes pushed onto the branch.  
+Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It host a yaml file that will allow the triggering of an automatic GitHub Action tht will deploy any changes pushed onto the branch. It will also automatically setup some secrets on your application in order to store the Admin logon to reach out to the Container Registry. We will see later on this lab how to manage those secrets. 
+
+![Secret ACR](/media/lab1/secretacr.png)
 
 Let's test that out!
 
