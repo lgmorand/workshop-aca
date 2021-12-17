@@ -1,5 +1,5 @@
 ---
-sectionid: lab1-create
+sectionid: lab1-createapp
 sectionclass: h2
 title: Deploy an app
 parent-id: lab-1

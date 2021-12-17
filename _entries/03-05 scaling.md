@@ -1,5 +1,5 @@
 ---
-sectionid: lab5-intro
+sectionid: lab2-scalling
 sectionclass: h2
 title: Scenario context
 parent-id: lab-5

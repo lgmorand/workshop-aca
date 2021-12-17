@@ -1,5 +1,5 @@
 ---
-sectionid: lab1-create
+sectionid: lab1-cicd
 sectionclass: h2
 title: Continuous Deployment
 parent-id: lab-1
