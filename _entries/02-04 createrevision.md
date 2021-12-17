@@ -13,16 +13,16 @@ The following diagram shows a container app with two revisions.
 
 ![Revision App](/media/lab1/revisionpond.png)
 
-Note that changes made to a container app fall under one of two categories: revision-scope and application-scope changes:
+> Note that changes made to a container app fall under one of two categories: revision-scope and application-scope changes:
 
 - Revision-scope changes are any change that triggers a new revision (e.g Changes to containers, Add or update scaling rules, Changes to Dapr settings...),
-- Application-scope changes don't create revisions (e.g Changes to traffic splitting rules, Turning ingress on or off, Changes to secret values...).
+- Application-scope changes don't create revisions (e.g Changes to traffic splitting rules, Turning ingress on or off, Changes to secret values...). 
 
 ### Create your first revision
 
-Let's create and deploy a new version of the Hello World application with a different layout. To do so you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`.
+Let's create and deploy a new version of the Hello World application with a different layout. To do so you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-helloworld`.
 
-Once this new revision is provisionned we will configure an even split of the traffic between the two revision
+Once this new revision is provisionned we will configure an even split of the traffic between the two revisions applied by assigning percentage values. You can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions. 
 
 {% collapsible %}
 Go to the revisions management blade on the left inside of the apps panel.
@@ -33,14 +33,33 @@ Click on "Create a new revisions"
 Then click on "Add" in order to pull the new image that will be used to create the new revision.
 
 ![Revision soluce](/media/lab1/addrevision1.png)
-
-Finally, you can loadbalance the traffic by modifying the traffic paramater under the Revision management panel.  
+  
 {% endcollapsible %}
+
+Once your new revision is provisionned you can split the traffic between them. 
 
 > Note that new revisions remain active until you deactivate them, or you set your container app to automatically deactivate old revisions.
 
 - Inactive revisions remain as a snapshot record of your container app in a certain state.
 - You are not charged for inactive revisions.
 - Up to 100 revisions remain available before being purged.
+
+You can see all revision using the `az containerapp revision list`and have more detail on a specific one using the `az containerapp revision show` command. 
+
+{% collapsible %}
+```bash
+az containerapp revision list \
+  --name <APPLICATION_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME> \
+  -o table
+```
+
+``` bash
+az containerapp revision show \
+  --name <REVISION_NAME> \
+  --app <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME>
+```
+{% endcollapsible %}
 
 That's how you can configure revision to be able to have A/B testing scenario or blue-green deployment scenario.  
