@@ -1,15 +1,15 @@
 ---
 sectionid: lab2-intro
 sectionclass: h2
-title: Scenario context
+title: Context
 parent-id: lab-2
 ---
 
 Now that you successfully deployed a simple application, let's see how Azure Containers Apps could help with more complex applications. You are going to deploy a full micro-services application named Red Dog.
 
-Red Dog application is a simplified e-shop application with customers making orders and these orders being processed by workers. In parallel, orders, receipts and accounting are stored in different persistent systems. The e-commerce platform does not contain any UI except a dashboard to monitor the orders.
+[Red Dog](github.com/azure/reddog-code) application is a simplified e-shop application with customers making orders and these orders being processed by workers. In parallel, orders, receipts and accounting are stored in different persistent systems. The e-commerce platform does not contain any UI except a dashboard to monitor the orders.
 
-![The Red Dog application](/media/lab2/reddog_code.png)
+![The Red Dog application](/media/lab2/intro/reddog_code.png)
 
 > The application may seem complex but it's not and you won't have to fully understand it to realize the workshop.
 

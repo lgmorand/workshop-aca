@@ -7,11 +7,11 @@ parent-id: lab-1
 
 ### Create an environment
 
-An environment in Azure Container Apps creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+Before deploying your containerized application, you need a "place" to host your application. In Azure Container Apps, the underlaying infrastructure is called an `environment`. An environment creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same *Log Analytics* workspace.
 
-Azure Log Analytics is used to monitor your container app required when creating a Container Apps environment.
+Azure Log Analytics is used to monitor your container app and is required when creating a Container Apps environment.
 
-Let's start by creating some variables:
+Let's start by setting some variables:
 
 ``` bash
 RESOURCE_GROUP="rg-my-container-apps"
@@ -44,11 +44,11 @@ Next, retrieve the Log Analytics Client ID and client secret.
 Make sure to run each query separately to give enough time for the request to complete.
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID='az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv'
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
 ```
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET='az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv'
+LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
 ```
 
 #### PowerShell
@@ -62,6 +62,8 @@ $LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --qu
 ```powershell
 $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
 ```
+
+#### Azure Container Apps environment
 
 Individual container apps are deployed to an Azure Container Apps environment. To create the environment, run the following command:
 
