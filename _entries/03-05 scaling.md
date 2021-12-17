@@ -26,7 +26,7 @@ In Container Apps, scalability is managed through the revision. Each revision co
 
 In our case, the UI app has a min limit equals to 0, a max limit of 10 and no autoscaling rules.
 
-> During the preview, the max numbers of replicas per revision is 25 but the Azure Web Portal only allow to specify 10 at the moment. Use the CLI if you need more than 10 replicas.
+> During the preview, the max numbers of replicas per revision is 25 but the Azure Web Portal only allows to specify 10 at the moment. Use the CLI if you need more than 10 replicas.
 
 ![UI Default scaling](/media/lab2/scale/ui-default-scaling.png)
 
@@ -39,15 +39,31 @@ Let's create a new revision with a new scaling rule. The new revision should :
 
 {% collapsible %}
 
+Open the UI Container App and the `Revision Management` tab. Click on `Create a new revision`. In the first page, specify a name suffix and click on the `Next` button.
+
+In the scale part, configure the limits between 1 and 5 replicas.
+
+![Define the limits](/media/lab2/scale/minmax.png)
+
+Then add a rule with `Http Scaling` type and one concurrent request.
+
+![Create a scaling rule](/media/lab2/scale/http-rule.png)
+
+Click on the `Create` button, a new revision should be created with 100% of ingress sent to it :
+
+![A new revision is created](/media/lab2/scale/ui-new-revision.png)
+
 {% endcollapsible %}
+
+Once done, your application should be ready to autoscale.
 
 #### Overload our container
 
-It's time to check that our
+It's time to check that our container auto scales when users connect to it.
 
 ##### Install a load testing tool
 
-The simple way to load test our platform is to use a simple command line tool to simulate a large number of requests. You are going to use [Vegeta](https://github.com/tsenart/vegeta) but you can replace it by any other load testing tool if you prefer.
+The simpler way to load test our platform is to use a small command line tool to simulate a large number of requests. You are going to use [Vegeta](https://github.com/tsenart/vegeta) but you can replace it by any other load testing tool if you prefer.
 
 Start by installing the latest version of Vegeta
 
@@ -82,12 +98,27 @@ GET
 
 {% endcollapsible %}
 
-Then run Vegeta with the *attack* command. If no specific parameter are given, Vegata will make 50 request per second on the defined targets and will not stop until you stop it.
+Then run Vegeta with the *attack* command. If no specific parameters are given, Vegata will make 50 requests per second on the defined targets and will not stop until you stop it. You can also specify requests per sec and the duration with respective parameters rate and duration.
 
 {% collapsible %}
 
+Run the following command line and let Vegeta generating requests.
+
 ``` bash
-vegeta attack -targets targets.txt
+vegeta attack -targets targets.txt -rate=20 and -duration=30s.
 ```
 
 {% endcollapsible %}
+
+After few seconds, check that the number of replicas of the UI Container App has increased.
+
+{% collapsible %}
+
+Open the `ui-autoscale` revision and in the Overview tab, check the number of current replicas
+
+![Post load testing](/media/lab2/scale/after-load-testing.png)
+
+{% endcollapsible %}
+We can confirm that autoscaling created on replica per request (with around 20 requests in parallel) but the scaling out never went above 5 due to the max limit defined in the revision.
+
+Close Vegeta and any browser tab which displays the reddog application and within few minutes, you should be able to observe that UI container App scales down automatically to one replica because it is not overused anymore.
