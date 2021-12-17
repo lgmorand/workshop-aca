@@ -76,4 +76,6 @@ az containerapp env create \
   --location "$LOCATION"
 ```
 
-> You may receive an error message telling that features are not allowed for subscription. it means that containers apps is not available for the selection region.
+> You may receive an error message telling that features are not allowed for subscription. It means that containers apps is not available for the selection region.
+
+Once the environment is created, it is time to deploy applications.

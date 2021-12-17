@@ -13,13 +13,7 @@ The GitHub action is triggered by commits to a specific branch in your repositor
 
 ## Setup your Github repository
 
-In order to be able to setup your continuous deployment you'll need a github account and a newly created repository. We made a public repository where you'll find the sources of the Hello World container : Public empty repository to create---. Fork and then clone this repository within your own environment.
-
-{% collapsible %}
-
-[https://docs.github.com/en/get-started/quickstart/fork-a-repo](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli)
-
-{% endcollapsible %}
+In order to be able to setup your continuous deployment you'll need a github account and a newly created repository. We made a public repository where you'll find the sources of the Hello World container : Public empty repository to create---. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then clone this repository within your own environment.
 
 Now that you have the source code you will be able to modify the code and rebuild a contianer that will be pushed onto Azure ContainerApp.
 
@@ -46,16 +40,15 @@ Once those values retrieve you'll have to setup an Azure container registry bein
 
 {% collapsible %}
 
-[https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli)
+TOpen you registry and under the `Access keys` panel, click on `Enabled` to enable the user admin.
 
-Then under the Access key panel, you click on Enabled to enable the user admin.
 {% endcollapsible %}
 
 Once those setup you can move forward by attaching your GitHub repos to the revision.
 
 ![Github Action](/media/lab1/githubattach.png)
 
-The containerapp `github-action show` command returns the GitHub Actions configuration settings for a container app. It returns a JSON payload with the GitHub Actions integration configuration settings.
+The `az containerapp github-action show` command returns the GitHub Actions configuration settings for a container app. It returns a JSON payload with the GitHub Actions integration configuration settings.
 
 {% collapsible %}
 
@@ -81,6 +74,14 @@ Once the change commited you can go to your GitHub repos to see the action occur
 
 ![Github Action process](/media/lab1/action.png)
 
-As you can see the push of the changes automaticaly triggered an action that built and deployed our new container onto our container apps. You can test it out by going under the revision management panel and see your newly provisionned revision:
+As you can see, the push of the changes (commit) automaticaly triggered an GitHub Action workflow that built and deployed our new container into our registry and then our container apps. You can test it out by going under the revision management panel and see your newly provisionned revision.
+
+----------------------------------
+MANQUE un screenshot qui montre qu'une nouvelle revision est la
+
+MANQUE TOUTE LA PARTIE ingress avec 50/50 pour faire du canary deployment
+
+----------------------------------
+
 
 ![Github Action process](/media/lab1/actionval.png)

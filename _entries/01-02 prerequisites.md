@@ -10,13 +10,14 @@ parent-id: intro
 
 In order to realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
 
-- an Azure subscription
+- an Azure subscription (one per user*)
 - a GitHub Account
 - VS Code or equivalent
 - a brain
-- fingers
 
 ### Azure subscription
+
+Log in to one of your azure subscription.
 
 {% collapsible %}
 
@@ -24,12 +25,22 @@ Please use your username and password to login to <https://portal.azure.com>.
 
 Also please authenticate your Azure CLI by running the command below on your machine and following the instructions.
 
-``` csharp
+``` bash
 az account show
 az login
 ```
 
 {% endcollapsible %}
+
+\* Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present during the public preview. For instance, this workshop require two Azure Container Apps environments and there is a limit of 2 env per subscription.
+
+| Feature | Quantity |
+|---|---|
+| Environments | 2 |
+| Container apps per environment | 20 |
+| Replicas per container app | 25 |
+| Cores per replica | 2 |
+| Cores per environment | 50 |
 
 ### Tools
 
