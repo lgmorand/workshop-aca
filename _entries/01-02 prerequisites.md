@@ -17,13 +17,13 @@ In order to realize the workshop, you will require several components. If you do
 
 ### Azure subscription
 
-Log in to one of your azure subscription.
+Log in to one of your Azure subscriptions.
 
 {% collapsible %}
 
 Please use your username and password to login to <https://portal.azure.com>.
 
-Also please authenticate your Azure CLI by running the command below on your machine and following the instructions.
+Also, please authenticate your Azure CLI by running the command below on your machine and following the instructions.
 
 ``` bash
 az account show
@@ -44,11 +44,11 @@ az login
 
 ### Tools
 
-During this workshop you are going to use command line but most of the actions may be doable using Azure Portal. Nevertheless, since the feature is in preview, the portal may not be up to date to allow all commands or parameters.
+During this workshop you are going to use command line, but most of the actions may be doable using Azure Portal. Nevertheless, since the feature is in preview, the portal may not be up to date to allow all commands or parameters.
 
 #### Azure Cloud Shell
 
-You can either run command lines from your own computer (we recommend using bash) or you can use the Azure Cloud Shell accessible at <https://shell.azure.com> once you login with an Azure subscription.
+You can either run command lines from your own computer (we recommend using bash) or you can use the Azure Cloud Shell accessible at <https://shell.azure.com> once you log in with an Azure subscription.
 
 {% collapsible %}
 
@@ -98,4 +98,4 @@ az provider register --namespace Microsoft.Web
 
 #### GitHub
 
-Some steps of this workshop require to use a free GitHub account. If you don't have one already, you can create one for free here: [https://github.com/join](https://github.com/join).
+Some steps of this workshop require using a GitHub account. If you don't have one already, you can create one for free here: [https://github.com/join](https://github.com/join).

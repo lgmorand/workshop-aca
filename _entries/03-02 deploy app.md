@@ -7,19 +7,19 @@ parent-id: lab-2
 
 ### Deploying the app
 
-The Red Dog application is based on containerized services and Azure PaaS services such as Storage accounts, Azure SQL Database, Redis or CosmosDB.
+The Red Dog application is based on containerized services and Azure PaaS services such as Storage accounts, Azure SQL Database, Redis, or CosmosDB.
 
 ![Micro-services architecture](/media/lab2/deploy/reddog_containerapps.png)
 
-Start by [forking](https://github.com/Azure/reddog-containerapps/fork) the [repo](https://github.com/Azure/reddog-containerapps) to have your own copy on your GitHub account.
+Start by [forking](https://github.com/Azure/reddog-containerapps/fork) the [repo](https://github.com/Azure/reddog-containerapps) to have your copy on your GitHub account.
 
-Once the repo has been forked. Clone the repository on your local computer.
+Once the repo has been forked, clone the repository on your local computer.
 
 ![Clone the repository](/media/lab2/deploy/clone-repo.png)
 
 Browse the contents of the repository. The most interesting part is the "deploy/bicep" folder. Using Infrastructure as code and the Bicep technology, it is possible to deploy all the components in one command line, including the Azure Container Apps instance, the different PaaS services but also the containerized applications.
 
-To deploy the full environment you just need to execute the script **run.sh**. To do so, open a terminal, log in to Azure and execute the script. Be sure to have [installed Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) first.
+To deploy the full environment, you just need to execute the script **run.sh**. To do so, open a terminal, log in to Azure and execute the script. Be sure to have [installed Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) first.
 
 {% collapsible %}
 

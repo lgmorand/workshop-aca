@@ -6,6 +6,6 @@ type: nocount
 is-parent: yes
 ---
 
-Welcome to the Azure Containers Apps Workshop. In this lab, you'll go through tasks that will help you master the basics and more advanced topics required to deploy applications to Azure Containers Apps.
+Welcome to the **Azure Containers Apps workshop**. In this lab, you'll go through tasks that will help you master the basics and more advanced topics required to deploy applications to Azure Containers Apps.
 
-> The Azure Containers Apps is currently in public preview and several features/limitations may change between now and the general availabity.
+> The Azure Containers Apps is currently in public preview and several features/limitations may change between now and the general availability.

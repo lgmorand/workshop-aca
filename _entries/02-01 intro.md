@@ -5,4 +5,4 @@ title: Context
 parent-id: lab-1
 ---
 
-This first lab will guide you to deploy you first *Hello World* app on Containers apps. Basically you will deploy an application accessible from Internet.
+This first lab will guide you to deploy your first *Hello World* app on Containers apps, an application accessible from the Internet.

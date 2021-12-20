@@ -7,7 +7,7 @@ parent-id: lab-1
 
 ### Create an environment
 
-Before deploying your containerized application, you need a "place" to host your application. In Azure Container Apps, the underlaying infrastructure is called an `environment`. An environment creates a secure boundary around a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same *Log Analytics* workspace.
+Before deploying your containerized application, you need a "place" to host your application. In Azure Container Apps, the underlying infrastructure is called an `environment`. An environment creates a secure boundary around a group of container apps. Container Apps deployed in the same environment are deployed in the same virtual network and write logs to the same *Log Analytics* workspace.
 
 Azure Log Analytics is used to monitor your container app and is required when creating a Container Apps environment.
 
@@ -21,9 +21,9 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
 - **RESOURCE_GROUP**: the Azure resource group which will contain your container apps environment
-- **LOCATION**: the Azure region in which will be deployed your apps. During the preview, North US, North Europe and Canada are the only supported regions
+- **LOCATION**: the Azure region in which will be deployed your apps. During the preview, North US, North Europe, and Canada are the only supported regions
 - **LOG_ANALYTICS_WORKSPACE**: the name of the logs analytics workspace
-- **CONTAINERAPPS_ENVIRONMENT**: the name of the containerapps environment.
+- **CONTAINERAPPS_ENVIRONMENT**: the name of the **container apps** environment.
 
 With these variables defined, you can create a resource group to organize the services related to your new container app.
 
@@ -76,6 +76,6 @@ az containerapp env create \
   --location "$LOCATION"
 ```
 
-> You may receive an error message telling that features are not allowed for subscription. It means that containers apps is not available for the selection region.
+> You may receive an error message telling that features are not allowed for this subscription. It means that the service Azure Container Apps is not available for the selected region.
 
 Once the environment is created, it is time to deploy applications.
