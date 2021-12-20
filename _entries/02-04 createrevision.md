@@ -36,7 +36,7 @@ Then click on "Add" in order to pull the new image that will be used to create t
   
 {% endcollapsible %}
 
-Once your new revision is provisioned, you can split the traffic between them.
+Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal.
 
 > Note that new revisions remain active until you deactivate them, or you set your container app to automatically deactivate old revisions.
 
