@@ -5,7 +5,7 @@ title: Conclusion
 parent-id: lab-1
 ---
 
-With this first lab you learned the core concept of Azure container apps and its management.
+With this first lab you learned the main concepts of Azure container apps and its management.
 
 In azure container apps, individual container apps are deployed to a single Container Apps environment, which acts as a secure boundary around groups of container apps. Container Apps in the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 Azure Container Apps manages the details of Kubernetes and container orchestrations for you. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice.
