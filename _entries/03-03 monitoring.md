@@ -7,11 +7,11 @@ parent-id: lab-2
 
 #### Observability
 
-Observability is critical for any application. To ensure that everything is fine but also to detect/anticipate any issue on the platform, you should be able to see from one place, whatever happens on your solution.
+Observability is critical for any application. To ensure that everything is fine but also to detect/anticipate any issue on the platform, you should be able to have a 360° view.
 
 #### Testing the app
 
-We already know that components have been deployed successfully but are they fully working ? To check the platform, several visual tests can be done. Start by opening the Reddog frontend `UI` portal in a browser.
+We already know that components have been deployed successfully but are they fully working? To check the platform, several visual tests can be done. Start by opening the Reddog frontend `UI` portal in a browser.
 
 {% collapsible %}
 
@@ -25,7 +25,7 @@ Copy the URL in any browser to discover a nice dynamic dashboard :
 
 ![Running application](/media/lab2/monitor/running-app.png)
 
-> Did you notice the delay for the page to be displayed the first time ? It is caused by the fact that the running containers are removed when the platform is not used. You are going to see that in details further in this workshop.
+> Did you notice the delay for the page to be displayed the first time? It is caused by the fact that the running containers are removed when the platform is not used. You are going to see that in detail further in this workshop.
 
 {% endcollapsible %}
 
@@ -33,7 +33,7 @@ Copy the URL in any browser to discover a nice dynamic dashboard :
 
 Metrics are important but it is also important to be able to get the logs of the application to be able to debug or understand any misbehavior.
 
-In Azure Container Apps, logging agents are able to capture all stdout/stderror messages sent by containers. Then the messages are pushed to Azure Log Analytics, allowing you to have in one place, without any specific tooling, all logging in one place.
+In Azure Container Apps, logging agents are capable of capturing all *stdout/stderror* messages sent by containers. The messages are then pushed to Azure Log Analytics, allowing you to have in one place, without any specific tooling, all logging in one place.
 
 Try to retrieve the logs on the `UI` container. You can do it using command line or through the portal
 
@@ -59,7 +59,7 @@ az monitor log-analytics query \
   --out table
 ```
 
-Here, the query is more complex to select the columns to diplay and the number of lines we want to return.
+Here, the query is more complex to select the columns to display and the number of lines we want to return.
 
 ![Get Logs using CLI](/media/lab2/monitor/logs-cli.png)
 
@@ -71,9 +71,9 @@ That's it. No need to install specific monitoring tool (i.e. Prometheus) nor nee
 
 Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your live applications. It will automatically detect performance anomalies, and includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.
 
-Lucky for us, Application Insights has been automatically deployed and uses the metrics/logs stored automatically in Log Analytics by Azure Container Apps. As you can see if you dig a little big, Application Insights can help to see metrics, erros, users flow and so much more.
+Lucky for us, Application Insights has been automatically deployed and uses the metrics/logs stored automatically in Log Analytics by Azure Container Apps. As you can see, if you dig a little big, Application Insights can help to see metrics, errors, users flow, and so much more.
 
-Start by opening Application Insights and watch main metrics of the platform.
+Start by opening Application Insights and watch the main metrics of the platform.
 
 {% collapsible %}
 
@@ -91,7 +91,7 @@ Another way to get the health of your platform is to use the "magic map" feature
 
 {% collapsible %}
 
-On the left part, open the `Application Map` menu. From the logs only, it is capable of drawing a map of your microservices platform, showing interactions between components, average performance and even failure rates when error happen.
+On the left part, open the `Application Map` menu. From the logs only, it is capable of drawing a map of your microservices platform, showing interactions between components, average performance and even failure rates when an error occurs.
 
 ![App Insights - application map](/media/lab2/monitor/logs-app-insights-maps.png)
 
@@ -100,7 +100,8 @@ On the left part, open the `Application Map` menu. From the logs only, it is cap
 Use the map to quickly get the logs of a specific micro-service, for instance, the receipts generator service:
 
 {% collapsible %}
-On the map, click on one micro-services, then in the side panel which opens, click on "View logs".
+
+On the map, click on one micro-services, then in the side panel which opens, click on `View logs`.
 
 ![App Insights - get logs](/media/lab2/monitor/logs-app-insights-logs-app.png)
 
