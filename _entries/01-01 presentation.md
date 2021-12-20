@@ -5,6 +5,11 @@ title: Discover
 parent-id: intro
 ---
 
+Azure Container Apps is a new serverless container platform for applications that need to scale on demand in response to HTTPS requests, events, or simply run as always-on services or background job processing without managing VMs, orchestrators, or other cloud infrastructure. Azure Container Apps makes it easy to manage your containerized applications with built-in autoscaling, traffic routing, application lifecycle management, and service-to-service communication in a fully managed environment.
+ 
+While App Service, Functions, and Logic Apps provide application developers with fully-managed, high-productivity solutions for domain-specific problems, customers have to drop out of the fully-managed world and fall back to Kubernetes for full microservice applications or to run general purpose container applications. Azure container Apps fills this gap and rounds out the Azure application platform by providing high-level APIs for the most common container application scenarios, including auto-scaling, version management, application upgrades, and service-to-service communication in a fully managed environment.
+
+
 [Azure Containers Apps](https://docs.microsoft.com/en-us/azure/container-apps) enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
 
 - Deploying API endpoints
