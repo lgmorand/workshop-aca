@@ -8,7 +8,7 @@ parent-id: lab-1
 
 ### Create your first app
 
-Let's create and deploy your first hello-world application with the command `az containerapp create` which is documented [here](https://docs.microsoft.com/fr-fr/cli/azure/container). You can use a ready-to-use container image such as `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
+Let's create and deploy your first hello-world application with the command `az containerapp create` which is documented [here](https://docs.microsoft.com/fr-fr/cli/azure/container). We will use a ready-to-use container image, the `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
 
 > Use `az containerapp --help` to discover the different available parameters
 
