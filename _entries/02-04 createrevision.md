@@ -38,7 +38,7 @@ You can then decide to either edit the existing container image definition or ad
   
 {% endcollapsible %}
 
-Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal.
+Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal. Hitting the endpoint will result serving one of the revision depending of the probability and ponderation put in place. 
 
 > Note that new revisions remain active until you deactivate them, or you set your container app to automatically deactivate old revisions.
 
