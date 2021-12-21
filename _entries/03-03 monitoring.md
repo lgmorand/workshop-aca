@@ -15,7 +15,7 @@ We already know that components have been deployed successfully but are they ful
 
 {% collapsible %}
 
-Remember the architecture schema of the Reddog platform. The frontend is the `UI` Container App which is exposed **internally** and thus not reachable outside the (managed) kubernetes cluster. In front on the `UI` is the `Traeffik` ingress controller which is the `Reddog` Container App, exposed publically (Internet).
+Remember the architecture schema of the Reddog platform. The frontend is the `UI` Container App which is exposed **internally** and thus not reachable outside the (managed) kubernetes cluster. In front of the `UI` is the `Traeffik` ingress controller which is the `Reddog` Container App, exposed publically (Internet).
 
 To find the URL of the portal, in the Azure Container App environment, open the `Reddog` Container App. In the overview tab, you should find the generated FQDN URL.
 
@@ -31,11 +31,11 @@ Copy the URL in any browser to discover a nice dynamic dashboard :
 
 ##### Get Logs
 
-Metrics are important but it is also important to be able to get the logs of the application to be able to debug or understand any misbehavior.
+Metrics are important, but it is also important to be able to get the logs of the application to be able to debug or understand any misbehavior.
 
 In Azure Container Apps, logging agents are capable of capturing all *stdout/stderror* messages sent by containers. The messages are then pushed to Azure Log Analytics, allowing you to have in one place, without any specific tooling, all logging in one place.
 
-Try to retrieve the logs on the `UI` container. You can do it using command line or through the portal
+Try to retrieve the logs on the `UI` container. You can do it using command-line or through the portal
 
 {% collapsible %}
 
