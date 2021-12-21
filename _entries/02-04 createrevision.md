@@ -28,11 +28,11 @@ Once this new revision is provisionned we will configure an even split of the tr
 
 {% collapsible %}
 Go to the revisions management blade on the left inside of the apps panel.
-Click on "Create a new revisions"
+Click on `Create a new revision`
 
 ![Revision soluce](/media/lab1/addrevision.png)
 
-Then click on "Add" in order to pull the new image that will be used to create the new revision.
+You can then decide to either edit the existing container image definition or add a new one (but then, don't forget to delete the existing one or your deployment may fail!). Click on `Add` in order to pull the new image that will be used to create the new revision.
 
 ![Revision soluce](/media/lab1/addrevision1.png)
   
