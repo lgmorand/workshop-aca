@@ -34,11 +34,12 @@ az ad sp create-for-rbac \
   The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `cliendId`, and `clientSecret`.
   {% endcollapsible %}
 
-Once those values retrieve you'll have to [create](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal#:~:text=%20Quickstart%3A%20Create%20an%20Azure%20container%20registry%20using,must%20log%20in%20to%20the%20registry...%20More%20) an Azure container registry being able to host the newly created containers.
+Once those values retrieve you will have to [create an Azure container registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal#:~:text=%20Quickstart%3A%20Create%20an%20Azure%20container%20registry%20using,must%20log%20in%20to%20the%20registry...%20More%20) being able to host the newly created containers.
 
-> This registry has to have the Admin User enabled for to work.
+> This registry has to have the *Admin User* enabled, or the integration with ACA won't work.
 
 {% collapsible %}
+
 Open your registry and under the `Access keys` panel, click on `Enabled` to enable the user admin. Or use:
 
 ``` bash
@@ -47,11 +48,11 @@ az acr update -n <acrName> --admin-enabled true
 
 {% endcollapsible %}
 
-Once this is configured you can move forward by attaching your GitHub repo to the revision.
+Once configured, you can move forward by attaching your GitHub repo to the revision.
 
 ![Github Action](/media/lab1/githubattach.png)
 
-Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It host a yaml file that will allow the triggering of an automatic GitHub Action tht will deploy any changes pushed onto the branch. It will also automatically setup some secrets on your application in order to store the Admin logon to reach out to the Container Registry. We will see later on this lab how to manage those secrets.
+Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It hosts a YAML file that will allow the triggering of an automatic GitHub Action that will deploy any changes pushed onto the branch. It will also automatically setup some secrets on your application to store the admin's login to reach out to the Container Registry. We will see later in this lab how to manage those secrets.
 
 ![Secret ACR](/media/lab1/secretacr.png)
 
@@ -71,29 +72,29 @@ Let's test that out!
 
 ## Putting everything together
 
-Open your project within VS Code (or your favorite IDE). You should see that the `.github/workflows` has been added. If it's not the case synchronyze the change that has been made onto the project (git pull request).
+Open your project within VS Code (or your favorite IDE). You should see that the `.github/workflows` has been added. If it's not the case, synchronize the change that has been made onto the project (git pull request).
 
-Now you can modify the source code of the Hello World container that we're using since the begining. For example, you could change the text above the logo under the `index.html` file.
+Now you can modify the source code of the Hello World container that we are using since the beginning. For example, you could change the text above the logo under the `index.html` file.
 
-Once the change are commited you can go to your GitHub repos to see the GitHub Action occuring:
+Once the change are commited you can go to your GitHub repos to see the GitHub Action occurring:
 
 ![Github Action process](/media/lab1/action.png)
 
-As you can see, pushing the changes (commit) automaticaly triggered a GitHub Action workflow that built and deployed our new container into our registry and then on our container apps under a new revision. You can validate it by going under the revision management panel and see your newly provisionned revision.
+As you can see, pushing the changes (commit) automatically triggered a GitHub Action workflow that built and deployed our new container into our registry and then on our container apps under a new revision. You can validate it by going under the revision management panel and see your newly provisioned revision.
 
 ![Github Action process](/media/lab1/revisionaction.png)
 
-As you can see the revision is not loadbalanced yet meaning that none of the traffic is routed to it. Supporting multiple revisions in Azure Container Apps allows you to manage the versioning and amount of traffic sent to each revision.
+As you can see the revision is not loadbalanced yet, meaning that none of the traffic is routed to it. Supporting multiple revisions in Azure Container Apps allows you to manage the versioning and amount of traffic sent to each revision.
 
-Once the some (or all) of the traffic is sent to your app you can test that the newly version of your application is running correctly.
+Once a part (or all) of the traffic is sent to your app, you can test that the newly version of your application is running correctly.
 
 ![Github Action process](/media/lab1/actionval.png)
 
-All of this can be configure as needed. Indeed, you can change whether or not your container app supports multiple active revisions. The `activeRevisionsMode`property accepting two values:
+All of this can be configured as needed. Indeed, you can change whether or not your container app supports multiple active revisions. The `activeRevisionsMode` property accepting two values:
 
 - multiple: Configures the container app to allow more than one active revision.
 - single: Automatically deactivates all other revisions when a revision is activated.
 
 Enabling single mode makes it so that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated.
 
-You could also manage the different aspect of a revision using the [`az containerapp revision`](https://docs.microsoft.com/en-us/azure/container-apps/revisions-manage?tabs=bash#list) command.
+You could also manage the different aspects of a revision using the [`az containerapp revision`](https://docs.microsoft.com/en-us/azure/container-apps/revisions-manage?tabs=bash#list) command.
