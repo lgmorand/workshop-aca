@@ -20,6 +20,8 @@ The following diagram shows a container app with two revisions.
 
 ### Create your first revision
 
+> Do not use any suffixes on your revisions as it may provoke some [internal issue](https://github.com/microsoft/azure-container-apps/issues/37). 
+
 Let's create and deploy a new version of the Hello World application with a different layout. To do so, you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`.
 
 Once this new revision is provisionned we will configure an even split of the traffic between the two revisions applied by assigning percentage values. You can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
@@ -36,7 +38,7 @@ You can then decide to either edit the existing container image definition or ad
   
 {% endcollapsible %}
 
-Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal.
+Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal. Hitting the endpoint will result serving one of the revision depending on the chosen ponderation (in %).
 
 > Note that new revisions remain active until you deactivate them, or you set your container app to automatically deactivate old revisions.
 
