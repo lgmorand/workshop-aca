@@ -11,7 +11,7 @@ Now that you successfully deployed a simple application, let's see how Azure Con
 - Service discovery
 - Native Dapr integration
 
-[Red Dog](github.com/azure/reddog-code) application is a simplified e-shop application with customers making orders and these orders being processed by workers. In parallel, orders, receipts, and accounting are stored in different persistent systems. The e-commerce platform does not contain any UI except a dashboard to monitor the orders.
+[Red Dog](https://github.com/azure/reddog-code) application is a simplified e-shop application with customers making orders and these orders being processed by workers. In parallel, orders, receipts, and accounting are stored in different persistent systems. The e-commerce platform does not contain any UI except a dashboard to monitor the orders.
 
 ![The Red Dog application](/media/lab2/intro/reddog_code.png)
 
