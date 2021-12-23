@@ -12,5 +12,5 @@ The following people have contributed to this workshop, thanks!
 
 The workshop relies on the work done by others:
 
-- github.com/azure/reddog-code/
-- github.com/azure/reddog-containerapps/
+- [https://github.com/azure/reddog-code/]([https://github.com/azure/reddog-code/)
+- [https://github.com/azure/reddog-containerapps](https://github.com/azure/reddog-containerapps/)
