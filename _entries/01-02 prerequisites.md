@@ -13,7 +13,6 @@ In order to realize the workshop, you will require several components. If you do
 - an Azure subscription (one per user*)
 - a GitHub Account
 - VS Code or equivalent
-- a brain
 
 ### Azure subscription
 

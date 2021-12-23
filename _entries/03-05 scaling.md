@@ -93,7 +93,7 @@ You need to create a file containing the endpoints to call. The endpoint is the 
 Create a file named target.txt and copy the URL of your application.
 
 ``` txt
-GET 
+GET https://url-public-endpoint-of-reddog-app
 ```
 
 {% endcollapsible %}
