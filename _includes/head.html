@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+<title>{{ site.name }}</title>
+<meta name="viewport" content="width=device-width">
+<meta name="author" content="{{ site.author }}">
+<link rel="stylesheet" href="css/main.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' rel='stylesheet' type='text/css'>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/github-markdown.css">
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script type="text/javascript">
+  function loadJS(url, implementationCode, location){
+    var scriptTag = document.createElement('script');
+    scriptTag.src = url;
+
+    scriptTag.onload = implementationCode;
+    scriptTag.onreadystatechange = implementationCode;
+
+    location.appendChild(scriptTag);
+  }
+
+  function d() {
+    var config = {
+      useDefaultContentName: true,
+      useBeacon: true,
+      useShortNameForContentBlob: true,
+      debounceMs: {
+          scroll: 300,
+          resize: 3000
+      },
+      autoCapture: {
+          pageView: true,
+          scroll: true,
+          lineage: true
+      },
+      coreData: {
+          appId: "AROWorkshop"
+      }
+    };
+    awa.init(config);
+  }
+
+  </script>

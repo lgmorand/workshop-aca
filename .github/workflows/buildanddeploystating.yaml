@@ -1,0 +1,36 @@
+name: Build and deploy on staging
+
+on:
+  push:
+    branches:
+      - staging
+      - init
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.6'
+
+    - run: gem update --system
+
+    - run: gem install jekyll 
+
+    - run: jekyll build
+ 
+    - uses: actions/upload-artifact@v1
+      with:
+        name: aca-workshop
+        path: _site
+ 
+    - uses: tibor19/static-website-deploy@v1
+      with:
+        enabled-static-website: 'true'
+        folder: '_site'
+        connection-string: ${{ secrets.CONNECTION_STRING_STAGING }}
