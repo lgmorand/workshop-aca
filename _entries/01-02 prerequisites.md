@@ -31,7 +31,7 @@ az login
 
 {% endcollapsible %}
 
-\* Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present during the public preview. For instance, this workshop require two Azure Container Apps environments and there is a limit of 2 env per subscription.
+> Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present during the public preview. For instance, this workshop require two Azure Container Apps environments and there is a limit of 2 env per subscription.
 
 | Feature | Quantity |
 |---|---|
@@ -73,7 +73,7 @@ You should now have access to the Azure Cloud Shell
 
 #### Azure CLI
 
-Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version 2.30 or superior)
+Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version 2.34 or superior)
 
 ##### Setup
 
@@ -93,6 +93,12 @@ Once the extension is installed, register the `Microsoft.App` namespace.
 
 ``` csharp
 az provider register --namespace Microsoft.App
+```
+
+You can use the following command to check that the provider is properly registered
+
+``` csharp
+az provider show -n Microsoft.App
 ```
 
 #### GitHub

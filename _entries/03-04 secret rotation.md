@@ -7,6 +7,13 @@ parent-id: lab-2
 
 One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in while you'll have to make rotation on your key/secret/certificate for security reason (leak or just good pratice). Let's see how secrets management in done with Azure Container Apps.
 
+Azure Container Apps allows your application to securely store sensitive configuration values. Once defined at the application level, secured values are available to containers, inside scale rules, and via Dapr.
+
+- Secrets are scoped to an application, outside of any specific revision of an application.
+- Adding, removing, or changing secrets does not generate new revisions.
+- Each application revision can reference one or more secrets.
+- Multiple revisions can reference the same secret(s).
+
 ### Manage your secret
 
 In the deployed Reddog application, the container `receipt-generation-service` has two secrets to connect itself to a service bus sending receipts that he is posting onto a storage account.
@@ -40,7 +47,7 @@ Then go to the `Secrets` blade of the container app panel in order to edit the o
 
 {% endcollapsible %}
 
-> Note that this change is an application-scope change that won't recreate a revision. Having said that, the revision has to be restarted in order to propagate the new value of the key. This should be automatically done by saving the changes made to the key. However, if it's not the case you'll have to restart the revision using the CLI.
+> Note that this change is an application-scope change that won't recreate a revision. Having said that, the revision has to be restarted (or a new one has to be deployed) in order to propagate the new value of the key. This should be automatically done by saving the changes made to the key. However, if it's not the case you'll have to restart the revision using the CLI.
 
 {% collapsible %}
 

@@ -11,7 +11,7 @@ The Red Dog application is based on containerized services and Azure PaaS servic
 
 ![Micro-services architecture](/media/lab2/deploy/reddog_containerapps.png)
 
-Start by [forking](https://github.com/Azure/reddog-containerapps/fork) the [repo](https://github.com/Azure/reddog-containerapps) to have your copy on your GitHub account.
+Start by [forking](https://github.com/Azure/reddog-containerapps/fork) the [dedicated repository (azure/reddog-containerapps)](https://github.com/Azure/reddog-containerapps) to have your copy on your GitHub account.
 
 Once the repo has been forked, clone the repository on your local computer.
 
