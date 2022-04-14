@@ -8,7 +8,7 @@ parent-id: intro
 
 ### Prerequisites
 
-In order to realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
+To realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
 
 - an Azure subscription (one per user*)
 - a GitHub Account
@@ -86,13 +86,13 @@ az login
 Next, install the Azure Container Apps extension to the CLI.
 
 ``` csharp
-az extension add  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+az extension add --name containerapp
 ```
 
-Now that the extension is installed, register the `Microsoft.Web` namespace.
+Once the extension is installed, register the `Microsoft.App` namespace.
 
 ``` csharp
-az provider register --namespace Microsoft.Web
+az provider register --namespace Microsoft.App
 ```
 
 #### GitHub
