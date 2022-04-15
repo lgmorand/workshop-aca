@@ -35,6 +35,19 @@ Metrics are important, but it is also important to be able to get the logs of th
 
 In Azure Container Apps, logging agents are capable of capturing all *stdout/stderror* messages sent by containers. The messages are then pushed to Azure Log Analytics, allowing you to have in one place, without any specific tooling, all logging in one place.
 
+As a message is logged, the following information is gathered in the log table:
+
+| Property | Remarks |
+|---|---|
+| `RevisionName` | |
+| `ContainerAppName` | |
+| `ContainerGroupID` | |
+| `ContainerGroupName` | |
+| `ContainerImage` | |
+| `ContainerID` | The container's unique identifier. You can use this value to help identify container crashes. |
+| `Stream` | Shows whether `stdout` or `stderr` is used for logging. |
+| `EnvironmentName` | |
+
 Try to retrieve the logs on the `UI` container. You can do it using command-line or through the portal
 
 {% collapsible %}
