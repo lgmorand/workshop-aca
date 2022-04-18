@@ -20,7 +20,7 @@ The following diagram shows a container app with two revisions.
 
 ### Create your first revision
 
-> Do not use any suffixes on your revisions as it may provoke some [internal issue](https://github.com/microsoft/azure-container-apps/issues/37). 
+> Do not use any suffixes on your revisions as it may provoke some [internal issue](https://github.com/microsoft/azure-container-apps/issues/37).
 
 Let's create and deploy a new version of the Hello World application with a different layout. To do so, you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`.
 

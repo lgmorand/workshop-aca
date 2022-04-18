@@ -25,8 +25,8 @@ Please use your username and password to login to <https://portal.azure.com>.
 Also, please authenticate your Azure CLI by running the command below on your machine and following the instructions.
 
 ``` bash
-az account show
 az login
+az account show
 ```
 
 {% endcollapsible %}
