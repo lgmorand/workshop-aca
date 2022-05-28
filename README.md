@@ -1,8 +1,8 @@
-# Workshop Azure Containers Apps
+# Workshop Azure Container Apps
 
 > This workshop is **NOT** an official resource from product group. They are currently working on dedicated and up to date content. This workshop was built to fit the gap and may not be up to date with the very last features of Azure Container Apps
 
-This workshop is a 2-3 hours workshop to learn how to use Azure Containers Apps. The workshop is accessible at the following address : [https://aka.ms/aca-workshop](https://aka.ms/aca-workshop) and its objective is to make you manipulate all main features of Containers Apps, such as deployment, scaling, monitoring, revisions, etc.
+This workshop is a 2-3 hours workshop to learn how to use Azure Container Apps. The workshop is accessible at the following address : [https://aka.ms/aca-workshop](https://aka.ms/aca-workshop) and its objective is to make you manipulate all main features of Containers Apps, such as deployment, scaling, monitoring, revisions, etc.
 
 ## Technology used
 
