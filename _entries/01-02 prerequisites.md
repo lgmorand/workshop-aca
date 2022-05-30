@@ -73,7 +73,7 @@ You should now have access to the Azure Cloud Shell
 
 #### Azure CLI
 
-Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version **2.34** or superior)
+Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version **2.37** or superior)
 
 ##### Setup
 

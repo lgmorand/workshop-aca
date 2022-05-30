@@ -14,19 +14,19 @@ The following diagram shows a container app with two revisions.
 ![Revision App](/media/lab1/revisionpond.png)
 
 > Note that changes made to a container app fall under one of two categories: revision-scope and application-scope changes:
-
-- Revision-scope changes are any change that triggers a new revision (e.g: changes to containers, add or update scaling rules, changes to Dapr settings, etc.)
-- Application-scope changes don't create revisions (e.g: changes to traffic splitting rules, turning ingress on or off, changes to secret values, etc.)
+`Revision-scope` changes are any change that triggers a new revision (e.g: changes to containers, add or update scaling rules, changes to Dapr settings, etc.)
+`Application-scope` changes don't create revisions (e.g: changes to traffic splitting rules, turning ingress on or off, changes to secret values, etc.)
 
 ### Create your first revision
 
 > Do not use any suffixes on your revisions as it may provoke some [internal issue](https://github.com/microsoft/azure-container-apps/issues/37).
 
-Let's create and deploy a new version of the Hello World application with a different layout. To do so, you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`.
+Let's create and deploy a new version of the Hello World application with a different layout. To do so, you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`. (yes, there is a typo)
 
 Once this new revision is provisionned we will configure an even split of the traffic between the two revisions applied by assigning percentage values. You can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
 
 {% collapsible %}
+
 Go to the revisions management blade on the left inside of the apps panel.
 Click on `Create a new revision`
 
@@ -40,7 +40,7 @@ You can then decide to either edit the existing container image definition or ad
 
 Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal. Hitting the endpoint will result serving one of the revision depending on the chosen ponderation (in %).
 
-> Note that new revisions remain active until you deactivate them, or you set your container app to automatically deactivate old revisions.
+> Note that new revisions may remain active until you deactivate them, or you have to your container app to automatically deactivate old revisions (called `single revision mode`).
 
 - Inactive revisions remain as a snapshot record of your container app in a certain state.
 - You are not charged for inactive revisions.
@@ -66,4 +66,4 @@ az containerapp revision show \
 
 {% endcollapsible %}
 
-That's how you can configure revision to be able to have A/B testing scenario or blue-green deployment scenario.  
+You may want to play with the `revision mode` and set it up on "multi". This way, you can have multiple revisions at the same time, which is commonly used for A/B testing or blue-green scenarios.

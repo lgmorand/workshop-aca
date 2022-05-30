@@ -33,11 +33,11 @@ In our case, the `create` command returns (only) the container app's fully quali
 
 {% endcollapsible %}
 
-Copy this location to a web browser to see the following message.
+Copy this URL to a web browser to see the following message.
 
 ![Running app](/media/lab1/running-app.png)
 
-Open the [Azure Portal](https://portal.azure.com). In your resource group, you should see your Containers apps environment but also your container app. Click on it.
+Open the [Azure Portal](https://portal.azure.com). In your resource group, you should see your container apps environment but also your container app. Click on it.
 From here, you can directly see, diagnose or reconfigure your application, such as changing the ingress configuration, the secrets, the load balancing, or the continuous deployment:
 
 ![App in Azure](/media/lab1/created-app-in-azure.png)
