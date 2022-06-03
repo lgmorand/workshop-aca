@@ -21,8 +21,6 @@ Browse the contents of the repository. The most interesting part is the "deploy/
 
 To deploy the full environment, you just need to execute the script **deploy.sh**. To do so, open a terminal, log in to Azure and execute the script. Be sure to have [installed Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) first.
 
-{% collapsible %}
-
 Execute the script but first check if the script requires variables or parameters.
 
 {% collapsible %}
