@@ -5,9 +5,9 @@ title: Continuous Deployment
 parent-id: lab-1
 ---
 
-Azure Container Apps allows you to use GitHub Actions to publish revisions to your container app. As commits are pushed to your GitHub repository, a GitHub Action is triggered which updates the container image in the container registry. Once the container is updated in the registry, Azure Container Apps creates a new revision based on the updated container image.
+Azure Container Apps allows you to use GitHub Actions to publish revisions to your container app. As commits are pushed to your GitHub repository, a GitHub Action workflow is triggered which updates the container image in the container registry. Once the container is updated in the registry, the workflow creates a new revision within Azure Container Apps based on the updated container image.
 
-The GitHub action is triggered by commits to a specific branch in your repository. When creating the integration link, you decide which branch triggers the action.
+The GitHub action is triggered by commits to a specific branch in your repository. When creating the integration link, you can decide which branch triggers the action.
 
 ![Github Action](/media/lab1/githubactionflow.png)
 
@@ -32,11 +32,12 @@ az ad sp create-for-rbac \
   ```
 
   The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `cliendId`, and `clientSecret`.
+
   {% endcollapsible %}
 
-Once those values retrieve you will have to [create an Azure container registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal#:~:text=%20Quickstart%3A%20Create%20an%20Azure%20container%20registry%20using,must%20log%20in%20to%20the%20registry...%20More%20) being able to host the newly created containers.
+Once those values retrieved, you will have to [create an Azure container registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) being able to host the newly created containers.
 
-> This registry has to have the *Admin User* enabled, or the integration with ACA won't work.
+> This registry must have the *Admin User* enabled, or the integration with ACA won't work.
 
 {% collapsible %}
 

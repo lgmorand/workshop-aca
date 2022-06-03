@@ -8,11 +8,13 @@ parent-id: intro
 
 ### Prerequisites
 
-In order to realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
+To realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
 
-- an Azure subscription (one per user*)
 - a GitHub Account
 - VS Code or equivalent
+- an Azure subscription (and at least a dedicated resource group).
+
+> Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present for the moment. If you plan to play this workshop in group, you may require to create several subscriptions.
 
 ### Azure subscription
 
@@ -25,13 +27,11 @@ Please use your username and password to login to <https://portal.azure.com>.
 Also, please authenticate your Azure CLI by running the command below on your machine and following the instructions.
 
 ``` bash
-az account show
 az login
+az account show
 ```
 
 {% endcollapsible %}
-
-\* Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present during the public preview. For instance, this workshop require two Azure Container Apps environments and there is a limit of 2 env per subscription.
 
 | Feature | Quantity |
 |---|---|
@@ -43,7 +43,7 @@ az login
 
 ### Tools
 
-During this workshop you are going to use command line, but most of the actions may be doable using Azure Portal. Nevertheless, since the feature is in preview, the portal may not be up to date to allow all commands or parameters.
+During this workshop you are going to use command line, but most of the actions may be doable using Azure Portal. 
 
 #### Azure Cloud Shell
 
@@ -73,7 +73,7 @@ You should now have access to the Azure Cloud Shell
 
 #### Azure CLI
 
-Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version 2.30 or superior)
+Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version **2.37** or superior)
 
 ##### Setup
 
@@ -86,13 +86,25 @@ az login
 Next, install the Azure Container Apps extension to the CLI.
 
 ``` csharp
-az extension add  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+az extension add --name containerapp --upgrade
 ```
 
-Now that the extension is installed, register the `Microsoft.Web` namespace.
+Once the extension is installed, register the `Microsoft.App` namespace.
 
 ``` csharp
-az provider register --namespace Microsoft.Web
+az provider register --namespace Microsoft.App
+```
+
+You can use the following command to check that the provider is properly registered
+
+``` csharp
+az provider show -n Microsoft.App
+```
+
+Register the Microsoft.OperationalInsights provider for the [Azure Monitor Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/container-apps/observability?tabs=bash#azure-monitor-log-analytics) if you have not used it before.
+
+``` csharp
+az provider register --namespace Microsoft.OperationalInsights
 ```
 
 #### GitHub

@@ -1,5 +1,5 @@
 full_rebuild: true
-name: "Azure Containers Apps Workshop"
+name: "Azure Container Apps Workshop"
 tracking: "acaworkshop"
 author: Microsoft
 encoding: utf-8
