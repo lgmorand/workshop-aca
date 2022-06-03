@@ -124,4 +124,4 @@ It should open Logs analytics and automatically generate for you the query which
 
 {% endcollapsible %}
 
-It's just the overview of observability but it shows how well integrated monitoring is within Azure Container Apps.
+It's just the overview of observability but it shows how well  monitoring is integrated within Azure Container Apps.
