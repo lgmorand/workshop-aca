@@ -14,7 +14,7 @@ To realize the workshop, you will require several components. If you don't have 
 - VS Code or equivalent
 - an Azure subscription (and at least a dedicated resource group).
 
-> Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present for the moment. If you plan to play this workshop in group, you may require to create several subscriptions.
+> Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present for the moment. If you plan to play this workshop with a large group of individuals, you may require to create several subscriptions.
 
 ### Azure subscription
 
@@ -31,19 +31,13 @@ az login
 az account show
 ```
 
-{% endcollapsible %}
+> If you don't have the Azure CLI installed, read below how to install it or how to use Azure Cloud Shell
 
-| Feature | Quantity |
-|---|---|
-| Environments | 2 |
-| Container apps per environment | 20 |
-| Replicas per container app | 25 |
-| Cores per replica | 2 |
-| Cores per environment | 50 |
+{% endcollapsible %}
 
 ### Tools
 
-During this workshop you are going to use command line, but most of the actions may be doable using Azure Portal. 
+During this workshop you are going to use command line, but most of the actions may be doable using Azure Portal.
 
 #### Azure Cloud Shell
 
