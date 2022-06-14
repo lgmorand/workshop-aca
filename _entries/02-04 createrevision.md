@@ -59,8 +59,7 @@ az containerapp revision list \
 
 ``` bash
 az containerapp revision show \
-  --name <REVISION_NAME> \
-  --app <CONTAINER_APP_NAME> \
+  --revision <REVISION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
