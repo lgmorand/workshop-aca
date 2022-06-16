@@ -1,7 +1,7 @@
 ---
 sectionid: lab3-intro
 sectionclass: h2
-title: Context
+title: Introduction
 parent-id: lab-3
 ---
 

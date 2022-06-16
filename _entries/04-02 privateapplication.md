@@ -1,7 +1,7 @@
 ---
 sectionid: lab3-privateapp
 sectionclass: h2
-title: Context
+title: Private Application
 parent-id: lab-3
 ---
 
