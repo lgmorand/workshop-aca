@@ -14,3 +14,4 @@ The workshop relies on the great work done by others:
 
 - [https://github.com/azure/reddog-code/]([https://github.com/azure/reddog-code/)
 - [https://github.com/azure/reddog-containerapps](https://github.com/azure/reddog-containerapps/)
+- [https://github.com/zlatko-ms/az-capps-private](https://github.com/zlatko-ms/az-capps-private)

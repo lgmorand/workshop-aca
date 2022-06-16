@@ -5,8 +5,6 @@ title: Private Application
 parent-id: lab-3
 ---
 
-## Deploying the new applications 
-
 To demonstrate the private communication of Azure container app we will use a simple demonstrater composed of two container app environment communicating in private over your network architecture. 
 
  ![Architecture](/media/lab3/architecture.png)
@@ -18,7 +16,7 @@ The application exposes an ingress through the environment ingress static IP. In
 
 > Reaching the ILB behind the ingress with the IP address will not work as the hostname is used to route the traffic to the correct application within the environment. We need to set up a private DNS zone with a wildcard ('*') A record pointing to the environment ingress static IP. The wildcard is justified by the fact that a given environment can have several applications, each with its own ingress, served from the same Internal Load Balancer.
 
-Client service
+Client service:
 The client environment hosts the [greeter](https://github.com/zlatko-ms/pgreeter) application, a python script that performs periodical HTTP GET requests to the backend. The environment is injected in a specific subnet and connected to the same Log Analytics workspace to provide diagnostic settings and log centralization.
 
 This Greeter application does not provide any ingress, so there is no need to set up a DNS zone for this environment.
@@ -38,6 +36,8 @@ Browse the contents of the repository. The main.bicep is providing the definitio
 > - 172.30.0.0/16
 > - 172.31.0.0/16
 > - 192.0.2.0/24)
+
+## Deploying the new applications 
 
 To deploy the full environment, you need to execute the **make** command on the src/bicep repository. 
 
@@ -59,9 +59,21 @@ make stackName=<myRGName> location=<myAzureRegion>
 {% endcollapsible %}
 
 Once deployed you'll see 3 differents resource group. One containing your appication resources:
+
  ![Architecture](/media/lab3/basicrg.png)
 
  But also the two MC_ resources group containing the infrastructure components managed by the Azure Container Apps platform and that shouldn't be modified. As you can see those resource groups hosts the Kubernetes component that host the container app services. 
+
   ![Architecture](/media/lab3/mcrg.png)
 
 ## Testing the application
+
+To validate that the two container apps are communicating together correctly, go to the log stream panel. On the greeter application you should see the application awaking every 10 second and colling the helloer application:
+
+ ![Architecture](/media/lab3/greeterlogstream.png)
+
+On the helloer log stream you're seing the incoming request from the greeter. 
+
+![Architecture](/media/lab3/helloerlogstream.png)
+
+As you can see the trace is showing that the helloer is receiving a greeting *rcv hello request* and is answering to the client over its private IP *sent response to client from 10.5.64.132*. It indicates the request is adressed from a client with IP 10.5.64.132, i.e. the request origins from the subnet-caenv-infra-client (10.5.64.0/20) where the caenv-client has been injected.
