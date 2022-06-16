@@ -19,7 +19,15 @@ The following diagram shows a container app with two revisions.
 
 ### Create your first revision
 
-> Do not use any suffixes on your revisions as it may provoke some [internal issue](https://github.com/microsoft/azure-container-apps/issues/37).
+By default your container app is set on "single revision mode". It means that each new revision will ecrase the current revision and take all the incoming traffic. To have several revisions running at the same time you must enable the "multi-revision mode" on your containerapp. 
+
+{% collapsible %}
+
+Go to the revision management blade on the left inside of the container apps panel. At the top of the page you'll find the "choose revision mode" option where you'll be able to choose the revision mode. 
+
+![Revision soluce](/media/lab1/revisionmode.png)
+{% endcollapsible %}
+
 
 Let's create and deploy a new version of the Hello World application with a different layout. To do so, you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`. (yes, there is a typo)
 
@@ -27,7 +35,7 @@ Once this new revision is provisionned we will configure an even split of the tr
 
 {% collapsible %}
 
-Go to the revisions management blade on the left inside of the apps panel.
+Go to the revisions management blade on the left inside of the container apps panel.
 Click on `Create a new revision`
 
 ![Revision soluce](/media/lab1/addrevision.png)
