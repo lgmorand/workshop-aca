@@ -9,6 +9,7 @@ The following people have contributed to this workshop, thanks!
 
 - Louis-Guillaume MORAND (Microsoft)
 - Maxime VILLEGER (Microsoft)
+- Zlatko ARIFHODZIC (Microsoft)
 
 The workshop relies on the great work done by others:
 
