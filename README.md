@@ -2,12 +2,12 @@
 
 > This workshop is **NOT** an official resource from product group. They are currently working on dedicated and up to date content. This workshop was built to fit the gap and may not be up to date with the very last features of Azure Container Apps but we work hard to do so.
 
-This workshop is a 2-3 hours workshop to learn how to use Azure Container Apps. The workshop is accessible at the following address: [https://aka.ms/aca-workshop](https://aka.ms/aca-workshop) and its objectives are to make you manipulate all main features of Containers Apps, such as deployment, scaling, monitoring, revisions, etc.
+This workshop is a 2-3 hours workshop to learn how to use Azure Container Apps. The workshop is accessible at the following address: [https://aka.ms/aca-workshop](https://aka.ms/aca-workshop) and its objectives are to make you manipulate all main features of Containers Apps, such as deployment, scaling, monitoring, revisions, etc. You'll also cover real-life topics such as storage or security (private network).
 
 ## Technology used
 
 - The website is statically built using Jekyll and you’ll find the different pages inside the `_entries` folder
-- The website is running on an [Azure blob storage static website](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website)
+- The website is running on [Azure blob storage static website](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website)
 - You can use the makefile file if you want to create a container image
 
 ## Contributing
