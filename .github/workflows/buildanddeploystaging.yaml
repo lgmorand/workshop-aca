@@ -6,7 +6,7 @@ on:
       - staging
 
 jobs:
-  build:
+  BuildAndDeploy:
 
     runs-on: ubuntu-latest
 
