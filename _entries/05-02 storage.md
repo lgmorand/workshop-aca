@@ -1,3 +1,9 @@
+---
+sectionid: lab4-storage
+sectionclass: h2
+title: Storage
+parent-id: lab-4
+---
 
 A container app has access to different types of storage. A single app can take advantage of more than one type of storage if necessary.
 
