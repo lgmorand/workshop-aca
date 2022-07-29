@@ -55,14 +55,14 @@ az containerapp show -n <APP_NAME> -g <RESOURCE_GROUP_NAME> -o yaml > my-app.yam
 
 Make the following changes to your container app specification. It uses the same format than [volumes for kubernetes](https://kubernetes.io/fr/docs/concepts/storage/volumes/)
 
-{% collapsible %}
-
 * Add a `volumes` array to the `template` section of your container app definition and define a volume.
 * The `name` is an identifier for the volume. For instance, name it "myempty"
 * Use `EmptyDir` as the `storageType`.
 * For each container in the template that you want to mount temporary storage, add a `volumeMounts` array to the container definition and define a volume mount.
 * The `volumeName` is the name defined in the `volumes` array.
 * The `mountPath` is the path in the container to mount the volume.
+
+{% collapsible %}
 
 ```yaml
 properties:
@@ -72,9 +72,9 @@ properties:
     template:
     containers:
     - image: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
-        name: my-container
-        volumeMounts:
-        - mountPath: /myempty
+      name: my-container
+      volumeMounts:
+      - mountPath: /myempty
         volumeName: myempty
     volumes:
     - name: myempty
@@ -125,12 +125,14 @@ To enable Azure Files storage in your container, you need to set up your contain
 
 When using Azure Files, you must use the Azure CLI with a YAML definition to create or update your container app.
 
-Add a storage definition of type `AzureFile` to your Container Apps environment. You must use the command `az containerapp env storage`
+Start by creating a storage account and retrieve its access keys. Then, add a storage definition of type `AzureFile` to your Container Apps environment. You must use the command `az containerapp env storage`.
+
+> Notice: you need to use the name of the container app **environment**, not the container app itself !
   
 {% collapsible %}
 
 ```azure-cli
-az containerapp env storage set --name my-env --resource-group my-group \
+az containerapp env storage set --name <ACA_ENV> --resource-group <ENV_RESOURCE_GROUP> \
     --storage-name mystorage \
     --azure-file-account-name <STORAGE_ACCOUNT_NAME> \
     --azure-file-account-key <STORAGE_ACCOUNT_KEY> \
@@ -142,9 +144,11 @@ Replace `<STORAGE_ACCOUNT_NAME>` and `<STORAGE_ACCOUNT_KEY>` with the name and k
 
 Valid values for `--access-mode` are `ReadWrite` and `ReadOnly`.
 
-![Storage added to environment](/media/lab4/storage_added.png)
-
 {% endcollapsible %}
+
+If the command is successful, you should see something like this:
+
+![Storage added to environment](/media/lab4/storage_added.png)
 
 Like in previous part, export the YAML configuration of your app using the `az containerapp show` command.
 
