@@ -41,7 +41,7 @@ In order to set back the connection between the storage account and the `receipt
 {% collapsible %}
 
 On the storage account under the `Access key` blade copy the key value.
-Then go to the `Secrets` blade of the container app panel in order to edit the old value of the key by the newly copied one.
+Then go to the `Dapr Components` blade of the container app environment panel and edit the `reddog.binding.receipt` component to update the old `blob-storage-key` value with the newly copied one.
 
 ![Rotation Key](/media/lab2/rotation/sarot3.png)
 
@@ -53,8 +53,8 @@ Then go to the `Secrets` blade of the container app panel in order to edit the o
 
 ``` bash
 az containerapp revision restart \
-  --name <REVISION_NAME> \
-  --app <APPLICATION_NAME> \
+  --revision <REVISION_NAME> \
+  --name <APPLICATION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
