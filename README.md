@@ -1,3 +1,5 @@
+![The ACA workshop](https://github.com/lgmorand/workshop-aca/blob/main/media/facebook-banner.jpg)
+
 # Workshop Azure Container Apps
 
 > This workshop is **NOT** an official resource from product group. They are currently working on dedicated and up to date content. This workshop was built to fit the gap and may not be up to date with the very last features of Azure Container Apps but we work hard to do so.
