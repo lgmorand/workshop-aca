@@ -16,11 +16,11 @@ Azure Container Apps allows your application to securely store sensitive configu
 
 ### Manage your secret
 
-In the deployed Reddog application, the container `receipt-generation-service` has two secrets to connect itself to a service bus sending receipts that he is posting onto a storage account.
+In the deployed Reddog application, the container `receipt-generation-service` has two secrets to connect itself to a service bus sending receipts that he is posting onto a storage account. One is directly binded to the container app, the other one leverage Dapr components, to share the configuration and isolate configuration from application itself.
 
  ![The receipt secret](/media/lab2/rotation/secretrotation.png)
 
-Every second, it receives a receipt which is then saved into the blob storage account `receipts`. We will simulate a rotation of the storage account access key.
+Every second, this service receives a receipt which is then saves it into the blob storage account `receipts`. We will simulate a rotation of the storage account access key.
 
 To do so, go to the storage account in order to make the rotation of both primary and secondary keys.
 
@@ -44,6 +44,8 @@ On the storage account under the `Access key` blade copy the key value.
 Then go to the `Dapr Components` blade of the container app environment panel and edit the `reddog.binding.receipt` component to update the old `blob-storage-key` value with the newly copied one.
 
 ![Rotation Key](/media/lab2/rotation/sarot3.png)
+
+> Note that you can also add directly the secret to the container app, without using Dapr. This way, you can directly view/edit *Secrets* in the container app blade.
 
 {% endcollapsible %}
 

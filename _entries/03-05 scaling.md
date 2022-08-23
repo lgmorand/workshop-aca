@@ -26,8 +26,6 @@ In Container Apps, scalability is managed through the revisions. Each revision c
 
 In our case, the UI app has a min limit equals to 0, a max limit of 10, and no autoscaling rules.
 
-> During the preview, the max numbers of replicas per revision is 25 but the Azure Web Portal only allows to specify 10 at the moment. Use the CLI if you need more than 10 replicas.
-
 ![UI Default scaling](/media/lab2/scale/ui-default-scaling.png)
 
 Let's create a new revision with a new scaling rule. The revision should :

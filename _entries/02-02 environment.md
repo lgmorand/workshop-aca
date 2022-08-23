@@ -29,7 +29,7 @@ With these variables defined, you can create a resource group to organize the se
 
 {% collapsible %}
 
-```  bash
+```bash
 az group create --name $RESOURCE_GROUP --location "$LOCATION"
 ```
 
@@ -39,7 +39,7 @@ Create a new *Log Analytics workspace* with the following command:
 
 {% collapsible %}
 
-```azurecli
+```bash
 az monitor log-analytics workspace create --resource-group $RESOURCE_GROUP --workspace-name $LOG_ANALYTICS_WORKSPACE
 ```
 

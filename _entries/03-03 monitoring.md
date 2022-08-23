@@ -25,7 +25,7 @@ Copy the URL in any browser to discover a nice dynamic dashboard :
 
 ![Running application](/media/lab2/monitor/running-app.png)
 
-> Did you notice the delay for the page to be displayed the first time? It is caused by the fact that the running containers are removed when the platform is not used. You are going to see that in detail further in this workshop.
+> Did you notice the delay for the page to be displayed the first time ? It is caused by the fact that the running containers are removed (scaled to zero) when the platform is not used. You are going to see in detail how to control this behavior further in this workshop.
 
 {% endcollapsible %}
 
