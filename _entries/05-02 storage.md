@@ -70,14 +70,14 @@ properties:
     configuration:
     activeRevisionsMode: Single
     template:
-    containers:
-    - image: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
-      name: my-container
-      volumeMounts:
-      - mountPath: /myempty
-        volumeName: myempty
-    volumes:
-    - name: myempty
+      containers:
+      - image: mcr.microsoft.com/azuredocs/containerapps-helloworld:latest
+        name: my-container
+        volumeMounts:
+        - mountPath: /myempty
+          volumeName: myempty
+      volumes:
+      - name: myempty
         storageType: EmptyDir
 ```
 
@@ -177,14 +177,14 @@ properties:
     managedEnvironmentId: /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.App/managedEnvironments/<ENVIRONMENT_NAME>
     configuration:
     template:
-    containers:
-    - image: <IMAGE_NAME>
-        name: my-container
-        volumeMounts:
-        - volumeName: azure-files-volume
-        mountPath: /my-files
-    volumes:
-    - name: azure-files-volume
+      containers:
+      - image: <IMAGE_NAME>
+          name: my-container
+          volumeMounts:
+          - volumeName: azure-files-volume
+          mountPath: /my-files
+      volumes:
+      - name: azure-files-volume
         storageType: AzureFile
         storageName: mystorage
 ```

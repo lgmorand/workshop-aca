@@ -20,7 +20,7 @@ The list of triggers to scale (in/out) a Container App are :
 
 #### Scale with Azure Container Apps
 
-In Container Apps, scalability is managed through the revisions. Each revision contains scaliblity limits (min & max replicas) but can also contain rules to autoscale the application. To see the current number of replicas used by your Container App, open the Revision Management tab of the current active revision :
+In Container Apps, scalability is managed through the revisions. Each revision contains scaliblity limits (min & max replicas) but can also contain rules to autoscale the application. To see the current number of replicas used by your Container App, open the Metric blade from the Monitoring section of your Container App :
 
 ![Current scaling](/media/lab2/scale/current-scale.png)
 
@@ -112,7 +112,7 @@ After few seconds, check that the number of replicas of the UI Container App has
 
 {% collapsible %}
 
-Open the `ui-autoscale` revision and in the Overview tab, check the number of current replicas
+Open the `ui` Container App and in the metric blade, check the number of current replicas during the last 30 minutes with a 1 minute granularity :
 
 ![Post load testing](/media/lab2/scale/after-load-testing.png)
 
