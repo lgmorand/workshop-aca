@@ -37,7 +37,7 @@ az account show
 
 ### Tools
 
-During this workshop you are going to use command line, but most of the actions may be doable using Azure Portal.
+During this workshop you are going to use command line, but most of the actions may be doable using Azure Portal. In fact, during the different labs, you are going to use deliberately a mix of CLI and the Web portal to see the different ways to interact with Azure Container Apps. In real life, you will use whatever fits you the best.
 
 #### Azure Cloud Shell
 
