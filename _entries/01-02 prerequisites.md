@@ -13,6 +13,7 @@ To realize the workshop, you will require several components. If you don't have 
 - a GitHub Account
 - VS Code or equivalent
 - an Azure subscription (and at least a dedicated resource group).
+- if you plan to run command from your computer: installing Azure CLI + Bicep
 
 > Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present for the moment. If you plan to play this workshop with a large group of individuals, you may require to create several subscriptions.
 
