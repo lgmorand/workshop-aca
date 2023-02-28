@@ -29,17 +29,17 @@ az containerapp create \
 
 In our case, the `create` command returns (only) the container app's fully qualified domain name because we specified the `query` parameter.
 
-![Create an with the console](/media/lab1/create-app.png)
+![Create an with the console](./media/lab1/create-app.png)
 
 {% endcollapsible %}
 
 Copy this URL to a web browser to see the following message.
 
-![Running app](/media/lab1/running-app.png)
+![Running app](./media/lab1/running-app.png)
 
 Open the [Azure Portal](https://portal.azure.com). In your resource group, you should see your container apps environment but also your container app. Click on it.
 From here, you can directly see, diagnose or reconfigure your application, such as changing the ingress configuration, the secrets, the load balancing, or the continuous deployment:
 
-![App in Azure](/media/lab1/created-app-in-azure.png)
+![App in Azure](./media/lab1/created-app-in-azure.png)
 
 That's it! How simple is it to deploy and host an application!

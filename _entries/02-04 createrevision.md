@@ -11,7 +11,7 @@ Revisions are most useful when you enable ingress to make your container app acc
 
 The following diagram shows a container app with two revisions.
 
-![Revision App](/media/lab1/revisionpond.png)
+![Revision App](./media/lab1/revisionpond.png)
 
 > Note that changes made to a container app fall under one of two categories: revision-scope and application-scope changes:
 `Revision-scope` changes are any change that triggers a new revision (e.g: changes to containers, add or update scaling rules, changes to Dapr settings, etc.)
@@ -19,13 +19,13 @@ The following diagram shows a container app with two revisions.
 
 ### Create your first revision
 
-By default your container app is set on "single revision mode". It means that each new revision will ecrase the current revision and take all the incoming traffic. To have several revisions running at the same time you must enable the "multi-revision mode" on your containerapp. 
+By default your container app is set on "single revision mode". It means that each new revision will ecrase the current revision and take all the incoming traffic. To have several revisions running at the same time you must enable the "multi-revision mode" on your containerapp.
 
 {% collapsible %}
 
-Go to the revision management blade on the left inside of the container apps panel. At the top of the page you'll find the "choose revision mode" option where you'll be able to choose the revision mode. 
+Go to the revision management blade on the left inside of the container apps panel. At the top of the page you'll find the "choose revision mode" option where you'll be able to choose the revision mode.
 
-![Revision soluce](/media/lab1/revisionmode.png)
+![Revision soluce](./media/lab1/revisionmode.png)
 {% endcollapsible %}
 
 Let's create and deploy a new version of the Hello World application with a different layout. To do so, you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`. (yes, there is a typo)
@@ -37,12 +37,12 @@ Once this new revision is provisionned, we will configure an even split of the t
 Go to the revisions management blade on the left inside of the container apps panel.
 Click on `Create a new revision`
 
-![Revision soluce](/media/lab1/addrevision.png)
+![Revision soluce](./media/lab1/addrevision.png)
 
 You can then decide to either edit the existing container image definition or add a new one (but then, don't forget to delete the existing one or your deployment may fail!). Click on `Add` in order to pull the new image that will be used to create the new revision.
 
-![Revision soluce](/media/lab1/addrevision1.png)
-  
+![Revision soluce](./media/lab1/addrevision1.png)
+
 {% endcollapsible %}
 
 Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal. Hitting the endpoint will result serving one of the revision depending on the chosen ponderation (in %).

@@ -7,7 +7,7 @@ parent-id: lab-3
 
 To demonstrate the private communication of Azure container app we will use a simple demonstrater composed of two container app environment communicating in private over your network architecture.
 
- ![Architecture](/media/lab3/architecture.png)
+ ![Architecture](./media/lab3/architecture.png)
 
 Backend service:
 The backend environment hosts the [helloer](https://github.com/zlatko-ms/helloer) application, a simple nodejs app that responds to HTTP requests. The environment is injected in a specific subnet and connected to a Log Analytics workspace in order to provide diagnostic settings and log centralization.
@@ -62,20 +62,20 @@ make stackName=<myRGName> location=<myAzureRegion>
 
 Once deployed you'll see 3 differents resource group. One containing your appication resources:
 
-![Architecture](/media/lab3/basicrg.png)
+![Architecture](./media/lab3/basicrg.png)
 
  But also the two MC_ resources group containing the infrastructure components managed by the Azure Container Apps platform and that shouldn't be modified. As you can see those resource groups hosts the Kubernetes component that host the container app services.
 
-![Architecture](/media/lab3/mcrg.png)
+![Architecture](./media/lab3/mcrg.png)
 
 ## Testing the application
 
 To validate that the two container apps are communicating together correctly, go to the log stream panel. On the greeter application you should see the application awaking every 10 second and colling the helloer application:
 
-![Architecture](/media/lab3/greeterlogstream.png)
+![Architecture](./media/lab3/greeterlogstream.png)
 
 On the helloer log stream you're seing the incoming request from the greeter.
 
-![Architecture](/media/lab3/helloerlogstream.png)
+![Architecture](./media/lab3/helloerlogstream.png)
 
 As you can see the trace is showing that the helloer is receiving a greeting *rcv hello request* and is answering to the client over its private IP *sent response to client from 10.5.64.132*. It indicates the request is adressed from a client with IP 10.5.64.132, i.e. the request origins from the subnet-caenv-infra-client (10.5.64.0/20) where the caenv-client has been injected.

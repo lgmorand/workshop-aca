@@ -1,73 +1,46 @@
 <meta charset="UTF-8">
 <title>{{ site.name }}</title>
-<meta name="viewport" content="width=device-width">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
 <meta name="author" content="{{ site.author }}">
-<link rel="stylesheet" href="css/main.css">
-<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:500,600' rel='stylesheet' type='text/css'>
+<meta name="description" content="{{ site.github.project_tagline }}">
 
-<meta name="twitter:image" content="https://raw.githubusercontent.com/lgmorand/workshop-aca/main/media/facebook-banner.jpg">
-<meta name="twitter:creator" content="@lgmorand">
-<meta name="twitter:site" content="@lgmorand">
-<meta name="twitter:card" content="summary_large_image">
-<meta property="og:locale" content="en_US">
-<meta property="og:image:alt" content="The Azure Container Apps workshop - the best way to learn!">
+<meta property="og:description" content="{{ site.github.project_tagline }}">
+<meta property="og:image:alt" content="The ACA workshop">
 <meta property="og:image:height" content="630">
-<meta property="og:image:width" content="1200">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image" content="https://raw.githubusercontent.com/lgmorand/workshop-aca/main/media/facebook-banner.jpg">
-<meta property="og:description" content="Welcome to the Azure Container Apps workshop. In this micro OpenHack, you will go through tasks that will help you master the basics and more advanced topics required to deploy applications to Azure Container Apps.">
-<meta property="og:title" content="✨ The Azure Container Apps workshop ✨">
+<meta property="og:image:width" content="1200">
+<meta property="og:image"
+  content="https://raw.githubusercontent.com/lgmorand/workshop-aca/main/media/facebook-banner.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="The ACA workshop">
+<meta property="og:title" content="The ACA workshop">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://aka.ms/aca-workshop">
-<meta property="og:site_name" content="The Azure Container Apps workshop - the best way to learn!">
+<meta property="og:url" content="https://aka.ms/workshop-aca">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/github-markdown.css">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@lgmorand">
+<meta name="twitter:image"
+  content="https://raw.githubusercontent.com/lgmorand/workshop-aca/main/media/facebook-banner.jpg">
+<meta name="twitter:site" content="@lgmorand">
 
-<script src="js/jquery-2.2.4.min.js"></script>
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<script type="text/javascript">
-  function loadJS(url, implementationCode, location){
-    var scriptTag = document.createElement('script');
-    scriptTag.src = url;
+<!-- Async CSS load, see: https://stackoverflow.com/a/46750893 -->
+<link href="css/main.css?version={{ site.github.build_revision }}" rel="preload" as="style" onload="this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="css/main.css?version={{ site.github.build_revision }}">
+</noscript>
 
-    scriptTag.onload = implementationCode;
-    scriptTag.onreadystatechange = implementationCode;
+<!-- Defers script execution until the associated Document is parsed -->
+<script defer src="https://buttons.github.io/buttons.js"></script>
+<script defer src="js/jquery-3.6.3.min.js"></script>
+<script defer src="js/scripts.js"></script>
 
-    location.appendChild(scriptTag);
-  }
-
-  function d() {
-    var config = {
-      useDefaultContentName: true,
-      useBeacon: true,
-      useShortNameForContentBlob: true,
-      debounceMs: {
-          scroll: 300,
-          resize: 3000
-      },
-      autoCapture: {
-          pageView: true,
-          scroll: true,
-          lineage: true
-      },
-      coreData: {
-          appId: "AROWorkshop"
-      }
-    };
-    awa.init(config);
-  }
-
-  </script>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YXH9FWH3Z7"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-32EH4WJ4C3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-
-  gtag('config', 'G-YXH9FWH3Z7');
+  gtag('config', 'G-32EH4WJ4C3');
 </script>

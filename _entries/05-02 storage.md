@@ -13,7 +13,7 @@ A container app has access to different types of storage. A single app can take 
 | [Temporary storage](#temporary-storage) | Temporary storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
 | [Azure Files](#azure-files) | Permanent storage | Writing files to a file share to make data accessible by other systems. |
 
-![Type of storage](/media/lab4/storage.png)
+![Type of storage](./media/lab4/storage.png)
 
 ## Container file system
 
@@ -97,7 +97,7 @@ Connect to your container and check that a volume has been created. You can use 
 az containerapp exec --name <APP_NAME>  --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-![Browsing system files](/media/lab4/navigate.png)
+![Browsing system files](./media/lab4/navigate.png)
 
 {% endcollapsible %}
 
@@ -128,7 +128,7 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
 Start by creating a storage account and retrieve its access keys. Then, add a storage definition of type `AzureFile` to your Container Apps environment. You must use the command `az containerapp env storage`.
 
 > Notice: you need to use the name of the container app **environment**, not the container app itself !
-  
+
 {% collapsible %}
 
 ```azure-cli
@@ -148,7 +148,7 @@ Valid values for `--access-mode` are `ReadWrite` and `ReadOnly`.
 
 If the command is successful, you should see something like this:
 
-![Storage added to environment](/media/lab4/storage_added.png)
+![Storage added to environment](./media/lab4/storage_added.png)
 
 Like in previous part, export the YAML configuration of your app using the `az containerapp show` command.
 
@@ -202,7 +202,7 @@ Once the command is applied, your container is restarted and a volume is mapped 
 {% collapsible %}
 
 ```azure-cli
-az containerapp exec --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> 
+az containerapp exec --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME>
 ```
 
 Once connected:
@@ -217,7 +217,7 @@ touch myfile.txt
 
 Check directly in the Azure Portal that your file is indeed persisted in the Azure Files instance.
 
-![File created](/media/lab4/filecreated.png)
+![File created](./media/lab4/filecreated.png)
 
 That's it. How simple is it to provide persistent storage to your containerized application !
 

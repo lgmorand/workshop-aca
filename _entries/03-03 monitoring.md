@@ -19,11 +19,11 @@ Remember the architecture schema of the Reddog platform. The frontend is the `UI
 
 To find the URL of the portal, in the Azure Container App environment, open the `Reddog` Container App. In the overview tab, you should find the generated FQDN URL.
 
-![Finding the endpoint](/media/lab2/monitor/finding-endpoint.png)
+![Finding the endpoint](./media/lab2/monitor/finding-endpoint.png)
 
 Copy the URL in any browser to discover a nice dynamic dashboard :
 
-![Running application](/media/lab2/monitor/running-app.png)
+![Running application](./media/lab2/monitor/running-app.png)
 
 > Did you notice the delay for the page to be displayed the first time ? It is caused by the fact that the running containers are removed (scaled to zero) when the platform is not used. You are going to see in detail how to control this behavior further in this workshop.
 
@@ -57,11 +57,11 @@ On the Azure Portal, open Logs Analytics. You can use the left part of the scree
 The query to get the logs of the `UI` container is :
 
 ``` bash
-ContainerAppConsoleLogs_CL 
+ContainerAppConsoleLogs_CL
 | where ContainerAppName_s == 'ui'
 ```
 
-![Get Logs using CLI](/media/lab2/monitor/logs-ui.png)
+![Get Logs using CLI](./media/lab2/monitor/logs-ui.png)
 
 The second way of doing it is to use the command line and the Azure CLI. (it may ask you to install a CLI extension first).
 
@@ -74,7 +74,7 @@ az monitor log-analytics query \
 
 Here, the query is more complex to select the columns to display and the number of lines we want to return.
 
-![Get Logs using CLI](/media/lab2/monitor/logs-cli.png)
+![Get Logs using CLI](./media/lab2/monitor/logs-cli.png)
 
 {% endcollapsible %}
 
@@ -92,11 +92,11 @@ Start by opening Application Insights and watch the main metrics of the platform
 
 In the resource group, look for the Application Insights resource. Once you open it, you can see main metrics such as failures (should be empty), the average response time and the requests per second.
 
-![Overview metrics](/media/lab2/monitor/overview-metrics.png)
+![Overview metrics](./media/lab2/monitor/overview-metrics.png)
 
 If you click on one chart (i.e. response time), you'd be brought to performance tab where you can see specific metrics for each micro-service.
 
-![Detailed performance](/media/lab2/monitor/performance.png)
+![Detailed performance](./media/lab2/monitor/performance.png)
 
 {% endcollapsible %}
 
@@ -106,7 +106,7 @@ Another way to get the health of your platform is to use the "magic map" feature
 
 On the left part, open the `Application Map` menu. From the logs only, it is capable of drawing a map of your microservices platform, showing interactions between components, average performance and even failure rates when an error occurs.
 
-![App Insights - application map](/media/lab2/monitor/logs-app-insights-maps.png)
+![App Insights - application map](./media/lab2/monitor/logs-app-insights-maps.png)
 
 {% endcollapsible %}
 
@@ -116,11 +116,11 @@ Use the map to quickly get the logs of a specific micro-service, for instance, t
 
 On the map, click on one micro-services, then in the side panel which opens, click on `View logs`.
 
-![App Insights - get logs](/media/lab2/monitor/logs-app-insights-logs-app.png)
+![App Insights - get logs](./media/lab2/monitor/logs-app-insights-logs-app.png)
 
 It should open Logs analytics and automatically generate for you the query which was used to draw this micro-services on the map.
 
-![Display specific logs](/media/lab2/monitor/service-logs.png)
+![Display specific logs](./media/lab2/monitor/service-logs.png)
 
 {% endcollapsible %}
 

@@ -1,19 +1,17 @@
-header{
-    background-color: #ffffff; //#cc0000;
-    padding-top: 45px;
-    text-align: center;
-    position: relative;
-    max-width: 100%;
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2rem 1rem;
 
-    span{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        color: $white;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
+  img {
+    height: 3rem;
+    width: auto;
+  }
+
+  span {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    font-weight: $bold;
+  }
 }

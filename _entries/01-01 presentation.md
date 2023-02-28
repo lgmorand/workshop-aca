@@ -23,7 +23,7 @@ Applications built on Azure Container Apps can dynamically scale based on the fo
 - CPU or memory load
 - Any [KEDA-supported scaler](https://keda.sh/docs/2.4/scalers/)
 
-![Example scenarios for Azure Container Apps](/media/intro/azure-container-apps-example-scenarios.png)
+![Example scenarios for Azure Container Apps](./media/intro/azure-container-apps-example-scenarios.png)
 
 Azure Container Apps enables executing application code packaged in any container and is unopinionated about runtime or programming model. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of managing cloud infrastructure and complex container orchestrators.
 

@@ -1,104 +1,95 @@
-.toggle{
-    &:hover{
-        cursor: pointer;
-        opacity: .8;
-    }
-    
-    @media screen and (min-width: $sidebar-collapse + 1){
-        display: none;
-    }
+$nav-width: 350px;
+
+.toggle {
+  position: absolute;
+  z-index: 100;
+
+  @media screen and (min-width: ($sidebar-collapse + 1)) {
+    display: none;
+  }
 }
 
-
-// Overview
 .overview {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    overflow-y: auto;
-    transition: .3s all;
-    background: $white;
-    border-right: 3px solid $green;
-    
-    @media screen and (max-width: $sidebar-collapse){
-        left: -320px;
-        transition: .3s all ease;
-        transform: translate(0, 0);
-        z-index: 100;
-        
-        &.open{
-            transform: translate(320px, 0);
-        }
-    }
-    
-    .toggle{
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        z-index: 100;
-    }
-    ul {
-        list-style: none;
-        counter-reset: nested-counter;
-        padding-left: 0;
-        li {
-            counter-increment: nested-counter;
-            font-size: 98%;
-        }
-    }
-    #nav ul li {
-        font-size: 75%;
-    }
-    #nav ul li.parent {
-        font-size: 98%;
-    }
-    #nav {
-        width: 100%;
-        box-sizing: border-box;
-        > li {
-            border-bottom: 1px solid rgba($green, .3);
-            a {
-                display: block;
-                padding: 10px 20px;
-                line-height: 1;
-                border-bottom: 1px solid rgba($green, .2);
-                &:before {
-                    content: counters(nested-counter, ".") " ";
-                    font-size: 0;
-                }
-                &:hover {
-                    background: rgba($green, .1);
-                }
-            }
-            li {
-                a {
-                    padding: 8px 30px;
-                }
-                li {
-                    a {
-                        padding: 6px 40px;
-                    }
-                    li {
-                        a {
-                            padding: 4px 50px;
-                        }
-                    }
-                }
-            }
-        }
-        .current {
-            > a {
-                &:before {
-                    font-size: 1em;
-                }
-            }
-        }
-    }
-}
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-y: auto;
+  background: $white;
+  width: $nav-width;
 
-.current {
-    > a {
-        font-weight: $bold;
+  @media screen and (max-width: $sidebar-collapse) {
+    left: -$nav-width;
+    transition: .3s all ease;
+    transform: translate(0, 0);
+    z-index: 1000;
+
+    &.open {
+      transform: translate($nav-width, 0);
     }
+  }
+
+  >.toggle {
+    top: .5rem;
+    right: .5rem;
+  }
+
+  ul {
+    list-style: none;
+    counter-reset: nested-counter;
+    padding: 0;
+
+    li {
+      counter-increment: nested-counter;
+    }
+  }
+
+  #nav {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2rem 0;
+
+    ul li {
+      font-size: .875rem;
+    }
+
+    a {
+      display: block;
+      color: inherit;
+      padding-top: .25rem;
+      padding-bottom: .25rem;
+
+      // Accessibility: Gives for users with pointing device a larger tap area
+      // See: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-pointer
+      @media (any-pointer: coarse) {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+      }
+
+      &:before {
+        content: counters(nested-counter, ".") ". ";
+      }
+    }
+
+    .active {
+      >a {
+        font-weight: $bold;
+        background-color: $lightgray;
+      }
+    }
+
+    >li {
+      a {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      li {
+        a {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+      }
+    }
+  }
 }

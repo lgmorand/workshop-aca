@@ -1,7 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic);
+// Same as learn.microsoft.com
+$font-sans-serif: Segoe UI, SegoeUI, Helvetica Neue, Helvetica, Arial, sans-serif;
+$fonts-mono: SF Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
 
-$roboto: "Roboto", "Calibri", sans-serif;
-
-// Roboto Font Weights
-$bold: 700;
-$light: 300;
+// Font weights
+$bold: 600;
+$light: 400;

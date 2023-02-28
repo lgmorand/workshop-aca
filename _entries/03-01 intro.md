@@ -23,7 +23,7 @@ When implementing a system composed of microservices, function calls are spread 
 
 The reddog application is developed with .NET and Javascript. As mentioned above, it utilizes Dapr (Distributed Application Runtime) so it can easily be adapted to multiple scenarios.
 
-![The Red Dog application](/media/lab2/intro/reddog_code.png)
+![The Red Dog application](./media/lab2/intro/reddog_code.png)
 
 > The application may seem complex but it's not and you won't have to fully understand it to finalize the workshop.
 

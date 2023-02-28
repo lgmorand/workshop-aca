@@ -22,11 +22,11 @@ The list of triggers to scale (in/out) a Container App are :
 
 In Container Apps, scalability is managed through the revisions. Each revision contains scaliblity limits (min & max replicas) but can also contain rules to autoscale the application. To see the current number of replicas used by your Container App, open the Metric blade from the Monitoring section of your Container App :
 
-![Current scaling](/media/lab2/scale/current-scale.png)
+![Current scaling](./media/lab2/scale/current-scale.png)
 
 In our case, the UI app has a min limit equals to 0, a max limit of 10, and no autoscaling rules.
 
-![UI Default scaling](/media/lab2/scale/ui-default-scaling.png)
+![UI Default scaling](./media/lab2/scale/ui-default-scaling.png)
 
 Let's create a new revision with a new scaling rule. The revision should :
 
@@ -41,15 +41,15 @@ Open the UI Container App and the `Revision Management` tab. Click on `Create a 
 
 In the scale part, configure the limits between 1 and 5 replicas.
 
-![Define the limits](/media/lab2/scale/minmax.png)
+![Define the limits](./media/lab2/scale/minmax.png)
 
 Then add a rule with `HTTP Scaling` type and one concurrent request.
 
-![Create a scaling rule](/media/lab2/scale/http-rule.png)
+![Create a scaling rule](./media/lab2/scale/http-rule.png)
 
 Click on the `Create` button, a new revision should be created with 100% of ingress sent to it :
 
-![A new revision is created](/media/lab2/scale/ui-new-revision.png)
+![A new revision is created](./media/lab2/scale/ui-new-revision.png)
 
 {% endcollapsible %}
 
@@ -114,7 +114,7 @@ After few seconds, check that the number of replicas of the UI Container App has
 
 Open the `ui` Container App and in the metric blade, check the number of current replicas during the last 30 minutes with a 1 minute granularity :
 
-![Post load testing](/media/lab2/scale/after-load-testing.png)
+![Post load testing](./media/lab2/scale/after-load-testing.png)
 
 {% endcollapsible %}
 

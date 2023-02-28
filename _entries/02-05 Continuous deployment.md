@@ -9,7 +9,7 @@ Azure Container Apps allows you to use GitHub Actions to publish revisions to yo
 
 The GitHub action is triggered by commits to a specific branch in your repository. When creating the integration link, you can decide which branch triggers the action.
 
-![Github Action](/media/lab1/githubactionflow.png)
+![Github Action](./media/lab1/githubactionflow.png)
 
 ## Setup your Github repository
 
@@ -51,11 +51,11 @@ az acr update -n <acrName> --admin-enabled true
 
 Once configured, you can move forward by attaching your GitHub repo to the revision.
 
-![Github Action](/media/lab1/githubattach.png)
+![Github Action](./media/lab1/githubattach.png)
 
 Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It hosts a YAML file that will allow the triggering of an automatic GitHub Action that will deploy any changes pushed onto the branch. It will also automatically setup some secrets on your application to store the admin's login to reach out to the Container Registry. We will see later in this lab how to manage those secrets.
 
-![Secret ACR](/media/lab1/secretacr.png)
+![Secret ACR](./media/lab1/secretacr.png)
 
 The `az containerapp github-action show` command returns the GitHub Actions configuration settings for a container app. It returns a JSON payload with the GitHub Actions integration configuration settings.
 
@@ -79,17 +79,17 @@ Now you can modify the source code of the Hello World container that we are usin
 
 Once the change are commited you can go to your GitHub repos to see the GitHub Action occurring:
 
-![Github Action process](/media/lab1/action.png)
+![Github Action process](./media/lab1/action.png)
 
 As you can see, pushing the changes (commit) automatically triggered a GitHub Action workflow that built and deployed our new container into our registry and then on our container apps under a new revision. You can validate it by going under the revision management panel and see your newly provisioned revision.
 
-![Github Action process](/media/lab1/revisionaction.png)
+![Github Action process](./media/lab1/revisionaction.png)
 
 As you can see the revision is not loadbalanced yet, meaning that none of the traffic is routed to it. Supporting multiple revisions in Azure Container Apps allows you to manage the versioning and amount of traffic sent to each revision.
 
 Once a part (or all) of the traffic is sent to your app, you can test that the newly version of your application is running correctly.
 
-![Github Action process](/media/lab1/actionval.png)
+![Github Action process](./media/lab1/actionval.png)
 
 All of this can be configured as needed. Indeed, you can change whether or not your container app supports multiple active revisions. The `activeRevisionsMode` property accepting two values:
 

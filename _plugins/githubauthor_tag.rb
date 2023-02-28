@@ -4,7 +4,7 @@ module Jekyll
       super
       @input = input
     end
-  
+
     def render(context)
       # Split the input variable (omitting error checking)
       input_split = split_params(@input)
@@ -20,7 +20,7 @@ module Jekyll
       GITHUBAUTHORBLOCK
 
     end
-  
+
     def split_params(params)
       params.split("|")
     end

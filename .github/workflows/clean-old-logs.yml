@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: igorjs/gh-actions-clean-workflow@v3
+      - uses: actions/checkout@v3
+      - uses: igorjs/gh-actions-clean-workflow@v3.0.1
         with:
-          days_old: 7 
+          days_old: 14 
           token: ${{ github.token }}
+      - uses: gautamkrishnar/keepalive-workflow@v1

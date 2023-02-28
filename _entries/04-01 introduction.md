@@ -25,7 +25,7 @@ As you create a custom VNET, keep in mind the following situations:
 
 As you begin to design the network around your container app, refer to [Plan virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) for important concerns surrounding running virtual networks on Azure.
 
-![Revision soluce](/media/lab3/acavnet.png)
+![Revision soluce](./media/lab3/acavnet.png)
 
 > When you deploy an internal or an external environment into your own network, a new resource group prefixed with MC_ is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. As the load balancer is created in your subscription, there are extra costs associated with deploying the service to a custom virtual network.
 

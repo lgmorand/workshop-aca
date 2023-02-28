@@ -1,46 +1,40 @@
 // Modules
 @import "../modules/all";
 
-// Shortcuts
-$noborder: 0px solid transparent;
-
 // General Stuff
-$sidebar-collapse: 1000px;
+$sidebar-collapse: 1024px;
+$content-margins: 2rem;
 
 // Extendonly
 %clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
-// @extend %clearfix
 
-%paddinghack{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+%paddinghack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
-// @extend %paddinghack
 
 %visuallyhidden {
-    margin: -1px;
-    padding: 0;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
 }
-// @extend %visuallyhidden
 
-%center{
-    display: block;
-    position: relative;
-    margin: 0px auto;
+%center {
+  display: block;
+  position: relative;
+  margin: 0 auto;
 }
-// @extend %center

@@ -1,8 +1,8 @@
-## Contributing
+# Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
+the rights to use your contribution. For details, visit <https://cla.microsoft.com>.
 
  Please fork and branch off `staging`, then submit a Pull Request against `staging`.
  If you want your name to show up, please add your GitHub username to `_entries/99 Contributors.md` in alphabetical order.

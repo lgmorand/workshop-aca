@@ -1,8 +1,10 @@
 ---
+# Front matter comment to ensure Jekyll properly reads the file
 ---
 @import "partials/reset";
 @import "partials/base";
-@import "partials/general";
 @import "partials/header";
 @import "partials/nav";
+@import "partials/general";
 @import "partials/syntax";
+@import "assets/github-markdown";

@@ -1,6 +1,0 @@
-{
-  "pasteImage.basePath": "${projectRoot}",
-  "pasteImage.path": "${projectRoot}/media",
-  "pasteImage.showFilePathConfirmInputBox": true,
-  "pasteImage.filePathConfirmInputBoxMode": "onlyName"
-}

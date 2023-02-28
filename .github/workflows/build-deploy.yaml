@@ -1,0 +1,42 @@
+name: Build and deploy
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout sources
+
+      - uses: ruby/setup-ruby@v1
+        name: Set up Ruby
+        with:
+          ruby-version: "2.7.7"
+
+      - run: make upgrade install
+        name: Set up build dependencies
+
+      - run: make build
+        name: Build sources
+
+      - uses: azure/CLI@v1
+        name: Deploy
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
+        with:
+          azcliversion: 2.44.1
+          inlineScript: |
+            az config set extension.use_dynamic_install=yes_without_prompt
+
+            BRANCH=$GITHUB_REF
+            BRANCH=${BRANCH#refs/*/}
+            BRANCH=${BRANCH//\//-}
+
+            az storage azcopy blob sync \
+              --container "\$web" \
+              --destination "${BRANCH}" \
+              --source "_site"

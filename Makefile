@@ -1,19 +1,19 @@
-NS ?= azch
-IMAGE_NAME ?= wksaca-site
-VERSION ?= latest
-LOCALPORT = 8080
-CONTAINERPORT = 80
-PORTS = -p $(LOCALPORT):$(CONTAINERPORT)
+DOCKER=docker
 
-.PHONY: build run
+.PHONY: install build
 
-build: Dockerfile
-	docker build -t $(NS)/$(IMAGE_NAME):$(VERSION) -f Dockerfile .
+install:
+	bundle install
 
-run:
-	docker run --rm $(PORTS) $(NS)/$(IMAGE_NAME):$(VERSION)
+upgrade:
+	gem update --system
 
-build-run:
-	docker build -t $(NS)/$(IMAGE_NAME):$(VERSION) -f Dockerfile .
-	echo http://localhost:$(LOCALPORT)
-	docker run --rm $(PORTS) $(NS)/$(IMAGE_NAME):$(VERSION)
+build:
+	jekyll build
+
+serve:
+	$(DOCKER) run --rm \
+		--volume="$(shell pwd):/srv/jekyll:Z" \
+		--publish [::1]:4000:4000 \
+		jekyll/jekyll \
+		jekyll serve
