@@ -13,9 +13,10 @@ The following diagram shows a container app with two revisions.
 
 ![Revision App](/media/lab1/revisionpond.png)
 
-> Note that changes made to a container app fall under one of two categories: revision-scope and application-scope changes:
-`Revision-scope` changes are any change that triggers a new revision (e.g: changes to containers, add or update scaling rules, changes to Dapr settings, etc.)
-`Application-scope` changes don't create revisions (e.g: changes to traffic splitting rules, turning ingress on or off, changes to secret values, etc.)
+> Note that changes made to a container app fall under one of two categories:
+>
+> - `Revision-scope` changes are any change that triggers a new revision (e.g: changes to containers, add or update scaling rules, changes to Dapr settings, etc.)
+> - `Application-scope` changes don't create revisions (e.g: changes to traffic splitting rules, turning ingress on or off, changes to secret values, etc.)
 
 ### Create your first revision
 
@@ -39,7 +40,11 @@ Click on `Create a new revision`
 
 ![Revision soluce](/media/lab1/addrevision.png)
 
-You can then decide to either edit the existing container image definition or add a new one (but then, don't forget to delete the existing one or your deployment may fail!). Click on `Add` in order to pull the new image that will be used to create the new revision.
+You now have two options:
+- Edit the existing container image definition
+- Add a new one but you **must** delete the existing one or your deployment will fail because the two containers are targeting the same port.
+
+Let's use the Add option, so click on `Add` in order to pull the new image that will be used to create the new revision.
 
 ![Revision soluce](/media/lab1/addrevision1.png)
   
@@ -53,21 +58,21 @@ Once your new revision is provisioned, you can split the traffic between them us
 - You are not charged for inactive revisions.
 - Up to 100 revisions remain available before being purged.
 
-You can see all revision using the `az containerapp revision list`and have more detail on a specific one using the `az containerapp revision show` command.
+You can see all revisions using the `az containerapp revision list`and have more detail on a specific one using the `az containerapp revision show` command.
 
 {% collapsible %}
 
 ```bash
 az containerapp revision list \
   --name <APPLICATION_NAME> \
-  --resource-group <RESOURCE_GROUP_NAME> \
+  --resource-group $RESOURCE_GROUP \
   -o table
 ```
 
 ``` bash
 az containerapp revision show \
   --revision <REVISION_NAME> \
-  --resource-group <RESOURCE_GROUP_NAME>
+  --resource-group $RESOURCE_GROUP
 ```
 
 {% endcollapsible %}

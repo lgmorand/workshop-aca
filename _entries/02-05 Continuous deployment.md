@@ -13,7 +13,7 @@ The GitHub action is triggered by commits to a specific branch in your repositor
 
 ## Setup your Github repository
 
-In order to be able to setup your continuous deployment you'll need a github account and a newly created repository. We made a public repository where you'll find the sources of the [Hello World container](https://github.com/mavilleg/azurecontainerapps-helloworld). [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then clone this repository within your own environment.
+In order to be able to setup your continuous deployment you'll need a GitHub account and a newly created repository. We made a public repository where you'll find the sources of the [Hello World container](https://github.com/mavilleg/azurecontainerapps-helloworld). [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then clone this repository within your own environment.
 
 Now that you have the source code you will be able to modify it and rebuild a container that will be pushed onto Azure Container Apps.
 

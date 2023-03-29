@@ -10,10 +10,10 @@ parent-id: intro
 
 To realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
 
-- a GitHub Account
-- VS Code or equivalent
-- an Azure subscription (and at least a dedicated resource group).
-- if you plan to run command from your computer: installing Azure CLI + Bicep
+- a [GitHub](https://github.com/) Account
+- [VS Code](https://code.visualstudio.com/) or equivalent
+- an [Azure](https://portal.azure.com/) subscription (and at least a dedicated resource group).
+- if you plan to run command from your computer: installing [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and [Bicep](https://learn.microsoft.com/en-gb/azure/azure-resource-manager/bicep/install)
 
 > Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present for the moment. If you plan to play this workshop with a large group of individuals, you may require to create several subscriptions.
 
@@ -74,32 +74,38 @@ Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure
 
 Begin by signing in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
 
-``` csharp
+``` bash
 az login
 ```
 
 Next, install the Azure Container Apps extension to the CLI.
 
-``` csharp
+``` bash
 az extension add --name containerapp --upgrade
 ```
 
 Once the extension is installed, register the `Microsoft.App` namespace.
 
-``` csharp
+``` bash
 az provider register --namespace Microsoft.App
 ```
 
 You can use the following command to check that the provider is properly registered
 
-``` csharp
+``` bash
 az provider show -n Microsoft.App
 ```
 
 Register the Microsoft.OperationalInsights provider for the [Azure Monitor Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/container-apps/observability?tabs=bash#azure-monitor-log-analytics) if you have not used it before.
 
-``` csharp
+``` bash
 az provider register --namespace Microsoft.OperationalInsights
+```
+
+And to follow the provider registration just run:
+
+``` bash
+az provider show -n Microsoft.OperationalInsights
 ```
 
 #### GitHub
