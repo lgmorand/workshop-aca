@@ -88,7 +88,7 @@ You need to create a file containing the endpoints to call. The endpoint is the 
 
 {% collapsible %}
 
-Create a file named target.txt and copy the URL of your application.
+Create a file named **targets.txt** and copy the URL of your application.
 
 ``` txt
 GET https://url-public-endpoint-of-reddog-app
@@ -96,7 +96,7 @@ GET https://url-public-endpoint-of-reddog-app
 
 {% endcollapsible %}
 
-Then run Vegeta with the *attack* command. If no specific parameters are given, Vegeta will make 50 requests per second on the defined targets and will not stop until you stop it. You can also specify requests per sec and the duration with respective parameters rate and duration.
+Then run **Vegeta** with the **attack** command. If no specific parameters are given, Vegeta will make 50 requests per second on the defined targets and **will not stop until you stop it**. You can also specify requests per sec and the duration with respective parameters rate and duration.
 
 {% collapsible %}
 
@@ -120,4 +120,4 @@ Open the `ui` Container App and in the metric blade, check the number of current
 
 We can confirm that autoscaling created one replica per request (with around 20 requests in parallel), but the scaling out never went above five replicas due to the max limit defined in the revision.
 
-Close Vegeta and any browser tab which displays the Reddog application, and within few minutes, you should be able to observe that UI container App scales down automatically to one replica because it is not overused anymore.
+Close Vegeta and any browser tab which displays the Reddog application, and within few minutes, you should be able to observe that UI container App scales down automatically to one replica (the minimum you set previously) because it is not overused anymore.
