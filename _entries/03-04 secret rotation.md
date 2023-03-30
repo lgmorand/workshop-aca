@@ -5,7 +5,7 @@ title: Secret Rotation
 parent-id: lab-2
 ---
 
-One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in while you'll have to make rotation on your key/secret/certificate for security reason (leak or just good pratice). Let's see how secrets management in done with Azure Container Apps.
+One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in while you'll have to make rotation on your key/secret/certificate for security reason (leak or just good pratice). Let's see how secrets management is done with Azure Container Apps.
 
 Azure Container Apps allows your application to securely store sensitive configuration values. Once defined at the application level, secured values are available to containers, inside scale rules, and via Dapr.
 
@@ -41,7 +41,11 @@ In order to set back the connection between the storage account and the `receipt
 {% collapsible %}
 
 On the storage account under the `Access key` blade copy the key value.
-Then go to the `Dapr Components` blade of the container app environment panel and edit the `reddog.binding.receipt` component to update the old `blob-storage-key` value with the newly copied one.
+Then go to the `Dapr` blade inside the `receipt-generation-service` container app environment panel and find the `Click here to manage your Dapr components` link.
+
+![Rotation Key](/media/lab2/rotation/daprblade.png)
+
+Then edit the `reddog.binding.receipt` component to update the old `blob-storage-key` value with the newly copied one. 
 
 ![Rotation Key](/media/lab2/rotation/sarot3.png)
 

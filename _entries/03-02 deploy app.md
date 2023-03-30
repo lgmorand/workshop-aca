@@ -19,9 +19,8 @@ Once the repo has been forked, clone the repository on your local computer.
 
 Browse the contents of the repository. The most interesting part is the "deploy/bicep" folder. Using Infrastructure as code and the Bicep technology, it is possible to deploy all the components in one command line, including the Azure Container Apps instance, the different PaaS services but also the containerized applications.
 
-To deploy the full environment, you just need to execute the script **deploy.sh**. To do so, open a terminal, log in to Azure and execute the script. Be sure to have [installed Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) first.
-
-Execute the script but first check if the script requires variables or parameters.
+Be sure to [installe Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) first.
+Next, to deploy the full environment, go to the **deploy.sh** file and update the **subscription id**, then log in to Azure and execute the script in a terminal. 
 
 {% collapsible %}
 
@@ -35,7 +34,7 @@ Execute the script but first check if the script requires variables or parameter
 
 {% endcollapsible %}
 
-Once the deployment is successful, open the Azure portal and notice the new resource group named *"reddog* (or something else depending on how you change the variable in the script).
+Once the deployment is successful, open the Azure portal and notice the new resource group named *"reddog"* (or something else depending on how you change the variable in the script).
 
 When you open it, you can see that all resources have been successfully created and deployed.
 

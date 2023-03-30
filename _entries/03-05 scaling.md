@@ -37,7 +37,7 @@ Let's create a new revision with a new scaling rule. The revision should :
 
 {% collapsible %}
 
-Open the UI Container App and the `Revision Management` tab. Click on `Create a new revision`. In the first page, specify a name suffix and click on the `Next` button.
+Open the `UI` Container App and the `Revision Management` tab. Click on `Create a new revision`. In the first page, specify a name suffix, for instance `autoscale` and click on the `Next` button.
 
 In the scale part, configure the limits between 1 and 5 replicas.
 
