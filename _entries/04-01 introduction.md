@@ -5,10 +5,10 @@ title: Context
 parent-id: lab-3
 ---
 
-As we seen, Azure containerapp run in a context called an Environment. This environment is supported by a virtual network that is automatically generated when the resources is created. Generated VNETs are inaccessible to you as it is created in Microsoft's tenant. To take full control over this VNET you have to provide an existing VNET to Container Apps as you create your environment. In that case you'll have a new ingress configaration that is enabled: the accessibility level. Two differents accessibility level are available:
+As we seen, Azure Container Apps run in a context called an Environment. This environment is supported by a virtual network that is automatically generated when the resources are created. Generated VNETs are inaccessible to you as it is created in Microsoft's tenant. To take full control over this VNET you have to provide an existing VNET to Container Apps as you create your environment. In that case you'll have a new ingress configaration that is enabled: the accessibility level. Two different levels of accessibility are available:
 
-- External: Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address.
-- Internal: When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
+- **External**: Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address.
+- **Internal**: When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
 
 > An environment variable CONTAINER_APP_ENV_DNS_SUFFIX is used to automatically resolve the FQDN suffix for your environment.
 
@@ -20,7 +20,7 @@ As you create a custom VNET, keep in mind the following situations:
 - You can define the subnet range used by the Container Apps environment.
 - Once the environment is created, the subnet range is immutable.
 - A single load balancer and single Kubernetes service are associated with each container apps environment.
-- Each revision is assigned an IP address in the subnet.
+- Each revision is assigned to an IP address in the subnet.
 - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
 
 As you begin to design the network around your container app, refer to [Plan virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) for important concerns surrounding running virtual networks on Azure.
