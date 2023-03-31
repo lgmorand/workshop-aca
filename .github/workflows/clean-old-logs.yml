@@ -1,0 +1,17 @@
+name: Clean logs
+run-name: Clean runs logs older than a week
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * 1' # every Monday
+
+jobs:
+ Cleaning:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: igorjs/gh-actions-clean-workflow@v3
+        with:
+          days_old: 7 
+          token: ${{ github.token }}

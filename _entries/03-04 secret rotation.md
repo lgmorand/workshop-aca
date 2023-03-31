@@ -32,7 +32,7 @@ Go to the storage account under the `Access key` blade in and click the `Rotate 
 
 {% endcollapsible %}
 
-Once done you'll see that the blob storage is no longer receiving any receipts from our application. You can validate easily this by deleting the "Receipts" blob container and recreate it after few seconds (Azure may display an error message, just retry after few seconds). The blob container should remain empty because the application does not have the rights any more to write new receipts.
+Once done you'll see that the blob storage is no longer receiving any receipts from our application. You can validate easily this by deleting the "receipts" blob container and recreate it after few seconds (Azure may display an error message, just retry after few seconds). The blob container should remain empty because the application does not have the rights any more to write new receipts.
 
 #### Fetch the new secret
 
