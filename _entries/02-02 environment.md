@@ -22,7 +22,7 @@ CONTAINERAPPS_ENVIRONMENT="my-environment"
 
 - **RESOURCE_GROUP**: the Azure resource group which will contain your container apps environment
 - **LOCATION**: the Azure region in which will be deployed your apps. Be careful, Azure Container Apps is not supported in all regions yet.
-- **LOG_ANALYTICS_WORKSPACE**: the name of the logs analytics workspace
+- **LOG_ANALYTICS_WORKSPACE**: the name of the Log Analytics workspace
 - **CONTAINERAPPS_ENVIRONMENT**: the name of the **container apps** environment.
 
 With these variables defined, you can create a resource group to organize the services related to your new container app.
@@ -45,7 +45,9 @@ az monitor log-analytics workspace create --resource-group $RESOURCE_GROUP --wor
 
 {% endcollapsible %}
 
-Next, retrieve the Log Analytics Client ID and client secret and put them in variables (LOG_ANALYTICS_WORKSPACE_CLIENT_ID and LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET)
+Next, retrieve the Log Analytics Client ID and Client Secret and put them in the variables:
+- LOG_ANALYTICS_WORKSPACE_CLIENT_ID
+- LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET
 
 {% collapsible %}
 

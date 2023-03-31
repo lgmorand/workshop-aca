@@ -41,9 +41,9 @@ To configure temporary storage, first define an `EmptyDir` volume in the revisio
 
 ### Configuration
 
-When using temporary storage, you must use the Azure CLI with a YAML definition to create or update your container app. For example, you can use the sample hello-world which is deployed by default when creating an container environment (`mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`).
+When using temporary storage, you must use the Azure CLI with a YAML definition to create or update your container app. For example, you can use the sample hello-world which is deployed by default when creating a container environment (`mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`).
 
-To update an existing container app to use temporary storage, export your app's specification to a YAML file. You can use the command "az containerapp show" and the output parameter to extract a YAML definition.
+To update an existing container app to use temporary storage, export your app's specification to a YAML file. You can use the command `az containerapp show` and the output parameter to extract a YAML definition.
 
 {% collapsible %}
 
@@ -80,6 +80,8 @@ properties:
       - name: myempty
         storageType: EmptyDir
 ```
+
+Make sure you don't have duplicate `volumes` definition when you update your `yaml` file.
 
 {% endcollapsible %}
 
@@ -179,10 +181,10 @@ properties:
     template:
       containers:
       - image: <IMAGE_NAME>
-          name: my-container
-          volumeMounts:
-          - volumeName: azure-files-volume
-          mountPath: /my-files
+        name: my-container
+        volumeMounts:
+        - mountPath: /my-files
+          volumeName: azure-files-volume
       volumes:
       - name: azure-files-volume
         storageType: AzureFile
@@ -197,7 +199,9 @@ Update your container app using the YAML file.
 az containerapp update --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --yaml my-app.yaml
 ```
 
-Once the command is applied, your container is restarted and a volume is mapped to it. Connect to your container (with the exec command), browse the file system and create a file on the volume.
+Once the command is applied, your container is restarted and a volume is mapped to it. Connect to your container (with the exec command), browse the file system and create a file on the volume. 
+
+> If you did a wrong volume configuration you won't be able to access to your container app using the exec command.
 
 {% collapsible %}
 

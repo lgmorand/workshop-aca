@@ -17,7 +17,7 @@ We already know that components have been deployed successfully but are they ful
 
 Remember the architecture schema of the Reddog platform. The frontend is the `UI` Container App which is exposed **internally** and thus not reachable outside the (managed) kubernetes cluster. In front of the `UI` is the `Traeffik` ingress controller which is the `Reddog` Container App, exposed publically (Internet).
 
-To find the URL of the portal, in the Azure Container App environment, open the `Reddog` Container App. In the overview tab, you should find the generated FQDN URL.
+To find the URL of the portal, open the `Reddog` Container App. In the overview tab, you should find the generated FQDN URL.
 
 ![Finding the endpoint](/media/lab2/monitor/finding-endpoint.png)
 
@@ -84,7 +84,7 @@ That's it. No need to install specific monitoring tool (i.e. Prometheus) nor nee
 
 Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your live applications. It will automatically detect performance anomalies, and includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.
 
-Lucky for us, Application Insights has been automatically deployed and uses the metrics/logs stored automatically in Log Analytics by Azure Container Apps. As you can see, if you dig a little big, Application Insights can help to see metrics, errors, users flow, and so much more.
+Lucky for us, Application Insights has been automatically deployed and uses the metrics/logs stored automatically in Log Analytics by Azure Container Apps. As you can see, if you dig a little bit, Application Insights can help to see metrics, errors, users flow, and so much more.
 
 Start by opening Application Insights and watch the main metrics of the platform.
 

@@ -13,7 +13,7 @@ The GitHub action is triggered by commits to a specific branch in your repositor
 
 ## Setup your Github repository
 
-In order to be able to setup your continuous deployment you'll need a github account and a newly created repository. We made a public repository where you'll find the sources of the [Hello World container](https://github.com/mavilleg/azurecontainerapps-helloworld). [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then clone this repository within your own environment.
+In order to be able to setup your continuous deployment you'll need a GitHub account and a newly created repository. We made a public repository where you'll find the sources of the [Hello World container](https://github.com/mavilleg/azurecontainerapps-helloworld). [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then clone this repository within your own environment.
 
 Now that you have the source code you will be able to modify it and rebuild a container that will be pushed onto Azure Container Apps.
 
@@ -35,7 +35,7 @@ az ad sp create-for-rbac \
 
   {% endcollapsible %}
 
-Once those values retrieved, you will have to [create an Azure container registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) being able to host the newly created containers.
+Once those values retrieved, you will have to [create an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) with `Basic` SKU, this will be use to host the newly created containers.
 
 > This registry must have the *Admin User* enabled, or the integration with ACA won't work.
 
@@ -49,9 +49,13 @@ az acr update -n <acrName> --admin-enabled true
 
 {% endcollapsible %}
 
-Once configured, you can move forward by attaching your GitHub repo to the revision.
+Once configured, you can move forward by attaching your GitHub repo to the container app previously deployed.
 
-![Github Action](/media/lab1/githubattach.png)
+![Continious Deployment Setup](/media/lab1/githubattach.png)
+
+And use the credentials you previously generate for your service principal settings:
+
+![SPN Setup](/media/lab1/githubattach2.png)
 
 Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It hosts a YAML file that will allow the triggering of an automatic GitHub Action that will deploy any changes pushed onto the branch. It will also automatically setup some secrets on your application to store the admin's login to reach out to the Container Registry. We will see later in this lab how to manage those secrets.
 

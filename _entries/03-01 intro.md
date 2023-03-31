@@ -21,7 +21,7 @@ When implementing a system composed of microservices, function calls are spread 
 
 [Red Dog](https://github.com/azure/reddog-code) application is a simplified e-shop application with customers making orders and these orders being processed by workers. In parallel, orders, receipts, and accounting are stored in different persistent systems. The e-commerce platform does not contain any UI except a dashboard to monitor the orders.
 
-The reddog application is developed with .NET and Javascript. As mentioned above, it utilizes Dapr (Distributed Application Runtime) so it can easily be adapted to multiple scenarios.
+The Red Dog application is developed with .NET and Javascript. As mentioned above, it utilizes Dapr (Distributed Application Runtime) so it can easily be adapted to multiple scenarios.
 
 ![The Red Dog application](/media/lab2/intro/reddog_code.png)
 
