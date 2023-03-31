@@ -96,7 +96,7 @@ GET https://url-public-endpoint-of-reddog-app
 
 {% endcollapsible %}
 
-Then run **Vegeta** with the **attack** command. If no specific parameters are given, Vegeta will make 50 requests per second on the defined targets and **will not stop until you stop it**. You can also specify requests per sec and the duration with respective parameters rate and duration.
+Then run **Vegeta** with the `attack` command. If no specific parameters are given, Vegeta will make 50 requests per second on the defined targets and **will not stop until you stop it**. You can also specify requests per sec and the duration with respective parameters rate and duration.
 
 {% collapsible %}
 
