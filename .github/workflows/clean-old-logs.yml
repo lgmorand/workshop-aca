@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: igorjs/gh-actions-clean-workflow@v3
+      - uses: igorjs/gh-actions-clean-workflow@v5
         with:
           days_old: 7 
           token: ${{ github.token }}
