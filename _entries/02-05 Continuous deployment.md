@@ -17,7 +17,7 @@ In order to be able to setup your continuous deployment you'll need a GitHub acc
 
 Now that you have the source code you will be able to modify it and rebuild a container that will be pushed onto Azure Container Apps.
 
-## Attach Github Actions to your container App
+### Attach Github Actions to your container App
 
 Now that you have a Repo to attach to your environment, you'll have to setup the correct rights on Azure to configure the continous deployment. When attaching a GitHub repository to your container apps, you need to provide a service principal context with the contributor role. The parameter that we will need to configure within the container app are the service principal's `tenantId`, `cliendId`, and `clientSecret`.
 
@@ -81,11 +81,11 @@ az containerapp github-action show \
 
 Let's test that out!
 
-## Putting everything together
+### Putting everything together
 
 Open your project within VS Code (or your favorite IDE). You should see that the `.github/workflows` has been added. If it's not the case, synchronize the change that has been made onto the project (git pull request).
 
-Now you can modify the source code of the Hello World container that we are using since the beginning. For example, you could change the text above the logo under the `index.html` file.
+Now you can modify the source code of the Hello World container that we are using since the beginning. For example, you could change the text above the logo under the `index.html` file (inside the `/app` folder). Change some text, commit and push your modification.
 
 Once the change are commited you can go to your GitHub repos to see the GitHub Action occurring:
 

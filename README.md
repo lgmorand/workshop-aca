@@ -6,6 +6,8 @@
 
 This workshop is a 2-4 hours workshop to learn how to use Azure Container Apps. The workshop is accessible at the following address: [https://aka.ms/aca-workshop](https://aka.ms/aca-workshop) and its objectives are to make you manipulate all main features of Containers Apps, such as deployment, scaling, monitoring, revisions, etc. You'll also cover real-life topics such as storage or security (private network).
 
+> **Note:** this lab has been fully tested the last time on 22th February 2025.
+
 ## Technology used
 
 - The website is statically built using Jekyll and you’ll find the different pages inside the `_entries` folder
