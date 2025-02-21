@@ -46,7 +46,7 @@ You now have two options:
 
 Let's use the Add option, so click on `Add` in order to pull the new image that will be used to create the new revision.
 
-![Revision soluce](/media/lab1/addrevision1.png)
+![Revision creation](/media/lab1/addrevision1.png)
   
 {% endcollapsible %}
 
@@ -64,7 +64,7 @@ You can see all revisions using the `az containerapp revision list`and have more
 
 ```bash
 az containerapp revision list \
-  --name <APPLICATION_NAME> \
+  --name my-container-app \
   --resource-group $RESOURCE_GROUP \
   -o table
 ```
@@ -78,3 +78,10 @@ az containerapp revision show \
 {% endcollapsible %}
 
 Remember with the `revision mode` and set it up on "multi". This way, you can have multiple revisions at the same time, which is commonly used for A/B testing or blue-green scenarios. Or you can use single revision mode to automatically replace the current version by the new one.
+
+Now, have fun and perform canary deployment. Put weight on both revisions with 50% of traffic for each.
+![Traffic split](/media/lab1/trafficsplit.png)
+
+Once done, reopen the URL of your containerapp and refresh the page a dozen of times. You should randomly get the previous version or the new one.
+
+![Traffic split](/media/lab1/trafficsplit2.png)

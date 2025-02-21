@@ -33,6 +33,8 @@ az ad sp create-for-rbac \
 
   The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `cliendId`, and `clientSecret`.
 
+![SPN Created](/media/lab1/spn.png)
+
   {% endcollapsible %}
 
 Once those values retrieved, you will have to [create an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) with `Basic` SKU, this will be use to host the newly created containers.
@@ -57,7 +59,11 @@ And use the credentials you previously generate for your service principal setti
 
 ![SPN Setup](/media/lab1/githubattach2.png)
 
-Once everything is in place you can see that a new folder `.github/workflows` has been added to your project. It hosts a YAML file that will allow the triggering of an automatic GitHub Action that will deploy any changes pushed onto the branch. It will also automatically setup some secrets on your application to store the admin's login to reach out to the Container Registry. We will see later in this lab how to manage those secrets.
+Once everything is in place you can see that a new folder `.github/workflows` has been added to your **GitHub project**. It hosts a YAML file that will allow the triggering of an automatic GitHub Action that will deploy any changes pushed onto the branch.
+
+![GitHub Actions workflow](/media/lab1/createyaml.png)
+
+It will also automatically setup some secrets on your application to store the admin's login to reach out to the Container Registry. We will see later in this lab how to manage those secrets.
 
 ![Secret ACR](/media/lab1/secretacr.png)
 

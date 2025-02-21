@@ -21,7 +21,7 @@ Applications built on Azure Container Apps can dynamically scale based on the fo
 - HTTP traffic
 - Event-driven processing
 - CPU or memory load
-- Any [KEDA-supported scaler](https://keda.sh/docs/2.4/scalers/)
+- Any [KEDA-supported scaler](https://keda.sh/docs/2.16/scalers/)
 
 ![Example scenarios for Azure Container Apps](/media/intro/azure-container-apps-example-scenarios.png)
 

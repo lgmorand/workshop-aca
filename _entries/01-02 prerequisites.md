@@ -68,7 +68,7 @@ You should now have access to the Azure Cloud Shell
 
 #### Azure CLI
 
-Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version **2.37** or superior)
+Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). (version **2.69** or superior)
 
 ##### Setup
 
@@ -90,10 +90,10 @@ Once the extension is installed, register the `Microsoft.App` namespace.
 az provider register --namespace Microsoft.App
 ```
 
-You can use the following command to check that the provider is properly registered
+You can use the following command to check that the provider is properly registered. It can take few minutes for it to be marked as "registrered"
 
 ``` bash
-az provider show -n Microsoft.App
+az provider show -n Microsoft.App --query registrationState
 ```
 
 Register the Microsoft.OperationalInsights provider for the [Azure Monitor Log Analytics Workspace](https://docs.microsoft.com/en-us/azure/container-apps/observability?tabs=bash#azure-monitor-log-analytics) if you have not used it before.
@@ -105,7 +105,7 @@ az provider register --namespace Microsoft.OperationalInsights
 And to follow the provider registration just run:
 
 ``` bash
-az provider show -n Microsoft.OperationalInsights
+az provider show -n Microsoft.OperationalInsights --query registrationState
 ```
 
 #### GitHub
