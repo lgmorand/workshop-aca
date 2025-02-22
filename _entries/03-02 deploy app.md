@@ -13,7 +13,7 @@ The Red Dog application is based on containerized services and Azure PaaS servic
 
 Start by [forking](https://github.com/Azure/reddog-containerapps/fork) the [dedicated repository (azure/reddog-containerapps)](https://github.com/Azure/reddog-containerapps) to have your copy on your GitHub account.
 
-Once the repo has been forked, clone the repository on your local computer.
+Once the repo has been forked, clone the repository on your local computer or within your Cloud Shell.
 
 ![Clone the repository](/media/lab2/deploy/clone-repo.png)
 
@@ -30,7 +30,7 @@ Next, to deploy the full environment, go to the **deploy.sh** file and update th
 
 ![Deployment in progress](/media/lab2/deploy/deploy.png)
 
-> Note: The installation should work smoothly. Deploying the full environment will take around 15 minutes (sometimes more). The provisionning of the Redis part is very long but you don't have to wait to move forward in the lab. If the deployment fails (display an error message), just run the script again, it's [idempotent](https://en.wikipedia.org/wiki/Idempotence). If you have warnings telling you that commands are not found, it probably means that the file's encoding (LF/CLRF) is incorrect for your system.
+> Note: The installation should work smoothly. Deploying the full environment will take around 15 minutes (sometimes more). The provisionning of the Redis part is very long but you can **continue with the next lab** while the deployment continues - or you can tak a coffee break. If the deployment fails (display an error message), just run the script again, it's [idempotent](https://en.wikipedia.org/wiki/Idempotence). If you have warnings telling you that commands are not found, it probably means that the file's encoding (LF/CLRF) is incorrect for your system.
 
 {% endcollapsible %}
 

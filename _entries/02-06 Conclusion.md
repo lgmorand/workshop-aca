@@ -13,6 +13,4 @@ Azure Container Apps manages the details of Kubernetes and container orchestrati
 
 The Azure Container Apps application lifecycle revolves around revisions. A revision being an immutable snapshot of a container app. When you deploy a container app, the first revision is automatically created. More revisions are created as containers change, or any adjustments are made to the configuration.
 
-> You can delete the Azure Container Environments because we are going to create new ones.
-
 Let's move forward with a more complex scenario around the concepts revolving around Microservices Architecture.

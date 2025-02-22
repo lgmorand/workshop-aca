@@ -16,14 +16,14 @@ The application exposes an ingress through the environment ingress static IP. In
 
 Therefore, all applications within a Container Apps environment with external ingress visibility share a single public IP address. Similarly, all applications within a Container Apps environment with internal ingress visibility share a single internal IP address. HTTP traffic is routed to individual applications based on the FQDN in the host header. You can get access to the environment's unique identifier by querying the environment settings.
 
-> Reaching the ILB behind the ingress with the IP address will not work as the hostname is used to route the traffic to the correct application within the environment. We need to set up a private DNS zone with a wildcard ('*') A record pointing to the environment ingress static IP. The wildcard is justified by the fact that a given environment can have several applications, each with its own ingress, served from the same Internal Load Balancer.
+> Reaching the Internal LoadBalancer behind the ingress with the IP address will not work as the hostname is used to route the traffic to the correct application within the environment. We need to set up a private DNS zone with a wildcard ('*') A record pointing to the environment ingress static IP. The wildcard is justified by the fact that a given environment can have several applications, each with its own ingress, served from the same Internal Load Balancer.
 
 **Client service:**
 The client environment hosts the [greeter](https://github.com/zlatko-ms/pgreeter) application, a python script that performs periodical HTTP GET requests to the backend. The environment is injected in a specific subnet and connected to the same Log Analytics workspace to provide diagnostic settings and log centralization.
 
 This Greeter application does not provide any ingress, so there is no need to set up a DNS zone for this environment.
 
-Start by [forking](https://github.com/Azure/reddog-containerapps/fork) the [dedicated repository (zlatko-ms/az-capps-private)](https://github.com/zlatko-ms/az-capps-private) to have your copy on your GitHub account.
+Start by [forking](https://github.com/zlatko-ms/az-capps-private/fork) the [dedicated repository (zlatko-ms/az-capps-private)](https://github.com/zlatko-ms/az-capps-private) to have your copy on your GitHub account.
 
 Once the repo has been forked, clone the repository on your local computer.
 
@@ -52,14 +52,12 @@ To deploy the full environment, you need to execute the **make** command on the 
 To deploy the project with default values for the resource group name and region simply issue the following commands:
 
 ``` bash
-cd src/bicep
 make
 ```
 
 If you want to customize the location or the resource group name you can use the following:
 
 ``` bash
-cd src/bicep
 make stackName=<my-resource-group-name> location=<my-azure-region>
 ```
 
@@ -75,7 +73,7 @@ Once deployed you'll see 3 differents resource group. One containing your appica
 
 ## Testing the application
 
-To validate that the two container apps are communicating together correctly, go to the log stream panel. On the greeter application you should see the application awaking every 10 second and colling the helloer application:
+To validate that the two container apps are communicating together correctly, go to the log stream panel. On the greeter application you should see the application awaking every 10 second and calling the helloer application:
 
 ![Architecture](/media/lab3/greeterlogstream.png)
 

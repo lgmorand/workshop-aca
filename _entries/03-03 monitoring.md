@@ -82,7 +82,7 @@ That's it. No need to install specific monitoring tool (i.e. Prometheus) nor nee
 
 ##### Get Metrics
 
-Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your live applications. It will automatically detect performance anomalies, and includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.
+**Application Insights**, a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your live applications. It will automatically detect performance anomalies, and includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.
 
 Lucky for us, Application Insights has been automatically deployed and uses the metrics/logs stored automatically in Log Analytics by Azure Container Apps. As you can see, if you dig a little bit, Application Insights can help to see metrics, errors, users flow, and so much more.
 
@@ -90,7 +90,7 @@ Start by opening Application Insights and watch the main metrics of the platform
 
 {% collapsible %}
 
-In the resource group, look for the Application Insights resource. Once you open it, you can see main metrics such as failures (should be empty), the average response time and the requests per second.
+In the resource group, look for the **Application Insights** resource. Once you open it, you can see main metrics such as failures (should be empty), the average response time and the requests per second.
 
 ![Overview metrics](/media/lab2/monitor/overview-metrics.png)
 

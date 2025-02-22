@@ -81,7 +81,7 @@ properties:
         storageType: EmptyDir
 ```
 
-Make sure you don't have duplicate `volumes` definition when you update your `yaml` file.
+> **Warning**: Make sure you don't have duplicate `volumes` definition when you update your `yaml` file or you may have error that volume mount does not exist.
 
 {% endcollapsible %}
 
