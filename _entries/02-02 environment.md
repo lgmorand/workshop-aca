@@ -14,10 +14,10 @@ Before deploying your containerized application, you need a "place" to host your
 Let's start by setting some variables:
 
 ``` bash
-RESOURCE_GROUP="rg-my-container-apps"
+RESOURCE_GROUP="-<UNIQUE-NAME>rg-my-container-apps" 
 LOCATION="northeurope"
 LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
-CONTAINERAPPS_ENVIRONMENT="my-environment"
+CONTAINERAPPS_ENVIRONMENT="<UNIQUE-NAME>my-environment"
 ```
 
 - **RESOURCE_GROUP**: the Azure resource group which will contain your container apps environment
