@@ -24,6 +24,16 @@ Next, to deploy the full environment, go to the **deploy.sh** file and update th
 
 > **Warning** Don't forget to edit the deploy.sh file first !
 
+```shell
+# *nix only
+#export RG="reddog" #comment this line
+export RG="reddog-<randomnumber>" #make sure this to have a unique name
+export LOCATION="eastus2"
+export SUB_ID="<YourSubscriptionID>"
+
+...
+```
+
 {% collapsible %}
 
 ``` bash
