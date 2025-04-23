@@ -21,11 +21,12 @@ tags: containers, azure, ACA, containers apps, monitoring
 navigation_levels: 3
 ---
 
+# Azure Container Apps Workshop
+
 Welcome to the **Azure Container Apps workshop**. In this micro OpenHack, you'll go through tasks that will help you master the basics and more advanced topics required to deploy applications to Azure Container Apps. This exercice can be done alone or in group and will take between 2 and 4 hours depending on your pace. If you find any issue or have any remark, don't hesitate to open an issue on the dedicated [repository
 ](https://github.com/lgmorand/workshop-aca/)
 
 > This workshop is **NOT** an official resource from the product group. They are currently working on dedicated and up-to-date content. This workshop may not be up to date with the very last features of Azure Container Apps but we work hard to do so. Don't hesitate to read the official documentation to [know more about Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps/).
-
 
 [Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps)is a new serverless container platform for applications that need to scale on demand in response to HTTPS requests, events, or simply run as always-on services or background job processing without managing VMs, orchestrators, or other cloud infrastructure. Azure Container Apps makes it easy to manage your containerized applications with built-in autoscaling, traffic routing, application lifecycle management, and service-to-service communication in a fully managed environment.
 
@@ -45,7 +46,7 @@ Applications built on Azure Container Apps can dynamically scale based on the fo
 - CPU or memory load
 - Any [KEDA-supported scaler](https://keda.sh/docs/2.16/scalers/)
 
-![Example scenarios for Azure Container Apps](/assets/intro/azure-container-apps-example-scenarios.png)
+![Example scenarios for Azure Container Apps](assets/intro/azure-container-apps-example-scenarios.png)
 
 Azure Container Apps enables executing application code packaged in any container and is unopinionated about runtime or programming model. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of managing cloud infrastructure and complex container orchestrators.
 
@@ -72,7 +73,6 @@ With Azure Container Apps, you can:
 - [**View application logs**](https://docs.microsoft.com/en-us/azure/container-apps/monitor) using Azure Log Analytics.
 
 <sup>1</sup> Applications that [scale on CPU or memory load](https://docs.microsoft.com/en-us/azure/container-apps/scale-app) can't scale to zero.
-
 
 
 ### Prerequisites
@@ -121,19 +121,19 @@ Head over to <https://shell.azure.com> and sign in with your Azure Subscription 
 
 Select **Bash** as your shell.
 
-![Select Bash](/assets/intro/0-bash.png)
+![Select Bash](assets/intro/0-bash.png)
 
 Select **Show advanced settings**
 
-![Select show advanced settings](/assets/intro/1-mountstorage-advanced.png)
+![Select show advanced settings](assets/intro/1-mountstorage-advanced.png)
 
 Set the **Storage account** and **File share** names to your resource group name (all lowercase, without any special characters). Leave other settings unchanged, then hit **Create storage**
 
-![Azure Cloud Shell](/assets/intro/2-storageaccount-fileshare.png)
+![Azure Cloud Shell](assets/intro/2-storageaccount-fileshare.png)
 
 You should now have access to the Azure Cloud Shell
 
-![Set the storage account and fileshare names](/assets/intro/3-cloudshell.png)
+![Set the storage account and fileshare names](assets/intro/3-cloudshell.png)
 
 </details>
 
@@ -184,6 +184,8 @@ az provider show -n Microsoft.OperationalInsights --query registrationState
 Some steps of this workshop require using a GitHub account. If you don't have one already, you can create one for free here: [https://github.com/join](https://github.com/join).
 
 ---
+
+# Challenge 1
 
 This first lab will guide you to deploy your first *Hello World* app on Containers apps, an application accessible from the Internet.
 
@@ -306,18 +308,18 @@ az containerapp create \
 
 In our case, the `create` command returns (only) the container app's fully qualified domain name because we specified the `query` parameter.
 
-![Create an with the console](/assets/lab1/create-app.png)
+![Create an with the console](assets/lab1/create-app.png)
 
 </details>
 
 Copy this URL to a web browser to see the following message.
 
-![Running app](/assets/lab1/running-app.png)
+![Running app](assets/lab1/running-app.png)
 
 Open the [Azure Portal](https://portal.azure.com). In your resource group, you should see your container apps environment but also your container app. Click on it.
 From here, you can directly see, diagnose or reconfigure your application, such as changing the ingress configuration, the secrets, the load balancing, or the continuous deployment:
 
-![App in Azure](/assets/lab1/created-app-in-azure.png)
+![App in Azure](assets/lab1/created-app-in-azure.png)
 
 That's it! How simple is it to deploy and host an application!
 
@@ -328,7 +330,7 @@ Revisions are most useful when you enable ingress to make your container app acc
 
 The following diagram shows a container app with two revisions.
 
-![Revision App](/assets/lab1/revisionpond.png)
+![Revision App](assets/lab1/revisionpond.png)
 
 > Note that changes made to a container app fall under one of two categories:
 >
@@ -344,7 +346,7 @@ By default your container app is set on "single revision mode". It means that ea
 
 Go to the revision management blade on the left inside of the container apps panel. At the top of the page you'll find the "choose revision mode" option where you'll be able to choose the revision mode. 
 
-![Revision soluce](/assets/lab1/revisionmode.png)
+![Revision soluce](assets/lab1/revisionmode.png)
 
 </details>
 
@@ -358,7 +360,7 @@ Once this new revision is provisionned, we will configure an even split of the t
 Go to the revisions management blade on the left inside of the container apps panel.
 Click on `Create a new revision`
 
-![Revision soluce](/assets/lab1/addrevision.png)
+![Revision soluce](assets/lab1/addrevision.png)
 
 You now have two options:
 - Edit the existing container image definition
@@ -366,7 +368,7 @@ You now have two options:
 
 Let's use the Add option, so click on `Add` in order to pull the new image that will be used to create the new revision.
 
-![Revision creation](/assets/lab1/addrevision1.png)
+![Revision creation](assets/lab1/addrevision1.png)
   
 </details>
 
@@ -401,18 +403,18 @@ az containerapp revision show \
 Remember with the `revision mode` and set it up on "multi". This way, you can have multiple revisions at the same time, which is commonly used for A/B testing or blue-green scenarios. Or you can use single revision mode to automatically replace the current version by the new one.
 
 Now, have fun and perform canary deployment. Put weight on both revisions with 50% of traffic for each.
-![Traffic split](/assets/lab1/trafficsplit.png)
+![Traffic split](assets/lab1/trafficsplit.png)
 
 Once done, reopen the URL of your containerapp and refresh the page a dozen of times. You should randomly get the previous version or the new one.
 
-![Traffic split](/assets/lab1/trafficsplit2.png)
+![Traffic split](assets/lab1/trafficsplit2.png)
 
 
 Azure Container Apps allows you to use GitHub Actions to publish revisions to your container app. As commits are pushed to your GitHub repository, a GitHub Action workflow is triggered which updates the container image in the container registry. Once the container is updated in the registry, the workflow creates a new revision within Azure Container Apps based on the updated container image.
 
 The GitHub action is triggered by commits to a specific branch in your repository. When creating the integration link, you can decide which branch triggers the action.
 
-![Github Action](/assets/lab1/githubactionflow.png)
+![Github Action](assets/lab1/githubactionflow.png)
 
 ## Setup your Github repository
 
@@ -437,7 +439,7 @@ az ad sp create-for-rbac \
 
   The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `cliendId`, and `clientSecret`.
 
-![SPN Created](/assets/lab1/spn.png)
+![SPN Created](assets/lab1/spn.png)
 
 </details>
 
@@ -458,19 +460,19 @@ az acr update -n <acrName> --admin-enabled true
 
 Once configured, you can move forward by attaching your GitHub repo to the container app previously deployed.
 
-![Continious Deployment Setup](/assets/lab1/githubattach.png)
+![Continious Deployment Setup](assets/lab1/githubattach.png)
 
 And use the credentials you previously generate for your service principal settings:
 
-![SPN Setup](/assets/lab1/githubattach2.png)
+![SPN Setup](assets/lab1/githubattach2.png)
 
 Once everything is in place you can see that a new folder `.github/workflows` has been added to your **GitHub project**. It hosts a YAML file that will allow the triggering of an automatic GitHub Action that will deploy any changes pushed onto the branch.
 
-![GitHub Actions workflow](/assets/lab1/createyaml.png)
+![GitHub Actions workflow](assets/lab1/createyaml.png)
 
 It will also automatically setup some secrets on your application to store the admin's login to reach out to the Container Registry. We will see later in this lab how to manage those secrets.
 
-![Secret ACR](/assets/lab1/secretacr.png)
+![Secret ACR](assets/lab1/secretacr.png)
 
 The `az containerapp github-action show` command returns the GitHub Actions configuration settings for a container app. It returns a JSON payload with the GitHub Actions integration configuration settings.
 
@@ -495,17 +497,17 @@ Now you can modify the source code of the Hello World container that we are usin
 
 Once the change are commited you can go to your GitHub repos to see the GitHub Action occurring:
 
-![Github Action process](/assets/lab1/action.png)
+![Github Action process](assets/lab1/action.png)
 
 As you can see, pushing the changes (commit) automatically triggered a GitHub Action workflow that built and deployed our new container into our registry and then on our container apps under a new revision. You can validate it by going under the revision management panel and see your newly provisioned revision.
 
-![Github Action process](/assets/lab1/revisionaction.png)
+![Github Action process](assets/lab1/revisionaction.png)
 
 As you can see the revision is not loadbalanced yet, meaning that none of the traffic is routed to it. Supporting multiple revisions in Azure Container Apps allows you to manage the versioning and amount of traffic sent to each revision.
 
 Once a part (or all) of the traffic is sent to your app, you can test that the newly version of your application is running correctly.
 
-![Github Action process](/assets/lab1/actionval.png)
+![Github Action process](assets/lab1/actionval.png)
 
 All of this can be configured as needed. Indeed, you can change whether or not your container app supports multiple active revisions. The `activeRevisionsMode` property accepting two values:
 
@@ -529,6 +531,7 @@ Let's move forward with a more complex scenario around the concepts revolving ar
 
 ---
 
+# Challenge 2
 
 Now that you successfully deployed a simple application, let's see how Azure Container Apps could help with more complex applications. You are going to deploy a full micro-services application named `Red Dog`. Microservice architectures allow you to independently develop, upgrade, version, and scale core areas of functionality in an overall system. Azure Container Apps provides the foundation for deploying microservices featuring:
 
@@ -548,7 +551,7 @@ When implementing a system composed of microservices, function calls are spread 
 
 The Red Dog application is developed with .NET and Javascript. As mentioned above, it utilizes Dapr (Distributed Application Runtime) so it can easily be adapted to multiple scenarios.
 
-![The Red Dog application](/assets/lab2/intro/reddog_code.png)
+![The Red Dog application](assets/lab2/intro/reddog_code.png)
 
 > The application may seem complex but it's not and you won't have to fully understand it to finalize the workshop.
 
@@ -574,13 +577,13 @@ Here are the descriptions of the different components of the application.
 
 The Red Dog application is based on containerized services and Azure PaaS services such as Storage accounts, Azure SQL Database, Redis, or CosmosDB.
 
-![Micro-services architecture](/assets/lab2/deploy/reddog_containerapps.png)
+![Micro-services architecture](assets/lab2/deploy/reddog_containerapps.png)
 
 Start by [forking](https://github.com/Azure/reddog-containerapps/fork) the [dedicated repository (azure/reddog-containerapps)](https://github.com/Azure/reddog-containerapps) to have your copy on your GitHub account.
 
 Once the repo has been forked, clone the repository on your local computer or within your Cloud Shell.
 
-![Clone the repository](/assets/lab2/deploy/clone-repo.png)
+![Clone the repository](assets/lab2/deploy/clone-repo.png)
 
 Browse the contents of the repository. The most interesting part is the "deploy/bicep" folder. Using Infrastructure as code and the Bicep technology, it is possible to deploy all the components in one command line, including the Azure Container Apps instance, the different PaaS services but also the containerized applications.
 
@@ -606,7 +609,7 @@ export SUB_ID="<YourSubscriptionID>"
 . deploy.sh
 ```
 
-![Deployment in progress](/assets/lab2/deploy/deploy.png)
+![Deployment in progress](assets/lab2/deploy/deploy.png)
 
 > Note: The installation should work smoothly. Deploying the full environment will take around 15 minutes (sometimes more). The provisionning of the Redis part is very long but you can **continue with the next lab** while the deployment continues - or you can tak a coffee break. If the deployment fails (display an error message), just run the script again, it's [idempotent](https://en.wikipedia.org/wiki/Idempotence). If you have warnings telling you that commands are not found, it probably means that the file's encoding (LF/CLRF) is incorrect for your system.
 
@@ -616,7 +619,7 @@ Once the deployment is successful, open the Azure portal and notice the new reso
 
 When you open it, you can see that all resources have been successfully created and deployed.
 
-![The new resource group](/assets/lab2/deploy/rg-reddog.png)
+![The new resource group](assets/lab2/deploy/rg-reddog.png)
 
 
 #### Observability
@@ -634,11 +637,11 @@ Remember the architecture schema of the Reddog platform. The frontend is the `UI
 
 To find the URL of the portal, open the `Reddog` Container App. In the overview tab, you should find the generated FQDN URL.
 
-![Finding the endpoint](/assets/lab2/monitor/finding-endpoint.png)
+![Finding the endpoint](assets/lab2/monitor/finding-endpoint.png)
 
 Copy the URL in any browser to discover a nice dynamic dashboard :
 
-![Running application](/assets/lab2/monitor/running-app.png)
+![Running application](assets/lab2/monitor/running-app.png)
 
 > Did you notice the delay for the page to be displayed the first time ? It is caused by the fact that the running containers are removed (scaled to zero) when the platform is not used. You are going to see in detail how to control this behavior further in this workshop.
 
@@ -677,7 +680,7 @@ ContainerAppConsoleLogs_CL
 | where ContainerAppName_s == 'ui'
 ```
 
-![Get Logs using CLI](/assets/lab2/monitor/logs-ui.png)
+![Get Logs using CLI](assets/lab2/monitor/logs-ui.png)
 
 The second way of doing it is to use the command line and the Azure CLI. (it may ask you to install a CLI extension first).
 
@@ -690,7 +693,7 @@ az monitor log-analytics query \
 
 Here, the query is more complex to select the columns to display and the number of lines we want to return.
 
-![Get Logs using CLI](/assets/lab2/monitor/logs-cli.png)
+![Get Logs using CLI](assets/lab2/monitor/logs-cli.png)
 
 </details>
 
@@ -709,11 +712,11 @@ Start by opening Application Insights and watch the main metrics of the platform
 
 In the resource group, look for the **Application Insights** resource. Once you open it, you can see main metrics such as failures (should be empty), the average response time and the requests per second.
 
-![Overview metrics](/assets/lab2/monitor/overview-metrics.png)
+![Overview metrics](assets/lab2/monitor/overview-metrics.png)
 
 If you click on one chart (i.e. response time), you'd be brought to performance tab where you can see specific metrics for each micro-service.
 
-![Detailed performance](/assets/lab2/monitor/performance.png)
+![Detailed performance](assets/lab2/monitor/performance.png)
 
 </details>
 
@@ -724,7 +727,7 @@ Another way to get the health of your platform is to use the "magic map" feature
 
 On the left part, open the `Application Map` menu. From the logs only, it is capable of drawing a map of your microservices platform, showing interactions between components, average performance and even failure rates when an error occurs.
 
-![App Insights - application map](/assets/lab2/monitor/logs-app-insights-maps.png)
+![App Insights - application map](assets/lab2/monitor/logs-app-insights-maps.png)
 
 </details>
 
@@ -735,11 +738,11 @@ Use the map to quickly get the logs of a specific micro-service, for instance, t
 
 On the map, click on one micro-services, then in the side panel which opens, click on `View logs`.
 
-![App Insights - get logs](/assets/lab2/monitor/logs-app-insights-logs-app.png)
+![App Insights - get logs](assets/lab2/monitor/logs-app-insights-logs-app.png)
 
 It should open Logs analytics and automatically generate for you the query which was used to draw this micro-services on the map.
 
-![Display specific logs](/assets/lab2/monitor/service-logs.png)
+![Display specific logs](assets/lab2/monitor/service-logs.png)
 
 </details>
 
@@ -759,7 +762,7 @@ Azure Container Apps allows your application to securely store sensitive configu
 
 In the deployed Reddog application, the container `receipt-generation-service` has two secrets to connect itself to a service bus sending receipts that he is posting onto a storage account. One is directly binded to the container app, the other one leverage Dapr components, to share the configuration and isolate configuration from application itself.
 
- ![The receipt secret](/assets/lab2/rotation/secretrotation.png)
+ ![The receipt secret](assets/lab2/rotation/secretrotation.png)
 
 Every second, this service receives a receipt which is then saves it into the blob storage account `receipts`. We will simulate a rotation of the storage account access key.
 
@@ -770,7 +773,7 @@ To do so, go to the storage account in order to make the rotation of both primar
 
 Go to the storage account under the `Access key` blade in and click the `Rotate keys` button.
 
-![Rotation Key](/assets/lab2/rotation/sarot.png)
+![Rotation Key](assets/lab2/rotation/sarot.png)
 
 </details>
 
@@ -786,11 +789,11 @@ In order to set back the connection between the storage account and the `receipt
 On the storage account under the `Access key` blade copy the key value.
 Then go to the `Dapr` blade inside the `receipt-generation-service` container app environment panel and find the `Click here to manage your Dapr components` link.
 
-![Rotation Key](/assets/lab2/rotation/daprblade.png)
+![Rotation Key](assets/lab2/rotation/daprblade.png)
 
 Then edit the `reddog.binding.receipt` component to update the old `blob-storage-key` value with the newly copied one. 
 
-![Rotation Key](/assets/lab2/rotation/sarot3.png)
+![Rotation Key](assets/lab2/rotation/sarot3.png)
 
 > Note that you can also add directly the secret to the container app, without using Dapr. This way, you can directly view/edit *Secrets* in the container app blade.
 
@@ -830,11 +833,11 @@ The list of triggers to scale (in/out) a Container App are :
 
 In Container Apps, scalability is managed through the revisions. Each revision contains scaliblity limits (min & max replicas) but can also contain rules to autoscale the application. To see the current number of replicas used by your Container App, open the Metric blade from the Monitoring section of your Container App :
 
-![Current scaling](/assets/lab2/scale/current-scale.png)
+![Current scaling](assets/lab2/scale/current-scale.png)
 
 In our case, the UI app has a min limit equals to 0, a max limit of 10, and no autoscaling rules.
 
-![UI Default scaling](/assets/lab2/scale/ui-default-scaling.png)
+![UI Default scaling](assets/lab2/scale/ui-default-scaling.png)
 
 Let's create a new revision with a new scaling rule. The revision should :
 
@@ -850,15 +853,15 @@ Open the `UI` Container App and the `Revision Management` tab. Click on `Create 
 
 In the scale part, configure the limits between 1 and 5 replicas.
 
-![Define the limits](/assets/lab2/scale/minmax.png)
+![Define the limits](assets/lab2/scale/minmax.png)
 
 Then add a rule with `HTTP Scaling` type and one concurrent request.
 
-![Create a scaling rule](/assets/lab2/scale/http-rule.png)
+![Create a scaling rule](assets/lab2/scale/http-rule.png)
 
 Click on the `Create` button, a new revision should be created with 100% of ingress sent to it :
 
-![A new revision is created](/assets/lab2/scale/ui-new-revision.png)
+![A new revision is created](assets/lab2/scale/ui-new-revision.png)
 
 </details>
 
@@ -927,7 +930,7 @@ After few seconds, check that the number of replicas of the UI Container App has
 
 Open the `ui` Container App and in the metric blade, check the number of current replicas during the last 30 minutes with a 1 minute granularity :
 
-![Post load testing](/assets/lab2/scale/after-load-testing.png)
+![Post load testing](assets/lab2/scale/after-load-testing.png)
 
 </details>
 
@@ -937,6 +940,7 @@ Close Vegeta and any browser tab which displays the Reddog application, and with
 
 ---
 
+# Challenge 3
 
 As we seen, Azure Container Apps run in a context called an Environment. This environment is supported by a virtual network that is automatically generated when the resources are created. Generated VNETs are inaccessible to you as it is created in Microsoft's tenant. To take full control over this VNET you have to provide an existing VNET to Container Apps as you create your environment. In that case you'll have a new ingress configaration that is enabled: the accessibility level. Two different levels of accessibility are available:
 
@@ -958,7 +962,7 @@ As you create a custom VNET, keep in mind the following situations:
 
 As you begin to design the network around your container app, refer to [Plan virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) for important concerns surrounding running virtual networks on Azure.
 
-![Revision soluce](/assets/lab3/acavnet.png)
+![Revision soluce](assets/lab3/acavnet.png)
 
 > When you deploy an internal or an external environment into your own network, a new resource group prefixed with MC_ is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. As the load balancer is created in your subscription, there are extra costs associated with deploying the service to a custom virtual network.
 
@@ -972,7 +976,7 @@ HTTP applications scale based on the number of HTTP requests and connections. En
 
 To demonstrate the private communication of Azure Container Apps we will use a simple demonstrator composed of two container app environments communicating in private over your network architecture.
 
- ![Architecture](/assets/lab3/architecture.png)
+ ![Architecture](assets/lab3/architecture.png)
 
 **Backend service:**
 The backend environment hosts the [helloer](https://github.com/zlatko-ms/helloer) application, a simple nodejs app that responds to HTTP requests. The environment is injected in a specific subnet and connected to a Log Analytics workspace in order to provide diagnostic settings and log centralization.
@@ -1031,26 +1035,28 @@ make stackName=<my-resource-group-name> location=<my-azure-region>
 
 Once deployed you'll see 3 differents resource group. One containing your appication resources:
 
-![Architecture](/assets/lab3/basicrg.png)
+![Architecture](assets/lab3/basicrg.png)
 
  But also the two MC_ resource groups containing the infrastructure components managed by the Azure Container Apps platform and that shouldn't be modified. As you can see those resource groups hosts the Kubernetes component that host the container app services.
 
-![Architecture](/assets/lab3/mcrg.png)
+![Architecture](assets/lab3/mcrg.png)
 
 ## Testing the application
 
 To validate that the two container apps are communicating together correctly, go to the log stream panel. On the greeter application you should see the application awaking every 10 second and calling the helloer application:
 
-![Architecture](/assets/lab3/greeterlogstream.png)
+![Architecture](assets/lab3/greeterlogstream.png)
 
 On the helloer log stream you're seeing the incoming request from the greeter.
 
-![Architecture](/assets/lab3/helloerlogstream.png)
+![Architecture](assets/lab3/helloerlogstream.png)
 
 As you can see the trace is showing that the helloer is receiving a greeting *rcv hello request* and is answering to the client over its private IP *sent response to client from 10.5.64.132*. It indicates the request is addressed from a client with IP 10.5.64.132, i.e. the request origins from the subnet-caenv-infra-client (10.5.64.0/20) where the caenv-client has been injected.
 
 
 ---
+
+# Challenge 4
 
 To persist data or just to use it temporarly, storage is often use with containerized applications. This lab will guide you to implement storage for your Azure Container Apps.
 
@@ -1062,7 +1068,7 @@ A container app has access to different types of storage. A single app can take 
 | [Temporary storage](#temporary-storage) | Temporary storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
 | [Azure Files](#azure-files) | Permanent storage | Writing files to a file share to make data accessible by other systems. |
 
-![Type of storage](/assets/lab4/storage.png)
+![Type of storage](assets/lab4/storage.png)
 
 ## Container file system
 
@@ -1151,7 +1157,7 @@ Connect to your container and check that a volume has been created. You can use 
 az containerapp exec --name <APP_NAME>  --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-![Browsing system files](/assets/lab4/navigate.png)
+![Browsing system files](assets/lab4/navigate.png)
 
 </details>
 
@@ -1203,7 +1209,7 @@ Valid values for `--access-mode` are `ReadWrite` and `ReadOnly`.
 
 If the command is successful, you should see something like this:
 
-![Storage added to environment](/assets/lab4/storage_added.png)
+![Storage added to environment](assets/lab4/storage_added.png)
 
 Like in previous part, export the YAML configuration of your app using the `az containerapp show` command.
 
@@ -1277,7 +1283,7 @@ touch myfile.txt
 
 Check directly in the Azure Portal that your file is indeed persisted in the Azure Files instance.
 
-![File created](/assets/lab4/filecreated.png)
+![File created](assets/lab4/filecreated.png)
 
 That's it. How simple is it to provide persistent storage to your containerized application !
 
@@ -1285,12 +1291,16 @@ That's it. How simple is it to provide persistent storage to your containerized 
 
 ---
 
+# Cleaning
+
 ### Delete resources
 
 Now that the workshop is finished, it is important to delete unused resources to stop the billing. Open the [Azure portal](https://portal.azure.com) and delete the resource groups. All contained resources will be removed.
 
 
 ---
+
+# Contributors
 
 The following people have contributed to this workshop, thanks!
 
