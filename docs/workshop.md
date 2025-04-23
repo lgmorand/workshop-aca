@@ -26,7 +26,11 @@ navigation_levels: 3
 Welcome to the **Azure Container Apps workshop**. In this micro OpenHack, you'll go through tasks that will help you master the basics and more advanced topics required to deploy applications to Azure Container Apps. This exercice can be done alone or in group and will take between 2 and 4 hours depending on your pace. If you find any issue or have any remark, don't hesitate to open an issue on the dedicated [repository
 ](https://github.com/lgmorand/workshop-aca/)
 
+<div class="warning" data-title="Warning">
+
 > This workshop is **NOT** an official resource from the product group. They are currently working on dedicated and up-to-date content. This workshop may not be up to date with the very last features of Azure Container Apps but we work hard to do so. Don't hesitate to read the official documentation to [know more about Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps/).
+
+</div>
 
 [Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps)is a new serverless container platform for applications that need to scale on demand in response to HTTPS requests, events, or simply run as always-on services or background job processing without managing VMs, orchestrators, or other cloud infrastructure. Azure Container Apps makes it easy to manage your containerized applications with built-in autoscaling, traffic routing, application lifecycle management, and service-to-service communication in a fully managed environment.
 
@@ -84,7 +88,12 @@ To realize the workshop, you will require several components. If you don't have 
 - an [Azure](https://portal.azure.com/) subscription (and at least a dedicated resource group).
 - if you plan to run command from your computer: installing [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) and [Bicep](https://learn.microsoft.com/en-gb/azure/azure-resource-manager/bicep/install)
 
+<div class="warning" data-title="Warning">
+
 > Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present for the moment. If you plan to play this workshop with a large group of individuals, you may require to create several subscriptions.
+
+</div>
+
 
 ## Azure subscription
 
@@ -102,7 +111,12 @@ az login
 az account show
 ```
 
+<div class="info" data-title="Note">
+
 > If you don't have the Azure CLI installed, read below how to install it or how to use Azure Cloud Shell
+
+</div>
+
 
 </details>
 
@@ -277,12 +291,13 @@ az containerapp env create \
 --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
 --location "$LOCATION"
 ```
+<div class="tip" data-title="Tip">
 
 > You may receive an error message telling that features are not allowed for this subscription. It means that the service Azure Container Apps is not available for the selected region.
 
+</div>
+
 Once the environment is created, it is time to deploy applications.
-
-
 
 ## Create your first app
 
@@ -332,10 +347,14 @@ The following diagram shows a container app with two revisions.
 
 ![Revision App](assets/lab1/revisionpond.png)
 
+<div class="info" data-title="Note">
+
 > Note that changes made to a container app fall under one of two categories:
 >
 > - `Revision-scope` changes are any change that triggers a new revision (e.g: changes to containers, add or update scaling rules, changes to Dapr settings, etc.)
 > - `Application-scope` changes don't create revisions (e.g: changes to traffic splitting rules, turning ingress on or off, changes to secret values, etc.)
+
+</div>
 
 ## Create your first revision
 
@@ -408,7 +427,6 @@ Now, have fun and perform canary deployment. Put weight on both revisions with 5
 Once done, reopen the URL of your containerapp and refresh the page a dozen of times. You should randomly get the previous version or the new one.
 
 ![Traffic split](assets/lab1/trafficsplit2.png)
-
 
 Azure Container Apps allows you to use GitHub Actions to publish revisions to your container app. As commits are pushed to your GitHub repository, a GitHub Action workflow is triggered which updates the container image in the container registry. Once the container is updated in the registry, the workflow creates a new revision within Azure Container Apps based on the updated container image.
 
@@ -972,7 +990,7 @@ As you begin to design the network around your container app, refer to [Plan vir
 </div>
 
 
-### HTTP edge proxy behaviour
+## HTTP edge proxy behaviour
 
 Azure Container Apps uses Envoy proxy as an edge HTTP proxy. TLS is terminated on the edge and requests are routed based on their traffic split rules and routes traffic to the correct application.
 
@@ -1193,7 +1211,11 @@ When using Azure Files, you must use the Azure CLI with a YAML definition to cre
 
 Start by creating a storage account and retrieve its access keys. Then, add a storage definition of type `AzureFile` to your Container Apps environment. You must use the command `az containerapp env storage`.
 
+<div class="info" data-title="Notice">
+
 > Notice: you need to use the name of the container app **environment**, not the container app itself !
+
+</div>
   
 <details>
 <summary>Watch solution</summary>
@@ -1268,7 +1290,11 @@ az containerapp update --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> 
 
 Once the command is applied, your container is restarted and a volume is mapped to it. Connect to your container (with the exec command), browse the file system and create a file on the volume. 
 
+<div class="info" data-title="Note">
+
 > If you did a wrong volume configuration you won't be able to access to your container app using the exec command.
+
+</div>
 
 <details>
 <summary>Watch solution</summary>
@@ -1302,7 +1328,6 @@ That's it. How simple is it to provide persistent storage to your containerized 
 ## Delete resources
 
 Now that the workshop is finished, it is important to delete unused resources to stop the billing. Open the [Azure portal](https://portal.azure.com) and delete the resource groups. All contained resources will be removed.
-
 
 ---
 
