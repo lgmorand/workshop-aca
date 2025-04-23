@@ -416,7 +416,7 @@ The GitHub action is triggered by commits to a specific branch in your repositor
 
 ![Github Action](assets/lab1/githubactionflow.png)
 
-## Setup your Github repository
+## Continuous deployment
 
 In order to be able to setup your continuous deployment you'll need a GitHub account and a newly created repository. We made a public repository where you'll find the sources of the [Hello World container](https://github.com/mavilleg/azurecontainerapps-helloworld). [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) and then clone this repository within your own environment.
 
@@ -964,7 +964,13 @@ As you begin to design the network around your container app, refer to [Plan vir
 
 ![Revision soluce](assets/lab3/acavnet.png)
 
-> When you deploy an internal or an external environment into your own network, a new resource group prefixed with MC_ is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. As the load balancer is created in your subscription, there are extra costs associated with deploying the service to a custom virtual network.
+<div class="info" data-title="Note">
+
+> When you deploy an internal or an external environment into your own network, a new resource group prefixed with MC_ is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by    
+  the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. As the load balancer is created in your subscription, there  are extra costs associated with deploying the service to a custom virtual network.
+
+</div>
+
 
 ### HTTP edge proxy behaviour
 
@@ -1094,7 +1100,7 @@ Temporary storage has the following characteristics:
 
 To configure temporary storage, first define an `EmptyDir` volume in the revision. Then define a volume mount in one or more containers in the revision.
 
-### Configuration
+#### Configuration
 
 When using temporary storage, you must use the Azure CLI with a YAML definition to create or update your container app. For example, you can use the sample hello-world which is deployed by default when creating a container environment (`mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`).
 
@@ -1181,7 +1187,7 @@ To enable Azure Files storage in your container, you need to set up your contain
 * Define a storage volume in a revision.
 * Define a volume mount in one or more containers in the revision.
 
-### Configuration
+#### Configuration
 
 When using Azure Files, you must use the Azure CLI with a YAML definition to create or update your container app.
 
