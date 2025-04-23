@@ -175,7 +175,7 @@ Once the extension is installed, register the `Microsoft.App` namespace.
 az provider register --namespace Microsoft.App
 ```
 
-You can use the following command to check that the provider is properly registered. It can take few minutes for it to be marked as "registrered"
+You can use the following command to check that the provider is properly registered. It can take few minutes for it to be marked as "registered"
 
 ``` bash
 az provider show -n Microsoft.App --query registrationState
@@ -358,20 +358,20 @@ The following diagram shows a container app with two revisions.
 
 ## Create your first revision
 
-By default your container app is set on "single revision mode". It means that each new revision will ecrase the current revision and take all the incoming traffic. To have several revisions running at the same time you must enable the "multi-revision mode" on your containerapp. 
+By default your container app is set on "single revision mode". It means that each new revision will overwrite the current revision and take all the incoming traffic. To have several revisions running at the same time you must enable the "multi-revision mode" on your containerapp. 
 
 <details>
 <summary>Watch solution</summary>
 
 Go to the revision management blade on the left inside of the container apps panel. At the top of the page you'll find the "choose revision mode" option where you'll be able to choose the revision mode. 
 
-![Revision soluce](assets/lab1/revisionmode.png)
+![Revision solution](assets/lab1/revisionmode.png)
 
 </details>
 
 Let's create and deploy a new version of the Hello World application with a different layout. To do so, you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`. (yes, there is a typo)
 
-Once this new revision is provisionned, we will configure an even split of the traffic between the two revisions applied by assigning percentage values. You can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
+Once this new revision is provisioned, we will configure an even split of the traffic between the two revisions applied by assigning percentage values. You can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
 
 <details>
 <summary>Watch solution</summary>
@@ -379,7 +379,7 @@ Once this new revision is provisionned, we will configure an even split of the t
 Go to the revisions management blade on the left inside of the container apps panel.
 Click on `Create a new revision`
 
-![Revision soluce](assets/lab1/addrevision.png)
+![Revision solution](assets/lab1/addrevision.png)
 
 You now have two options:
 - Edit the existing container image definition
@@ -391,7 +391,7 @@ Let's use the Add option, so click on `Add` in order to pull the new image that 
   
 </details>
 
-Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal. Hitting the endpoint will result serving one of the revision depending on the chosen ponderation (in %).
+Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal. Hitting the endpoint will result serving one of the revision depending on the chosen weighting (in %).
 
 > Note that new revisions may remain active until you deactivate them, or you have to your container app to automatically deactivate old revisions (called `single revision mode`).
 
@@ -629,7 +629,7 @@ export SUB_ID="<YourSubscriptionID>"
 
 ![Deployment in progress](assets/lab2/deploy/deploy.png)
 
-> Note: The installation should work smoothly. Deploying the full environment will take around 15 minutes (sometimes more). The provisionning of the Redis part is very long but you can **continue with the next lab** while the deployment continues - or you can tak a coffee break. If the deployment fails (display an error message), just run the script again, it's [idempotent](https://en.wikipedia.org/wiki/Idempotence). If you have warnings telling you that commands are not found, it probably means that the file's encoding (LF/CLRF) is incorrect for your system.
+> Note: The installation should work smoothly. Deploying the full environment will take around 15 minutes (sometimes more). The provisioning of the Redis part is very long but you can **continue with the next lab** while the deployment continues - or you can take a coffee break. If the deployment fails (display an error message), just run the script again, it's [idempotent](https://en.wikipedia.org/wiki/Idempotence). If you have warnings telling you that commands are not found, it probably means that the file's encoding (LF/CLRF) is incorrect for your system.
 
 </details>
 
@@ -980,7 +980,7 @@ As you create a custom VNET, keep in mind the following situations:
 
 As you begin to design the network around your container app, refer to [Plan virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) for important concerns surrounding running virtual networks on Azure.
 
-![Revision soluce](assets/lab3/acavnet.png)
+![Revision solution](assets/lab3/acavnet.png)
 
 <div class="info" data-title="Note">
 
@@ -1057,7 +1057,7 @@ make stackName=<my-resource-group-name> location=<my-azure-region>
 
 </details>
 
-Once deployed you'll see 3 differents resource group. One containing your appication resources:
+Once deployed you'll see 3 different resource group. One containing your application resources:
 
 ![Architecture](assets/lab3/basicrg.png)
 
@@ -1082,7 +1082,7 @@ As you can see the trace is showing that the helloer is receiving a greeting *rc
 
 # Challenge 4
 
-To persist data or just to use it temporarly, storage is often use with containerized applications. This lab will guide you to implement storage for your Azure Container Apps.
+To persist data or just to use it temporarily, storage is often use with containerized applications. This lab will guide you to implement storage for your Azure Container Apps.
 
 A container app has access to different types of storage. A single app can take advantage of more than one type of storage if necessary.
 
@@ -1319,7 +1319,7 @@ Check directly in the Azure Portal that your file is indeed persisted in the Azu
 
 That's it. How simple is it to provide persistent storage to your containerized application !
 
-> Note that different type of storage give different performance results. Generally, Azure File Share is faster exept for large bunch of small files. If you are interested, read the great article of [Andre Dewes](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-container-apps-working-with-storage/ba-p/3561853).
+> Note that different type of storage give different performance results. Generally, Azure File Share is faster except for large bunch of small files. If you are interested, read the great article of [Andre Dewes](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-container-apps-working-with-storage/ba-p/3561853).
 
 ---
 
