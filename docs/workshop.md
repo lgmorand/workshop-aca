@@ -75,7 +75,7 @@ With Azure Container Apps, you can:
 <sup>1</sup> Applications that [scale on CPU or memory load](https://docs.microsoft.com/en-us/azure/container-apps/scale-app) can't scale to zero.
 
 
-### Prerequisites
+## Prerequisites
 
 To realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
 
@@ -86,7 +86,7 @@ To realize the workshop, you will require several components. If you don't have 
 
 > Some [limits/quotas](https://docs.microsoft.com/en-us/azure/container-apps/quotas) are present for the moment. If you plan to play this workshop with a large group of individuals, you may require to create several subscriptions.
 
-### Azure subscription
+## Azure subscription
 
 Log in to one of your Azure subscriptions.
 
@@ -106,7 +106,7 @@ az account show
 
 </details>
 
-### Tools
+## Tools
 
 During this workshop you are going to use command line, but most of the actions may be doable using Azure Portal. In fact, during the different labs, you are going to use deliberately a mix of CLI and the Web portal to see the different ways to interact with Azure Container Apps. In real life, you will use whatever fits you the best.
 
@@ -190,7 +190,7 @@ Some steps of this workshop require using a GitHub account. If you don't have on
 This first lab will guide you to deploy your first *Hello World* app on Containers apps, an application accessible from the Internet.
 
 
-### Create an environment
+## Create an environment
 
 Before deploying your containerized application, you need a "place" to host your application. In Azure Container Apps, the underlying infrastructure is called an `environment`. An environment creates a secure boundary around a group of container apps. Container Apps deployed in the same environment are deployed in the same virtual network and write logs to the same *Log Analytics* workspace.
 
@@ -284,7 +284,7 @@ Once the environment is created, it is time to deploy applications.
 
 
 
-### Create your first app
+## Create your first app
 
 Let's create and deploy your first hello-world application with the command `az containerapp create` which is documented [here](https://docs.microsoft.com/fr-fr/cli/azure/container). We will use a ready-to-use container image, the `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
 
@@ -337,7 +337,7 @@ The following diagram shows a container app with two revisions.
 > - `Revision-scope` changes are any change that triggers a new revision (e.g: changes to containers, add or update scaling rules, changes to Dapr settings, etc.)
 > - `Application-scope` changes don't create revisions (e.g: changes to traffic splitting rules, turning ingress on or off, changes to secret values, etc.)
 
-### Create your first revision
+## Create your first revision
 
 By default your container app is set on "single revision mode". It means that each new revision will ecrase the current revision and take all the incoming traffic. To have several revisions running at the same time you must enable the "multi-revision mode" on your containerapp. 
 
@@ -541,7 +541,7 @@ Now that you successfully deployed a simple application, let's see how Azure Con
 
 A Container Apps environment provides a security boundary around a group of container apps. A single container app typically represents a microservice, which is composed of container apps made up of one or more containers.
 
-### Dapr integration
+## Dapr integration
 
 When implementing a system composed of microservices, function calls are spread across the network. To support the distributed nature of microservices, you need to account for failures, retries, and timeouts. While Container Apps features the building blocks for running microservices, use of [Dapr](https://docs.dapr.io/concepts/overview/) provides an even richer microservices programming model. Dapr includes features like observability, pub/sub, and service-to-service invocation with mutual TLS, retries, and more.
 
@@ -573,7 +573,7 @@ Here are the descriptions of the different components of the application.
 *These services are specific to the Hybrid retail scenario and may not be applicable for other deployment patterns.
 
 
-### Deploying the app
+## Deploying the app
 
 The Red Dog application is based on containerized services and Azure PaaS services such as Storage accounts, Azure SQL Database, Redis, or CosmosDB.
 
@@ -758,7 +758,7 @@ Azure Container Apps allows your application to securely store sensitive configu
 - Each application revision can reference one or more secrets.
 - Multiple revisions can reference the same secret(s).
 
-### Manage your secret
+## Manage your secret
 
 In the deployed Reddog application, the container `receipt-generation-service` has two secrets to connect itself to a service bus sending receipts that he is posting onto a storage account. One is directly binded to the container app, the other one leverage Dapr components, to share the configuration and isolate configuration from application itself.
 
@@ -816,7 +816,7 @@ az containerapp revision restart \
 Now, if you get back to the `receipts` blob you should see all the receipts being received again. Note that you'll also see the receipt that occured during the rotation time because of the retention period of the service bus. This demonstrate also how a well developed application is essential to its resiliency and its fault tolerance.
 
 
-### Scalability
+## Scalability
 
 The scalability is an important part of the resiliency of an application. Your application should be able to handle an increase of the load with failing. In the cloud-native world, especially Kubernetes, scaling is done manually but can also be managed through autoscaling based on CPU/Memory usage by creation [Horizontal Pod Autoscaling (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) objects.
 
@@ -1293,7 +1293,7 @@ That's it. How simple is it to provide persistent storage to your containerized 
 
 # Cleaning
 
-### Delete resources
+## Delete resources
 
 Now that the workshop is finished, it is important to delete unused resources to stop the billing. Open the [Azure portal](https://portal.azure.com) and delete the resource groups. All contained resources will be removed.
 
