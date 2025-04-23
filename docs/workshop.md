@@ -90,7 +90,8 @@ To realize the workshop, you will require several components. If you don't have 
 
 Log in to one of your Azure subscriptions.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Please use your username and password to login to <https://portal.azure.com>.
 
@@ -103,7 +104,7 @@ az account show
 
 > If you don't have the Azure CLI installed, read below how to install it or how to use Azure Cloud Shell
 
-{% endcollapsible %}
+</details>
 
 ### Tools
 
@@ -113,7 +114,8 @@ During this workshop you are going to use command line, but most of the actions 
 
 You can either run command lines from your own computer (we recommend using bash) or you can use the Azure Cloud Shell accessible at <https://shell.azure.com> once you log in with an Azure subscription.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Head over to <https://shell.azure.com> and sign in with your Azure Subscription details.
 
@@ -133,7 +135,7 @@ You should now have access to the Azure Cloud Shell
 
 ![Set the storage account and fileshare names](/assets/intro/3-cloudshell.png)
 
-{% endcollapsible %}
+</details>
 
 #### Azure CLI
 
@@ -208,29 +210,32 @@ CONTAINERAPPS_ENVIRONMENT="<UNIQUE-NAME>my-environment"
 
 With these variables defined, you can create a resource group to organize the services related to your new container app.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```bash
 az group create --name $RESOURCE_GROUP --location "$LOCATION"
 ```
 
-{% endcollapsible %}
+</details>
 
 Create a new *Log Analytics workspace* with the following command:
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```bash
 az monitor log-analytics workspace create --resource-group $RESOURCE_GROUP --workspace-name $LOG_ANALYTICS_WORKSPACE
 ```
 
-{% endcollapsible %}
+</details>
 
 Next, retrieve the Log Analytics Client ID and Client Secret and put them in the variables:
 - LOG_ANALYTICS_WORKSPACE_CLIENT_ID
 - LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 #### Bash
 
@@ -256,7 +261,7 @@ $LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --qu
 $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
 ```
 
-{% endcollapsible %}
+</details>
 
 #### Azure Container Apps environment
 
@@ -285,7 +290,8 @@ Let's create and deploy your first hello-world application with the command `az 
 
 Don't forget to set the parameter `--ingress` to `external` to make the container app available to public requests (exposed to the Internet). By adding the query parameter, you can format the result returned by the create command: `--query configuration.ingress.fqdn`
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ``` bash
 az containerapp create \
@@ -302,7 +308,7 @@ In our case, the `create` command returns (only) the container app's fully quali
 
 ![Create an with the console](/assets/lab1/create-app.png)
 
-{% endcollapsible %}
+</details>
 
 Copy this URL to a web browser to see the following message.
 
@@ -333,18 +339,21 @@ The following diagram shows a container app with two revisions.
 
 By default your container app is set on "single revision mode". It means that each new revision will ecrase the current revision and take all the incoming traffic. To have several revisions running at the same time you must enable the "multi-revision mode" on your containerapp. 
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Go to the revision management blade on the left inside of the container apps panel. At the top of the page you'll find the "choose revision mode" option where you'll be able to choose the revision mode. 
 
 ![Revision soluce](/assets/lab1/revisionmode.png)
-{% endcollapsible %}
+
+</details>
 
 Let's create and deploy a new version of the Hello World application with a different layout. To do so, you will have to deploy a new container within our application, meaning that we're doing a revision-scope change. This new version of our application can be found on docker hub `mavilleg/acarevision-helloworld:acarevision-hellowold`. (yes, there is a typo)
 
 Once this new revision is provisionned, we will configure an even split of the traffic between the two revisions applied by assigning percentage values. You can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Go to the revisions management blade on the left inside of the container apps panel.
 Click on `Create a new revision`
@@ -359,7 +368,7 @@ Let's use the Add option, so click on `Add` in order to pull the new image that 
 
 ![Revision creation](/assets/lab1/addrevision1.png)
   
-{% endcollapsible %}
+</details>
 
 Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal. Hitting the endpoint will result serving one of the revision depending on the chosen ponderation (in %).
 
@@ -371,7 +380,8 @@ Once your new revision is provisioned, you can split the traffic between them us
 
 You can see all revisions using the `az containerapp revision list`and have more detail on a specific one using the `az containerapp revision show` command.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```bash
 az containerapp revision list \
@@ -386,7 +396,7 @@ az containerapp revision show \
   --resource-group $RESOURCE_GROUP
 ```
 
-{% endcollapsible %}
+</details>
 
 Remember with the `revision mode` and set it up on "multi". This way, you can have multiple revisions at the same time, which is commonly used for A/B testing or blue-green scenarios. Or you can use single revision mode to automatically replace the current version by the new one.
 
@@ -414,7 +424,8 @@ Now that you have the source code you will be able to modify it and rebuild a co
 
 Now that you have a Repo to attach to your environment, you'll have to setup the correct rights on Azure to configure the continous deployment. When attaching a GitHub repository to your container apps, you need to provide a service principal context with the contributor role. The parameter that we will need to configure within the container app are the service principal's `tenantId`, `cliendId`, and `clientSecret`.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ``` bash
 az ad sp create-for-rbac \
@@ -428,13 +439,14 @@ az ad sp create-for-rbac \
 
 ![SPN Created](/assets/lab1/spn.png)
 
-  {% endcollapsible %}
+</details>
 
 Once those values retrieved, you will have to [create an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) with `Basic` SKU, this will be use to host the newly created containers.
 
 > This registry must have the *Admin User* enabled, or the integration with ACA won't work.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Open your registry and under the `Access keys` panel, click on `Enabled` to enable the user admin. Or use:
 
@@ -442,7 +454,7 @@ Open your registry and under the `Access keys` panel, click on `Enabled` to enab
 az acr update -n <acrName> --admin-enabled true
 ```
 
-{% endcollapsible %}
+</details>
 
 Once configured, you can move forward by attaching your GitHub repo to the container app previously deployed.
 
@@ -462,7 +474,8 @@ It will also automatically setup some secrets on your application to store the a
 
 The `az containerapp github-action show` command returns the GitHub Actions configuration settings for a container app. It returns a JSON payload with the GitHub Actions integration configuration settings.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ``` bash
 az containerapp github-action show \
@@ -470,7 +483,7 @@ az containerapp github-action show \
   --name <CONTAINER_APP_NAME>
 ```
 
-{% endcollapsible %}
+</details>
 
 Let's test that out!
 
@@ -586,7 +599,8 @@ export SUB_ID="<YourSubscriptionID>"
 ...
 ```
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ``` bash
 . deploy.sh
@@ -596,7 +610,7 @@ export SUB_ID="<YourSubscriptionID>"
 
 > Note: The installation should work smoothly. Deploying the full environment will take around 15 minutes (sometimes more). The provisionning of the Redis part is very long but you can **continue with the next lab** while the deployment continues - or you can tak a coffee break. If the deployment fails (display an error message), just run the script again, it's [idempotent](https://en.wikipedia.org/wiki/Idempotence). If you have warnings telling you that commands are not found, it probably means that the file's encoding (LF/CLRF) is incorrect for your system.
 
-{% endcollapsible %}
+</details>
 
 Once the deployment is successful, open the Azure portal and notice the new resource group named *"reddog"* (or something else depending on how you change the variable in the script).
 
@@ -613,7 +627,8 @@ Observability is critical for any application. To ensure that everything is fine
 
 We already know that components have been deployed successfully but are they fully working? To check the platform, several visual tests can be done. Start by opening the Reddog frontend `UI` portal in a browser.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Remember the architecture schema of the Reddog platform. The frontend is the `UI` Container App which is exposed **internally** and thus not reachable outside the (managed) kubernetes cluster. In front of the `UI` is the `Traeffik` ingress controller which is the `Reddog` Container App, exposed publically (Internet).
 
@@ -627,7 +642,7 @@ Copy the URL in any browser to discover a nice dynamic dashboard :
 
 > Did you notice the delay for the page to be displayed the first time ? It is caused by the fact that the running containers are removed (scaled to zero) when the platform is not used. You are going to see in detail how to control this behavior further in this workshop.
 
-{% endcollapsible %}
+</details>
 
 ##### Get Logs
 
@@ -650,7 +665,8 @@ As a message is logged, the following information is gathered in the log table:
 
 Try to retrieve the logs on the `UI` container. You can do it using command-line or through the portal
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 On the Azure Portal, open Logs Analytics. You can use the left part of the screen to see the tables and columns and build a query using Kusto language.
 
@@ -676,7 +692,7 @@ Here, the query is more complex to select the columns to display and the number 
 
 ![Get Logs using CLI](/assets/lab2/monitor/logs-cli.png)
 
-{% endcollapsible %}
+</details>
 
 That's it. No need to install specific monitoring tool (i.e. Prometheus) nor need to connect interactively to your container to retrieve its logs.
 
@@ -688,7 +704,8 @@ Lucky for us, Application Insights has been automatically deployed and uses the 
 
 Start by opening Application Insights and watch the main metrics of the platform.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 In the resource group, look for the **Application Insights** resource. Once you open it, you can see main metrics such as failures (should be empty), the average response time and the requests per second.
 
@@ -698,21 +715,23 @@ If you click on one chart (i.e. response time), you'd be brought to performance 
 
 ![Detailed performance](/assets/lab2/monitor/performance.png)
 
-{% endcollapsible %}
+</details>
 
 Another way to get the health of your platform is to use the "magic map" feature of Application Insights to get an overview of the whole platform. Find and analyze the application's map.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 On the left part, open the `Application Map` menu. From the logs only, it is capable of drawing a map of your microservices platform, showing interactions between components, average performance and even failure rates when an error occurs.
 
 ![App Insights - application map](/assets/lab2/monitor/logs-app-insights-maps.png)
 
-{% endcollapsible %}
+</details>
 
 Use the map to quickly get the logs of a specific micro-service, for instance, the receipts generator service:
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 On the map, click on one micro-services, then in the side panel which opens, click on `View logs`.
 
@@ -722,7 +741,7 @@ It should open Logs analytics and automatically generate for you the query which
 
 ![Display specific logs](/assets/lab2/monitor/service-logs.png)
 
-{% endcollapsible %}
+</details>
 
 It's just the overview of observability but it shows how well  monitoring is integrated within Azure Container Apps.
 
@@ -746,13 +765,14 @@ Every second, this service receives a receipt which is then saves it into the bl
 
 To do so, go to the storage account in order to make the rotation of both primary and secondary keys.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Go to the storage account under the `Access key` blade in and click the `Rotate keys` button.
 
 ![Rotation Key](/assets/lab2/rotation/sarot.png)
 
-{% endcollapsible %}
+</details>
 
 Once done you'll see that the blob storage is no longer receiving any receipts from our application. You can validate easily this by deleting the "Receipts" blob container and recreate it after few seconds (Azure may display an error message, just retry after few seconds). The blob container should remain empty because the application does not have the rights any more to write new receipts.
 
@@ -760,7 +780,8 @@ Once done you'll see that the blob storage is no longer receiving any receipts f
 
 In order to set back the connection between the storage account and the `receipt-generation-service` you'll have to retrieve the new key and edit the value of the key `blob-storage-key`.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 On the storage account under the `Access key` blade copy the key value.
 Then go to the `Dapr` blade inside the `receipt-generation-service` container app environment panel and find the `Click here to manage your Dapr components` link.
@@ -773,11 +794,12 @@ Then edit the `reddog.binding.receipt` component to update the old `blob-storage
 
 > Note that you can also add directly the secret to the container app, without using Dapr. This way, you can directly view/edit *Secrets* in the container app blade.
 
-{% endcollapsible %}
+</details>
 
 > Note that this change is an application-scope change that won't recreate a revision. Having said that, the revision has to be restarted (or a new one has to be deployed) in order to propagate the new value of the key. This should be automatically done by saving the changes made to the key. However, if it's not the case you'll have to restart the revision using the CLI.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ``` bash
 az containerapp revision restart \
@@ -786,7 +808,7 @@ az containerapp revision restart \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-{% endcollapsible %}
+</details>
 
 Now, if you get back to the `receipts` blob you should see all the receipts being received again. Note that you'll also see the receipt that occured during the rotation time because of the retention period of the service bus. This demonstrate also how a well developed application is essential to its resiliency and its fault tolerance.
 
@@ -821,7 +843,8 @@ Let's create a new revision with a new scaling rule. The revision should :
 - have a maximum limit of 5 replicas
 - have an HTTP autoscaling rule where the maximum of concurrent requests is equal to 1 (we want one replica per user)
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Open the `UI` Container App and the `Revision Management` tab. Click on `Create a new revision`. In the first page, specify a name suffix, for instance `autoscale` and click on the `Next` button.
 
@@ -837,7 +860,7 @@ Click on the `Create` button, a new revision should be created with 100% of ingr
 
 ![A new revision is created](/assets/lab2/scale/ui-new-revision.png)
 
-{% endcollapsible %}
+</details>
 
 Once done, your application should be ready to autoscale.
 
@@ -851,7 +874,8 @@ The simpler way to load test our platform is to use a small command-line tool to
 
 Start by installing the latest version of Vegeta
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ``` bash
 # download vegeta
@@ -868,11 +892,12 @@ vegeta --version
 
 ```
 
-{% endcollapsible %}
+</details>
 
 You need to create a file containing the endpoints to call. The endpoint is the exposed endpoint of the Reddog application which goes to the Traeffik app.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Create a file named **targets.txt** and copy the URL of your application.
 
@@ -880,11 +905,12 @@ Create a file named **targets.txt** and copy the URL of your application.
 GET https://url-public-endpoint-of-reddog-app
 ```
 
-{% endcollapsible %}
+</details>
 
 Then run **Vegeta** with the `attack` command. If no specific parameters are given, Vegeta will make 50 requests per second on the defined targets and **will not stop until you stop it**. You can also specify requests per sec and the duration with respective parameters rate and duration.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Run the following command line and let Vegeta generating requests.
 
@@ -892,17 +918,18 @@ Run the following command line and let Vegeta generating requests.
 vegeta attack -targets targets.txt -rate=20 and -duration=30s.
 ```
 
-{% endcollapsible %}
+</details>
 
 After few seconds, check that the number of replicas of the UI Container App has increased.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 Open the `ui` Container App and in the metric blade, check the number of current replicas during the last 30 minutes with a 1 minute granularity :
 
 ![Post load testing](/assets/lab2/scale/after-load-testing.png)
 
-{% endcollapsible %}
+</details>
 
 We can confirm that autoscaling created one replica per request (with around 20 requests in parallel), but the scaling out never went above five replicas due to the max limit defined in the revision.
 
@@ -985,7 +1012,8 @@ Browse the contents of the repository. The `main.bicep` is providing the definit
 
 To deploy the full environment, you need to execute the **make** command on the `src/bicep` repository.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 To deploy the project with default values for the resource group name and region simply issue the following commands:
 
@@ -999,7 +1027,7 @@ If you want to customize the location or the resource group name you can use the
 make stackName=<my-resource-group-name> location=<my-azure-region>
 ```
 
-{% endcollapsible %}
+</details>
 
 Once deployed you'll see 3 differents resource group. One containing your appication resources:
 
@@ -1066,13 +1094,14 @@ When using temporary storage, you must use the Azure CLI with a YAML definition 
 
 To update an existing container app to use temporary storage, export your app's specification to a YAML file. You can use the command `az containerapp show` and the output parameter to extract a YAML definition.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```azure-cli
 az containerapp show -n <APP_NAME> -g <RESOURCE_GROUP_NAME> -o yaml > my-app.yaml
 ```
 
-{% endcollapsible %}
+</details>
 
 Make the following changes to your container app specification. It uses the same format than [volumes for kubernetes](https://kubernetes.io/fr/docs/concepts/storage/volumes/)
 
@@ -1083,7 +1112,8 @@ Make the following changes to your container app specification. It uses the same
 * The `volumeName` is the name defined in the `volumes` array.
 * The `mountPath` is the path in the container to mount the volume.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```yaml
 properties:
@@ -1104,7 +1134,7 @@ properties:
 
 > **Warning**: Make sure you don't have duplicate `volumes` definition when you update your `yaml` file or you may have error that volume mount does not exist.
 
-{% endcollapsible %}
+</details>
 
 Once your new Yaml file is ready, update your container app using the YAML file.
 
@@ -1114,7 +1144,8 @@ az containerapp update --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> 
 
 Connect to your container and check that a volume has been created. You can use the `az container exec` command to do so.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```azure-cli
 az containerapp exec --name <APP_NAME>  --resource-group <RESOURCE_GROUP_NAME>
@@ -1122,7 +1153,7 @@ az containerapp exec --name <APP_NAME>  --resource-group <RESOURCE_GROUP_NAME>
 
 ![Browsing system files](/assets/lab4/navigate.png)
 
-{% endcollapsible %}
+</details>
 
 This example was fine for temporary usage but what if we want to persist our files ? Let's see how you can leverage Azure Files.
 
@@ -1152,7 +1183,8 @@ Start by creating a storage account and retrieve its access keys. Then, add a st
 
 > Notice: you need to use the name of the container app **environment**, not the container app itself !
   
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```azure-cli
 az containerapp env storage set --name <ACA_ENV> --resource-group <ENV_RESOURCE_GROUP> \
@@ -1167,7 +1199,7 @@ Replace `<STORAGE_ACCOUNT_NAME>` and `<STORAGE_ACCOUNT_KEY>` with the name and k
 
 Valid values for `--access-mode` are `ReadWrite` and `ReadOnly`.
 
-{% endcollapsible %}
+</details>
 
 If the command is successful, you should see something like this:
 
@@ -1175,13 +1207,14 @@ If the command is successful, you should see something like this:
 
 Like in previous part, export the YAML configuration of your app using the `az containerapp show` command.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```azure-cli
 az containerapp show -n <APP_NAME> -g <RESOURCE_GROUP_NAME> -o yaml > my-app.yaml
 ```
 
-{% endcollapsible %}
+</details>
 
 Make the following changes to your container app specification.
 
@@ -1193,7 +1226,8 @@ Make the following changes to your container app specification.
 * The `volumeName` is the name defined in the `volumes` array.
 * The `mountPath` is the path in the container to mount the volume.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```yaml
 properties:
@@ -1212,7 +1246,7 @@ properties:
         storageName: mystorage
 ```
 
-{% endcollapsible %}
+</details>
 
 Update your container app using the YAML file.
 
@@ -1224,7 +1258,8 @@ Once the command is applied, your container is restarted and a volume is mapped 
 
 > If you did a wrong volume configuration you won't be able to access to your container app using the exec command.
 
-{% collapsible %}
+<details>
+<summary>Watch solution</summary>
 
 ```azure-cli
 az containerapp exec --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> 
@@ -1238,7 +1273,7 @@ cd /my-files
 touch myfile.txt
 ```
 
-{% endcollapsible %}
+</details>
 
 Check directly in the Azure Portal that your file is indeed persisted in the Azure Files instance.
 
