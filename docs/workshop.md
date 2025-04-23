@@ -303,7 +303,11 @@ Once the environment is created, it is time to deploy applications.
 
 Let's create and deploy your first hello-world application with the command `az containerapp create` which is documented [here](https://docs.microsoft.com/fr-fr/cli/azure/container). We will use a ready-to-use container image, the `mcr.microsoft.com/azuredocs/containerapps-helloworld:latest`.
 
+<div class="tip" data-title="Tip">
+
 > Use `az containerapp --help` to discover the different available parameters
+
+</div>
 
 Don't forget to set the parameter `--ingress` to `external` to make the container app available to public requests (exposed to the Internet). By adding the query parameter, you can format the result returned by the create command: `--query configuration.ingress.fqdn`
 
@@ -393,7 +397,11 @@ Let's use the Add option, so click on `Add` in order to pull the new image that 
 
 Once your new revision is provisioned, you can split the traffic between them using the revision management panel within the Azure portal. Hitting the endpoint will result serving one of the revision depending on the chosen weighting (in %).
 
+<div class="info" data-title="Note">
+
 > Note that new revisions may remain active until you deactivate them, or you have to your container app to automatically deactivate old revisions (called `single revision mode`).
+
+</div>
 
 - Inactive revisions remain as a snapshot record of your container app in a certain state.
 - You are not charged for inactive revisions.
@@ -463,7 +471,11 @@ az ad sp create-for-rbac \
 
 Once those values retrieved, you will have to [create an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) with `Basic` SKU, this will be use to host the newly created containers.
 
+<div class="warning" data-title="Warning">
+
 > This registry must have the *Admin User* enabled, or the integration with ACA won't work.
+
+</div>
 
 <details>
 <summary>Watch solution</summary>
@@ -563,7 +575,11 @@ A Container Apps environment provides a security boundary around a group of cont
 
 When implementing a system composed of microservices, function calls are spread across the network. To support the distributed nature of microservices, you need to account for failures, retries, and timeouts. While Container Apps features the building blocks for running microservices, use of [Dapr](https://docs.dapr.io/concepts/overview/) provides an even richer microservices programming model. Dapr includes features like observability, pub/sub, and service-to-service invocation with mutual TLS, retries, and more.
 
+<div class="info" data-title="Note">
+
 > For more information on using Dapr, see [Build microservices with Dapr](https://docs.microsoft.com/en-us/azure/container-apps/microservices-dapr).
+
+</div>
 
 [Red Dog](https://github.com/azure/reddog-code) application is a simplified e-shop application with customers making orders and these orders being processed by workers. In parallel, orders, receipts, and accounting are stored in different persistent systems. The e-commerce platform does not contain any UI except a dashboard to monitor the orders.
 
@@ -571,7 +587,11 @@ The Red Dog application is developed with .NET and Javascript. As mentioned abov
 
 ![The Red Dog application](assets/lab2/intro/reddog_code.png)
 
+<div class="info" data-title="Note">
+
 > The application may seem complex but it's not and you won't have to fully understand it to finalize the workshop.
+
+</div>
 
 Here are the descriptions of the different components of the application.
 
@@ -661,7 +681,11 @@ Copy the URL in any browser to discover a nice dynamic dashboard :
 
 ![Running application](assets/lab2/monitor/running-app.png)
 
+<div class="info" data-title="Note">
+
 > Did you notice the delay for the page to be displayed the first time ? It is caused by the fact that the running containers are removed (scaled to zero) when the platform is not used. You are going to see in detail how to control this behavior further in this workshop.
+
+</div>
 
 </details>
 
@@ -965,7 +989,11 @@ As we seen, Azure Container Apps run in a context called an Environment. This en
 - **External**: Container Apps environments deployed as external resources are available for public requests. External environments are deployed with a virtual IP on an external, public facing IP address.
 - **Internal**: When set to internal, the environment has no public endpoint. Internal environments are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNET's list of private IP addresses.
 
+<div class="tip" data-title="Tip">
+
 > An environment variable CONTAINER_APP_ENV_DNS_SUFFIX is used to automatically resolve the FQDN suffix for your environment.
+
+</div>
 
 As you create a custom VNET, keep in mind the following situations:
 
@@ -1009,7 +1037,11 @@ The application exposes an ingress through the environment ingress static IP. In
 
 Therefore, all applications within a Container Apps environment with external ingress visibility share a single public IP address. Similarly, all applications within a Container Apps environment with internal ingress visibility share a single internal IP address. HTTP traffic is routed to individual applications based on the FQDN in the host header. You can get access to the environment's unique identifier by querying the environment settings.
 
+<div class="info" data-title="Note">
+
 > Reaching the Internal LoadBalancer behind the ingress with the IP address will not work as the hostname is used to route the traffic to the correct application within the environment. We need to set up a private DNS zone with a wildcard ('*') A record pointing to the environment ingress static IP. The wildcard is justified by the fact that a given environment can have several applications, each with its own ingress, served from the same Internal Load Balancer.
+
+</div>
 
 **Client service:**
 The client environment hosts the [greeter](https://github.com/zlatko-ms/pgreeter) application, a python script that performs periodical HTTP GET requests to the backend. The environment is injected in a specific subnet and connected to the same Log Analytics workspace to provide diagnostic settings and log centralization.
@@ -1161,8 +1193,11 @@ properties:
       - name: myempty
         storageType: EmptyDir
 ```
+<div class="warning" data-title="Warning">
 
-> **Warning**: Make sure you don't have duplicate `volumes` definition when you update your `yaml` file or you may have error that volume mount does not exist.
+> Make sure you don't have duplicate `volumes` definition when you update your `yaml` file or you may have error that volume mount does not exist.
+
+</div>
 
 </details>
 
@@ -1319,7 +1354,11 @@ Check directly in the Azure Portal that your file is indeed persisted in the Azu
 
 That's it. How simple is it to provide persistent storage to your containerized application !
 
+<div class="info" data-title="Note">
+
 > Note that different type of storage give different performance results. Generally, Azure File Share is faster except for large bunch of small files. If you are interested, read the great article of [Andre Dewes](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/azure-container-apps-working-with-storage/ba-p/3561853).
+
+</div>
 
 ---
 
