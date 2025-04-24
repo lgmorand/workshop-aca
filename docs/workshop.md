@@ -26,12 +26,6 @@ navigation_levels: 3
 Welcome to the **Azure Container Apps workshop**. In this micro OpenHack, you'll go through tasks that will help you master the basics and more advanced topics required to deploy applications to Azure Container Apps. This exercice can be done alone or in group and will take between 2 and 4 hours depending on your pace. If you find any issue or have any remark, don't hesitate to open an issue on the dedicated [repository
 ](https://github.com/lgmorand/workshop-aca/)
 
-<div class="warning" data-title="Warning">
-
-> This workshop is **NOT** an official resource from the product group. They are currently working on dedicated and up-to-date content. This workshop may not be up to date with the very last features of Azure Container Apps but we work hard to do so. Don't hesitate to read the official documentation to [know more about Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps/).
-
-</div>
-
 [Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps)is a new serverless container platform for applications that need to scale on demand in response to HTTPS requests, events, or simply run as always-on services or background job processing without managing VMs, orchestrators, or other cloud infrastructure. Azure Container Apps makes it easy to manage your containerized applications with built-in autoscaling, traffic routing, application lifecycle management, and service-to-service communication in a fully managed environment.
 
 While App Service, Functions, and Logic Apps provide application developers with fully-managed, high-productivity solutions for domain-specific problems, customers have to drop out of the fully-managed world and fall back to Kubernetes for full microservice applications or to run general purpose container applications. Azure container Apps fills this gap and rounds out the Azure application platform by providing high-level APIs for the most common container application scenarios, including auto-scaling, version management, application upgrades, and service-to-service communication in a fully managed environment.
@@ -102,7 +96,7 @@ Log in to one of your Azure subscriptions.
 <details>
 <summary>Watch solution</summary>
 
-Please use your username and password to login to <https://portal.azure.com>.
+Please use your username and password to login to [https://portal.azure.com](https://portal.azure.com).
 
 Also, please authenticate your Azure CLI by running the command below on your machine and following the instructions.
 
