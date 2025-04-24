@@ -622,7 +622,11 @@ Browse the contents of the repository. The most interesting part is the "deploy/
 Be sure to [install Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/install) first.
 Next, to deploy the full environment, go to the **deploy.sh** file and update the **subscription id** and edit the **RG** variable (resource group) to have a unique name for you, then log in to Azure and execute the script in a terminal. 
 
+<div class="warning" data-title="Warning">
+
 > **Warning** Don't forget to edit the deploy.sh file first !
+
+</div>
 
 ```shell
 # *nix only
@@ -643,7 +647,11 @@ export SUB_ID="<YourSubscriptionID>"
 
 ![Deployment in progress](assets/lab2/deploy/deploy.png)
 
-> Note: The installation should work smoothly. Deploying the full environment will take around 15 minutes (sometimes more). The provisioning of the Redis part is very long but you can **continue with the next lab** while the deployment continues - or you can take a coffee break. If the deployment fails (display an error message), just run the script again, it's [idempotent](https://en.wikipedia.org/wiki/Idempotence). If you have warnings telling you that commands are not found, it probably means that the file's encoding (LF/CLRF) is incorrect for your system.
+<div class="note" data-title="Note">
+
+> The installation should work smoothly. Deploying the full environment will take around 15 minutes (sometimes more). The provisioning of the Redis part is very long but you can **continue with the next lab** while the deployment continues - or you can take a coffee break. If the deployment fails (display an error message), just run the script again, it's [idempotent](https://en.wikipedia.org/wiki/Idempotence). If you have warnings telling you that commands are not found, it probably means that the file's encoding (LF/CLRF) is incorrect for your system.
+
+</div>
 
 </details>
 
@@ -831,7 +839,11 @@ Then edit the `reddog.binding.receipt` component to update the old `blob-storage
 
 ![Rotation Key](assets/lab2/rotation/sarot3.png)
 
+<div class="note" data-title="Note">
+
 > Note that you can also add directly the secret to the container app, without using Dapr. This way, you can directly view/edit *Secrets* in the container app blade.
+
+</div>
 
 </details>
 
