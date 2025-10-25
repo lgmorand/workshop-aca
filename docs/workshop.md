@@ -23,10 +23,10 @@ navigation_levels: 3
 
 # Azure Container Apps Workshop
 
-Welcome to the **Azure Container Apps workshop**. In this micro OpenHack, you'll go through tasks that will help you master the basics and more advanced topics required to deploy applications to Azure Container Apps. This exercice can be done alone or in group and will take between 2 and 4 hours depending on your pace. If you find any issue or have any remark, don't hesitate to open an issue on the dedicated [repository
+Welcome to the **Azure Container Apps workshop**. In this micro OpenHack, you'll go through tasks that will help you master the basics and more advanced topics required to deploy applications to Azure Container Apps. This exercise can be done alone or in a group and will take between 2 and 4 hours depending on your pace. If you find any issue or have any remark, don't hesitate to open an issue on the dedicated [repository
 ](https://github.com/lgmorand/workshop-aca/)
 
-[Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps)is a new serverless container platform for applications that need to scale on demand in response to HTTPS requests, events, or simply run as always-on services or background job processing without managing VMs, orchestrators, or other cloud infrastructure. Azure Container Apps makes it easy to manage your containerized applications with built-in autoscaling, traffic routing, application lifecycle management, and service-to-service communication in a fully managed environment.
+[Azure Container Apps](https://docs.microsoft.com/en-us/azure/container-apps) is a new serverless container platform for applications that need to scale on demand in response to HTTPS requests, events, or simply run as always-on services or background job processing without managing VMs, orchestrators, or other cloud infrastructure. Azure Container Apps makes it easy to manage your containerized applications with built-in autoscaling, traffic routing, application lifecycle management, and service-to-service communication in a fully managed environment.
 
 While App Service, Functions, and Logic Apps provide application developers with fully-managed, high-productivity solutions for domain-specific problems, customers have to drop out of the fully-managed world and fall back to Kubernetes for full microservice applications or to run general purpose container applications. Azure container Apps fills this gap and rounds out the Azure application platform by providing high-level APIs for the most common container application scenarios, including auto-scaling, version management, application upgrades, and service-to-service communication in a fully managed environment.
 
@@ -75,7 +75,7 @@ With Azure Container Apps, you can:
 
 ## Prerequisites
 
-To realize the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
+To complete the workshop, you will require several components. If you don't have them yet, you'll be guided to acquire them.
 
 - a [GitHub](https://github.com/) Account
 - [VS Code](https://code.visualstudio.com/) or equivalent
@@ -207,14 +207,14 @@ Before deploying your containerized application, you need a "place" to host your
 Let's start by setting some variables:
 
 ``` bash
-RESOURCE_GROUP="-<UNIQUE-NAME>rg-my-container-apps" 
+RESOURCE_GROUP="<UNIQUE-NAME>-rg-my-container-apps" 
 LOCATION="northeurope"
 LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
-CONTAINERAPPS_ENVIRONMENT="<UNIQUE-NAME>my-environment"
+CONTAINERAPPS_ENVIRONMENT="<UNIQUE-NAME>-my-environment"
 ```
 
 - **RESOURCE_GROUP**: the Azure resource group which will contain your container apps environment
-- **LOCATION**: the Azure region in which will be deployed your apps. Be careful, Azure Container Apps is not supported in all regions yet.
+- **LOCATION**: the Azure region in which your apps will be deployed. Be careful, Azure Container Apps is not supported in all regions yet.
 - **LOG_ANALYTICS_WORKSPACE**: the name of the Log Analytics workspace
 - **CONTAINERAPPS_ENVIRONMENT**: the name of the **container apps** environment.
 
@@ -393,7 +393,7 @@ Once your new revision is provisioned, you can split the traffic between them us
 
 <div class="info" data-title="Note">
 
-> Note that new revisions may remain active until you deactivate them, or you have to your container app to automatically deactivate old revisions (called `single revision mode`).
+> Note that new revisions may remain active until you deactivate them, or you have to set your container app to automatically deactivate old revisions (called `single revision mode`).
 
 </div>
 
@@ -444,7 +444,7 @@ Now that you have the source code you will be able to modify it and rebuild a co
 
 ### Attach Github Actions to your container App
 
-Now that you have a Repo to attach to your environment, you'll have to setup the correct rights on Azure to configure the continous deployment. When attaching a GitHub repository to your container apps, you need to provide a service principal context with the contributor role. The parameter that we will need to configure within the container app are the service principal's `tenantId`, `cliendId`, and `clientSecret`.
+Now that you have a Repo to attach to your environment, you'll have to setup the correct rights on Azure to configure the continuous deployment. When attaching a GitHub repository to your container apps, you need to provide a service principal context with the contributor role. The parameter that we will need to configure within the container app are the service principal's `tenantId`, `clientId`, and `clientSecret`.
 
 <details>
 <summary>Watch solution</summary>
@@ -457,13 +457,13 @@ az ad sp create-for-rbac \
   --sdk-auth
   ```
 
-  The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `cliendId`, and `clientSecret`.
+  The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `clientId`, and `clientSecret`.
 
 ![SPN Created](assets/lab1/spn.png)
 
 </details>
 
-Once those values retrieved, you will have to [create an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) with `Basic` SKU, this will be use to host the newly created containers.
+Once those values are retrieved, you will have to [create an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) with `Basic` SKU, which will be used to host the newly created containers.
 
 <div class="warning" data-title="Warning">
 
@@ -790,10 +790,10 @@ It should open Logs analytics and automatically generate for you the query which
 
 </details>
 
-It's just the overview of observability but it shows how well  monitoring is integrated within Azure Container Apps.
+It's just the overview of observability but it shows how well monitoring is integrated within Azure Container Apps.
 
 
-One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in while you'll have to make rotation on your key/secret/certificate for security reason (leak or just good pratice). Let's see how secrets management is done with Azure Container Apps.
+One of the main concerns of the management of the lifecycle of an application is its secret/certificate management. Indeed, once in a while you'll have to make rotation on your key/secret/certificate for security reasons (leak or just good practice). Let's see how secrets management is done with Azure Container Apps.
 
 Azure Container Apps allows your application to securely store sensitive configuration values. Once defined at the application level, secured values are available to containers, inside scale rules, and via Dapr.
 
@@ -861,12 +861,12 @@ az containerapp revision restart \
 
 </details>
 
-Now, if you get back to the `receipts` blob you should see all the receipts being received again. Note that you'll also see the receipt that occured during the rotation time because of the retention period of the service bus. This demonstrate also how a well developed application is essential to its resiliency and its fault tolerance.
+Now, if you get back to the `receipts` blob you should see all the receipts being received again. Note that you'll also see the receipt that occurred during the rotation time because of the retention period of the service bus. This demonstrates also how a well developed application is essential to its resiliency and its fault tolerance.
 
 
 ## Scalability
 
-The scalability is an important part of the resiliency of an application. Your application should be able to handle an increase of the load with failing. In the cloud-native world, especially Kubernetes, scaling is done manually but can also be managed through autoscaling based on CPU/Memory usage by creation [Horizontal Pod Autoscaling (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) objects.
+The scalability is an important part of the resiliency of an application. Your application should be able to handle an increase in the load without failing. In the cloud-native world, especially Kubernetes, scaling is done manually but can also be managed through autoscaling based on CPU/Memory usage by creation [Horizontal Pod Autoscaling (HPA)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) objects.
 
 Azure Container Apps manages horizontal autoscaling through a set of declarative scaling rules to enrich the mechanism of HPA. By default, Azure Container Apps scale to zero and **pause billing when not in use**. As a Container App scales out, new instances of the Container App are created on-demand. Container Apps supports many scale triggers including HTTP and event-based triggers using Kubernetes Event-Driven Autoscaling (KEDA). KEDA is a rich autoscaler with many event scaler options continuously contributed by the community. For more information about supported scale triggers, see [KEDA Scalers](https://keda.sh/docs/scalers/).
 
@@ -966,7 +966,7 @@ Then run **Vegeta** with the `attack` command. If no specific parameters are giv
 Run the following command line and let Vegeta generating requests.
 
 ``` bash
-vegeta attack -targets targets.txt -rate=20 and -duration=30s.
+vegeta attack -targets targets.txt -rate=20 -duration=30s
 ```
 
 </details>
